@@ -1,0 +1,7 @@
+package com.example.jpetstore.dao;
+
+public interface AuctionItemDao {
+	void insertAucItem(Auction auction) throws DataAccessException;
+	void updateAucItem(int aucNum, boolean aucstatus) throws DataAccessException;
+	
+}

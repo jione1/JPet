@@ -13,5 +13,8 @@ public interface OrderDao {
   Order getOrder(int orderId) throws DataAccessException;
 
   void insertOrder(Order order) throws DataAccessException;
-
+  
+  void deleteOrder(int orderId) throws DataAccessException;
+  //주문 취소 메소드 
+ 
 }
