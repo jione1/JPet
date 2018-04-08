@@ -9,7 +9,6 @@ INDEX VERSION 1.130+/Users/shineeseo/sosigae/jpetstore/.metadata/.plugins/org.ec
 1862356885.index
 3404917195.index
 191371263.index
-1216948606.index
 1271342938.index
 1847448136.index
 1979115784.index

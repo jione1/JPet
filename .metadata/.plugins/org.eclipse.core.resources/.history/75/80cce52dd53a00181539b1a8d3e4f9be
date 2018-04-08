@@ -10,7 +10,10 @@ public class P2P extends Item{
 	public String sellerID(int itemID) {
 		
 	}
-	
+	public void addPost(Item item) {
+	}
+	public void deletePost(int itemID, int userID) {
+	}
 	public String toString(int userID) {
 	}
 		
