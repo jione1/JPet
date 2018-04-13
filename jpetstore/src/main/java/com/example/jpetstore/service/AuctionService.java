@@ -1,5 +1,7 @@
 package com.example.jpetstore.service;
 
+import com.example.jpetstore.domain.Auction;
+
 public interface AuctionService {
 	void partiAuc(int aucNum, int inputPrice, String userID);
 	//사용자가 옥션에 참가하면서 원하는 가격을 적음 -> AucParti에 데이터 삽입
@@ -10,7 +12,7 @@ public interface AuctionService {
 	void updateOrderStatus(boolean orderStatus);
 	//낙찰받은 참여자가 주문을 했을 경우 orderStatus를 true로 설정하여 현재 진행하고 있는 옥션과 구별한다.
 	
-	List<AucItem> getAucList();
+	List<Auction> getAucList();
 	//경매 리스트를 모두 불러온다. 지난경매->aucstatus가 true / 진행중인 경매 -> aucstatus가 false
 	
 	void deleteMaxInputPrice(int aucNum);

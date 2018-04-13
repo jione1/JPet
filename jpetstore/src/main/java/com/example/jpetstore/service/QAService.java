@@ -1,5 +1,7 @@
 package com.example.jpetstore.service;
 
+import com.example.jpetstore.domain.Q_A;
+
 public interface QAService {
 	//문의하기 
 
@@ -9,10 +11,10 @@ public interface QAService {
 	void updateQA(Q_A qa);
 	//사용자가 문의글을 변경하였을 때 사용
 
-	void updateQA(String QAnswer);
+	void updateQA(int qaNum, String answer, String sellerId);
 	//관리자나 판매자가 답변을 달았을 때 사용
 
-	void deleteQA(int QNUM);
+	void deleteQA(int qnum);
 	//사용자가 문의글을 삭제할 때 사용
 
 	List<Q_A> getQAList();

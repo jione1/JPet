@@ -1,0 +1,45 @@
+package com.example.jpetstore.service;
+
+import com.example.jpetstore.domain.Item;
+import com.example.jpetstore.domain.P2P;
+import com.example.jpetstore.dao.P2PDao;
+
+public class P2PServiceImpl implements P2PService {
+
+	@Override
+	public void deleteItem(int itemId) {
+		// TODO Auto-generated method stub
+		return P2PDao.deleteItem(int itemId);
+	}
+
+	@Override
+	public void insertItem(Item item) {
+		// TODO Auto-generated method stub
+		return P2PDao.insertItem(Item item);
+	}
+
+	@Override
+	public void insertP2P(P2P p2p) {
+		// TODO Auto-generated method stub
+		return P2PDao.insertP2P(P2P p2p);
+	}
+
+	@Override
+	public P2P getP2PList(String userId) {
+		// TODO Auto-generated method stub
+		return P2PDao.getP2PList(String userId);
+	}
+
+	@Override
+	public Item getItem(String itemId, String userId) {
+		// TODO Auto-generated method stub
+		return P2PDao.getItem(String itemId, String userId); 
+	}
+
+	@Override
+	public void updateP2P(Item itemId) {
+		// TODO Auto-generated method stub
+		return P2PDao.updateP2P(Item itemId);
+	}
+
+}

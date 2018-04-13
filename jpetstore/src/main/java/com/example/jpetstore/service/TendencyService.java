@@ -1,5 +1,7 @@
 package com.example.jpetstore.service;
 
+import com.example.jpetstore.domain.Tendency;
+
 public interface TendencyService {
 	//성향분석하기 
 

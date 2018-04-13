@@ -1,7 +1,15 @@
 package com.example.jpetstore.service;
 
+import com.example.jpetstore.domain.Auction;
+
 @Service("orderServiceImpl")
 public class AuctionServiceImpl implements AuctionService {
+
+	@Override
+	public Auction getAuctionPost(int aucNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public void partiAuc(int aucNum, int inputPrice, String userID) {

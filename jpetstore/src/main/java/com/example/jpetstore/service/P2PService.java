@@ -1,5 +1,8 @@
 package com.example.jpetstore.service;
 
+import com.example.jpetstore.domain.Item;
+import com.example.jpetstore.domain.P2P;
+   
 public interface P2PService {
 	//p2p
 
@@ -12,16 +15,16 @@ public interface P2PService {
 	//void updateQuantity(int itemId, int quantity);
 	//사용자가 주문/ 주문취소 했을 경우 item의 수량을 변경한다. 
 
-	P2P getP2PList(String userId);
+	List<P2P> getP2PList(String userId);
 	//userId에 맞는 p2p리스트를 받아와서 판매자페이지를 구성한다. 
 
 	Item getItem(String itemId, String userId); 
 	//userId가 있으면 판매자 아이템을 가져온다. 
 
-	void deleteItem(int itemId);
+	void deleteItem(int postNum);
 	//cascade를 이용해서 연계된 p2p도 지운다. 
 
-	void updateP2P(Item itemId);
+	void updateP2P(P2P p2p);
 	//판매자가 아이템 정보를 수정하였을 경우 호출된다. 
 
 }

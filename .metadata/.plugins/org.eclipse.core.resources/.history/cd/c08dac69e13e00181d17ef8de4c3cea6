@@ -1,0 +1,43 @@
+package com.example.jpetstore.service;
+
+import com.example.jpetstore.domain.Q_A;
+
+public class QAServiceImpl implements QAService {
+
+	@Override
+	public void updateQA(String QAnswer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteQA(int QNUM) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertQA(Q_A qa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateQA(Q_A qa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Q_A getQA(int itemId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Q_A getQA(String adId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

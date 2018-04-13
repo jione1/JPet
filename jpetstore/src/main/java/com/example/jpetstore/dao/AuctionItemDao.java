@@ -1,5 +1,7 @@
 package com.example.jpetstore.dao;
 
+import com.example.jpetstore.domain.Auction;
+
 public interface AuctionItemDao {
 	void insertAucItem(Auction auction) throws DataAccessException;
 	void updateAucStatus(int aucNum, boolean aucstatus) throws DataAccessException;

@@ -1,5 +1,7 @@
 package com.example.jpetstore.dao;
 
+import com.example.jpetstore.domain.Auction;
+
 public interface AuctionDao {
 	void insertMaxPrice(int aucNum, double maxPrice) throws DataAccessException;
 	void updateOrderStatus(int aucNum, boolean orderStatus) throws DataAccessException;

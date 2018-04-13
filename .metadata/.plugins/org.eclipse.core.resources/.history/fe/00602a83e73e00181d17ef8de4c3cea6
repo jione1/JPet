@@ -1,0 +1,25 @@
+package com.example.jpetstore.service;
+
+import com.example.jpetstore.domain.Tendency;
+
+public class TendencyServiceImpl implements TendencyService {
+
+	@Override
+	public String getTendencyResult(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertTendencyResult(Tendency tendency) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTendency(Tendency tendency) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
