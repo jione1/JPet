@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.example.jpetstore.domain.Item"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.domain.P2P"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.domain.Q_A"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.dao.QADao"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.domain.Tendency"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.domain.Auction"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.service.TendencyService"/>
+<fullyQualifiedTypeName name="com.example.jpetstore.dao.TendencyDao"/>
+</qualifiedTypeNameHistroy>

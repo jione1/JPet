@@ -27,7 +27,7 @@
 	</section>
 	<section name="org.springsource.ide.eclipse.commons.quicksearch.ui.QuickSearchDialog.DIALOG_SETTINGS">
 		<item value="true" key="CASE_SENSITIVE"/>
-		<item value="PetStoreFacade" key="LAST_QUERY"/>
+		<item value="jdbc.hsql" key="LAST_QUERY"/>
 		<list key="SASH_WEIGHTS">
 			<item value="833"/>
 			<item value="166"/>
@@ -35,10 +35,10 @@
 		<list key="COLUMN_WIDTHS">
 			<item value="40"/>
 			<item value="400"/>
-			<item value="136"/>
+			<item value="329"/>
 		</list>
 		<section name="DialogBoundsSettings">
-			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="793" key="DIALOG_WIDTH"/>
 			<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="491" key="DIALOG_X_ORIGIN"/>
