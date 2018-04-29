@@ -31,7 +31,7 @@
 		
 	<!-- Configurer that replaces ${...} placeholders with values from properties files -->
 	<!-- (in this case, mail and JDBC related properties) -->
-	<util:properties id="bird" location="classpath:tendency.properties" />     
+	<util:properties id="tendency" location="classpath:tendency.properties" />     
 	<!-- 
 	<bean id="propertyConfigurer" 
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
