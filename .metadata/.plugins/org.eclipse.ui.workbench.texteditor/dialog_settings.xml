@@ -6,12 +6,14 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="dao" key="selection"/>
+		<item value="container-menu-header" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="container-menu-header"/>
+			<item value="container"/>
 			<item value="dao"/>
 			<item value="Dao"/>
 			<item value="img"/>

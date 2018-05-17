@@ -13,7 +13,7 @@ import com.example.jpetstore.service.PetStoreFacade;
 
 
 @Controller
-@SessionAttributes("userSession")
+@SessionAttributes("userSession ")
 public class TendencyController {
 	
 	private PetStoreFacade petStore;
