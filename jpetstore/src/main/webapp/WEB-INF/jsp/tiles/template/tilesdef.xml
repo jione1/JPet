@@ -11,7 +11,8 @@
 			value="/WEB-INF/jsp/tiles/Top.jsp" />
 		<put-attribute name="footer"
 			value="/WEB-INF/jsp/tiles/Bottom.jsp" />
-		<put-attribute name="banner" value="" />
+		<put-attribute name="banner" value="" />		
+		
 	</definition>
 
 	<definition name="layout_with_banner" extends="base_layout">

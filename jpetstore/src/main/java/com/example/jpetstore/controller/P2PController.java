@@ -2,12 +2,18 @@ package com.example.jpetstore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.ModelMap;
 
+import com.example.jpetstore.service.P2PService;
+import com.example.jpetstore.service.P2PServiceImpl;
 import com.example.jpetstore.service.PetStoreFacade;
 import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.P2P;
@@ -18,40 +24,46 @@ public class P2PController {
 	
 	private PetStoreFacade petStore;
 	private Item item;
+	
+//	@Autowired
+//	P2PServiceImpl p2pService;
 
 	@Autowired
 	public void setPetStore(PetStoreFacade petStore) {
 		this.petStore = petStore;
 	}
 	
-	private P2P p2p;
-	
-	public void setSellerId(P2P p2p) {
-		this.p2p = p2p;
+	@ModelAttribute("categories")
+	public List<String> selectCategory() {
+		List<String> categoryList = new ArrayList<>();
+		categoryList.add("FISH");
+		categoryList.add("DOG");
+		categoryList.add("CAT");
+		categoryList.add("REPTILES");
+		categoryList.add("BIRD");
+		return categoryList;
 	}
 	
-	@RequestMapping("/p2p/writeP2PPost.do") //ÆÇ¸Å±Û ÀÛ¼ºÇÏ·¯ °¡±â 
-	public String writeP2PPost(
-			@RequestParam("itemId") Item itemId,
-			@ModelAttribute("userSession") UserSession userSession,
-			ModelMap model) throws Exception {
-		//ÀÛ¼ºÇÑ form À» submit
-		
-		return "P2PForm";
+	@RequestMapping("/p2p/writeP2PPost.do") //ï¿½Ç¸Å±ï¿½ ï¿½Û¼ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	public String writeP2PPost(@ModelAttribute("p2pForm") P2PForm p2pForm) throws Exception {
+		//ï¿½Û¼ï¿½ï¿½ï¿½ form ï¿½ï¿½ submit
+		return "P2pForm";
 		
 		}
 	
-	//µî·ÏÇÏ±â¸¦ ´­·¶À» ¶§ ¿©±â·Î ¸ÅÇÎµÊ 
-	@RequestMapping("/p2p/sendP2PPost.do") //ÆÇ¸Å±Û »ó¼¼ÆäÀÌÁö º¸¿©ÁÖ±â 
+	//ï¿½ï¿½ï¿½ï¿½Ï±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ 
+	@RequestMapping("/p2p/sendP2PPost.do") //ï¿½Ç¸Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ 
 	public String sendP2PPost(
 			@RequestParam("itemId") Item itemId,
 			@ModelAttribute("userSession") UserSession userSession,
+			@ModelAttribute("P2PForm") P2PForm p2pForm,
 			ModelMap model) throws Exception {
-		//ÀÛ¼ºÇÑ form À» item »ó¼¼ ÆäÀÌÁö·Î Àü´Þ 
-		
+		//ï¿½Û¼ï¿½ï¿½ï¿½ form ï¿½ï¿½ item ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+//		P2P p2p = new P2P();
+//		
+//		p2pService.insertP2P(p2p);
 		return "Item";
-		
+//		
 		}
-	
-	
+
 }

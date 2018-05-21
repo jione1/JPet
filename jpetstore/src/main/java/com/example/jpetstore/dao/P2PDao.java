@@ -1,11 +1,12 @@
 package com.example.jpetstore.dao;
 
 import com.example.jpetstore.domain.P2P;
+import java.util.*;
 
 public interface P2PDao {
 	void insertPost(P2P p2p);
 	void deletePost(int postNum);
-	void updatePost(P2P p2p); //»ç¿ëÀÚ°¡ ±ÛÀ» ¼öÁ¤ÇÒ ¶§ »ç¿ëÇÏ´Â ¸Þ¼Òµå 
-	List<P2P> getP2PPostList(String userId); //post ³»¿ë ¸®½ºÆ®¸¦ °¡Á®¿Ã ¶§ »ç¿ë
+	void updatePost(P2P p2p); //ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ 
+	List<P2P> getP2PPostList(String userId); //post ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	
 }

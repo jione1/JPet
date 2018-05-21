@@ -50,7 +50,7 @@ table#account tr td {
 table.top {
     background-image: url('../images/bkg-topbar.gif');
     width: 100%;
-    border: none;
+    border: 10px solid red;
     border-collapse: collapse;
 }
 table.top tr td {
@@ -90,3 +90,4 @@ table.n13 tr {
 table.n13 tr td {
     padding: 3px;
 }
+

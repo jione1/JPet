@@ -19,13 +19,21 @@
 		<h2>ITEM POSTING</h2>
 		<form:form commandName="p2pForm" method="post">
 			<div class="form-group">
+				<label for="title">TITLE</label>
+				<form:input path="title" cssClass="form-control"
+					placeholder="제목을 입력해주세요" />
+				<form:errors path="title" />
+				<!-- <input type="email" class="form-control" id="Email1" placeholder="Enter email"> -->
+			</div>
+			<div class="form-group">
 				<label for="itemName">ITEM NAME</label>
-				<form:input path="itemName" cssClass="form-control" />
+				<form:input path="itemName" cssClass="form-control"
+					placeholder="이름을 입력해주세요" />
 				<form:errors path="itemName" />
 				<!-- <input type="email" class="form-control" id="Email1" placeholder="Enter email"> -->
 			</div>
 			<div class="form-group">
-				<label for="sort">SORT</label>:
+				<label for="sort">SORT</label>
 				<form:radiobutton path="sort" value="P2P" label="P2P"
 					checked="checked" />
 				<form:radiobutton path="sort" value="AUCTION" label="AUCTION" />
@@ -33,7 +41,7 @@
 			</div>
 			<div class="form-group">
 				<label for="category">CATEGORY</label>
-				<form:select paht="category" items="${categories }" path="" />
+				<form:select path="category" items="${categories }" />
 				<form:errors path="category" />
 				<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
 			</div>
@@ -43,18 +51,20 @@
 				<form:errors path="quantity" />
 			</div>
 			<div class="form-group">
-				<label for="price">QUANTITY</label>
-				<form:input path="price" type="number" placeholder="가격을 입력해주세" />
+				<label for="price">PRICE</label>
+				<form:input path="price" placeholder="가격을 입력해주세요" />
 				<form:errors path="quantity" />
 			</div>
 			<div class="form-group">
-				<label for="File">PICTURE</label> <input type="file" id="File">
+				<label for="File">PICTURE</label> 
+				<input type="file" id="File">
 			</div>
 			<div class="form-group">
 				<label for="discription">DISCRIPTION</label>
-				<form:textarea path="discription" />
+				<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " />
 			</div>
-			<input type="submit" value="등록하기"/>
+			<form:hidden path="supplier" value="2" />
+			<input type="submit" value="등록하기" />
 		</form:form>
 	</div>
 </body>

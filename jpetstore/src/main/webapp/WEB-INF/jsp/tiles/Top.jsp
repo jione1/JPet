@@ -1,38 +1,50 @@
 <%@ page contentType="text/html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<table> <!--  class="top"> -->
-  <tr>
-    <td>
-      <a href="<c:url value="/shop/index.do"/>">
-        <img border="0" src="../images/logo-topbar.gif" /></a>
-    </td>
-    <td style="text-align:right">
-      <a href="<c:url value="/shop/viewCart.do"/>">
-        <img border="0" name="img_cart" src="../images/cart.gif" /></a>
-      <img border="0" src="../images/separator.gif" />
-      <c:if test="${empty userSession.account}" >
-        <a href="<c:url value="/shop/signonForm.do"/>">
-          <img border="0" name="img_signin" src="../images/sign-in.gif" /></a>
-      </c:if>
-      <c:if test="${!empty userSession.account}" >
-        <a href="<c:url value="/shop/signoff.do"/>">
-          <img border="0" name="img_signout" src="../images/sign-out.gif" /></a>
-        <img border="0" src="../images/separator.gif" />
-        <a href="<c:url value="/shop/editAccount.do"/>">
-          <img border="0" name="img_myaccount" src="../images/my_account.gif" /></a>
-      </c:if>
-      <img border="0" src="../images/separator.gif" />&nbsp;
-      <a href="../help.html"><img border="0" name="img_help" src="../images/help.gif" /></a>
-    </td>
-    <td style="text-align:left">
-      <form action="<c:url value="/shop/searchProducts.do"/>" method="post">
-	    <input type="hidden" name="search" value="true"/>
-        <input type="text" name="keyword" size="14" />&nbsp;
-        <input src="../images/search.gif" type="image"/>
-      </form>
-    </td>
-  </tr>
-</table>
+<header class="header1">
+        <!-- Header desktop -->
+        <div class="container-menu-header">
+            
+            <div class="wrap_header">
+                <!-- Logo -->
+                <a href="<c:url value="/shop/index.do"/>" class="logo">
+                    <img src="../images-theme/icons/logo.png" alt="IMG-LOGO">
+                </a>
 
-<%@ include file="IncludeQuickHeader.jsp" %>
+                <!-- Menu -->
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li>
+                                <a a href="<c:url value="/shop/index.do"/>">Home</a>
+                            </li>
+                            <li>
+                                <a href="product.html">Shop</a>
+                            </li>
+                            <li>
+                                <a href="<c:url value="/shop/viewCart.do"/>">Cart</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Header Icon -->
+                <div class="header-icons">
+                    <a href="#" class="header-wrapicon1 dis-block">
+                        <img src="../images-theme/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    </a>
+
+                    <span class="linedivide1"></span>
+
+                    <div class="header-wrapicon2">
+                        <img src="../images-theme/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+
+
 

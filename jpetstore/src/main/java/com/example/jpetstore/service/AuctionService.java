@@ -1,5 +1,7 @@
 package com.example.jpetstore.service;
 
+import java.util.List;
+
 public interface AuctionService {
 	void partiAuc(int aucNum, int inputPrice, String userID);
 	//사용자가 옥션에 참가하면서 원하는 가격을 적음 -> AucParti에 데이터 삽입

@@ -1,9 +1,14 @@
 package com.example.jpetstore.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.P2P;
 import com.example.jpetstore.dao.P2PDao;
 import com.example.jpetstore.dao.ItemDao;
+import java.util.List;
+
 
 public class P2PServiceImpl implements P2PService {
 
