@@ -11,6 +11,6 @@ public class Q_A { //문의게시판을 위한 domain class
 	private String AduserID;
 	
 	public Boolean isAnswered(int QPostNum) {
-		
+		return false;
 	}
 }

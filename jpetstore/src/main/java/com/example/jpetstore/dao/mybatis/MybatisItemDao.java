@@ -30,6 +30,24 @@ public class MybatisItemDao implements ItemDao {
 		}
 	}
 
+	@Override
+	public void updateQuantity(int itemId) throws DataAccessException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertItem(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Item getItem(String itemId, String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public boolean isItemInStock(String itemId) throws DataAccessException {
 		return (itemMapper.getInventoryQuantity(itemId) > 0);
 	}

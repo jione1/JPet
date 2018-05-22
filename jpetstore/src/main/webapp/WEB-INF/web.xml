@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-						http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
-	id="WebApp_ID" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Spring JPetStore</display-name>
   <description>Spring JPetStore sample application</description>
   <context-param>
@@ -17,8 +13,9 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-       	classpath:applicationContext.xml
+      	classpath:applicationContext.xml
       	classpath:dataAccessContext-mybatis.xml 
+      	classpath:dataAccessContext-jdbc.xml 
 	</param-value>
   </context-param>
   <listener>
@@ -27,6 +24,10 @@
   <servlet>
     <servlet-name>petstore</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/petstore-servlet-with-tiles.xml</param-value>
+    </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

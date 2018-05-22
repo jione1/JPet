@@ -25,10 +25,10 @@ public class AuctionFormController {
 	
 	private Auction auction;
 	
-	@Autowired
-	public void setAutcion(Auction auction) {
-		this.auction = auction;
-	}
+//	@Autowired
+//	public void setAutcion(Auction auction) {
+//		this.auction = auction;
+//	}
 
 	@RequestMapping("/auction/newAuction.do") //¿Á¼Ç model ¿¡ ´ã±â 
 	public String nowAuction(

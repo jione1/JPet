@@ -14,6 +14,7 @@ public class Auction {
 	 private int unitCost; //판매자가 올리는 최조 가격 (최저가격)
 
 	 public Boolean isSold(int itemId) {
+		 return false;
 	 }
 	 
 }
