@@ -74,14 +74,14 @@ public class P2PController {
 		System.out.println(username);
 		
 		P2P p2p = new P2P();
-		p2p.setItemId("EST-29");
+		p2p.setItemId("P2P-02");
 		p2p.setPrice(p2pForm.getPrice());
 		p2p.setTitle(p2pForm.getTitle());
 		p2p.setId(username);
 		
 		Item item = new Item();
 		item.setItemId(p2p.getItemId());
-		item.setProductId("FI-SW-03");
+		item.setProductId("P2-02");
 		item.setListPrice(p2p.getPrice());
 		item.setUnitCost(p2p.getPrice());
 		item.setStatus("P");

@@ -56,8 +56,8 @@
  </insert> -->
  
 <insert id ="insertPost" parameterType="P2P">
-    INSERT INTO P2P (ITEMID,PRODUCTID,LISTPRICE)
+    INSERT INTO SSD01_4.P2P (P2PTITLE,SELLERID,ITEMID)
       VALUES
-      (#{itemId}, #{productId}, #{listPrice})
+      (#{title}, #{id}, #{itemId})
   </insert>
 </mapper>

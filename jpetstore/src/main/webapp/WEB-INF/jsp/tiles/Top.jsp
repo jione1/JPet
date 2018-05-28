@@ -35,7 +35,7 @@
 
                 <!-- Header Icon -->
                 <div class="header-icons">
-                    <a href="<c:url value='shop/signonForm.do'/>" class="header-wrapicon1 dis-block">
+                    <a href="<c:url value='/shop/signonForm.do'/>" class="header-wrapicon1 dis-block">
                         <img src="../images-theme/icons/icon-header-01.png" class="header-icon1" alt="ICON">
                     </a>
 
