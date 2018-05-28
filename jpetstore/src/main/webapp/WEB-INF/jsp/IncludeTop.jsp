@@ -8,11 +8,9 @@
   <meta http-equiv="Cache-Control" content="max-age=0">
   <meta http-equiv="Cache-Control" content="no-cache">
   <meta http-equiv="expires" content="0">
-  <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
   <meta http-equiv="Pragma" content="no-cache">
   <link rel="stylesheet" href="../style/petstore.css" type="text/css" />
 </head>
-
 <body bgcolor="white">
 <table class="top">
   <tr>

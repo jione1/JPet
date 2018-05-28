@@ -35,6 +35,10 @@ public interface ItemMapper {
 
   Item getItem(String itemId);
   
+  void insertInventoryQuantity(Item item);
+  
+  void insertItem(Item item);
+  
   boolean isItemInStock(String itemId);
 
 }

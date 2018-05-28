@@ -50,10 +50,4 @@ public class MybatisOrderDao implements OrderDao {
     		lineItemMapper.insertLineItem(lineItem);
     	}
 	}
-
-	@Override
-	public void deleteOrder(int orderId) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
-	}
 }

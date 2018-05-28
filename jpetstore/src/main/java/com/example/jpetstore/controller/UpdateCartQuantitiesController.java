@@ -32,9 +32,6 @@ public class UpdateCartQuantitiesController {
 			try {
 				int quantity = Integer.parseInt(request.getParameter(itemId));
 				cart.setQuantityByItemId(itemId, quantity);
-				
-				//아이템의 quantity와 비교하는 작업 추가
-				
 				if (quantity < 1) {
 					cartItems.remove();
 				}

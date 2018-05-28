@@ -170,5 +170,4 @@ public class Order implements Serializable {
   public void addLineItem(LineItem lineItem) {
     lineItems.add(lineItem);
   }
-
 }

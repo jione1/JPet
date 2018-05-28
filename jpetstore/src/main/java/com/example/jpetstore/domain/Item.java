@@ -11,15 +11,17 @@ public class Item implements Serializable {
   private double unitCost;
   private int supplierId;
   private String status;
-  private String attribute1;
+  private String attribute1; //쇼핑카드에 들어가는 description
   private String attribute2;
   private String attribute3;
   private String attribute4;
   private String attribute5;
   private Product product;
   private int quantity;
-
-  /* JavaBeans Properties */
+ 
+  
+ 
+/* JavaBeans Properties */
   public String getItemId() { return itemId; }
   public void setItemId(String itemId) { this.itemId = itemId.trim(); }
 

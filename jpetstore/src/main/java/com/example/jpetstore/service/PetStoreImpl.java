@@ -2,6 +2,7 @@ package com.example.jpetstore.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.example.jpetstore.dao.AccountDao;
@@ -54,15 +55,23 @@ import com.example.jpetstore.domain.Product;
 @Service
 @Transactional
 public class PetStoreImpl implements PetStoreFacade { 
-	@Autowired
+	@Autowired	// @Qualifier("mybatisAccountDao")
 	private AccountDao accountDao;
-	@Autowired
+	
+	@Autowired  
+	@Qualifier("jdbcTemplateCategoryDao") // �Ǵ�  
+	// @Qualifier("namedParameterJdbcTemplateCategoryDao")  // �Ǵ� 
+	// @Qualifier("jdbcDaoSupportCategoryDao")  // �Ǵ�
+	// @Qualifier("PureJdbcCategoryDao")
 	private CategoryDao categoryDao;
-	@Autowired
+	
+	@Autowired  // @Qualifier("mybatisProductDao")
 	private ProductDao productDao;
-	@Autowired
+	
+	@Autowired	// @Qualifier("mybatisItemDao")
 	private ItemDao itemDao;
-	@Autowired
+	
+	@Autowired	// @Qualifier("mybatisOrderDao")
 	private OrderDao orderDao;
 
 	//-------------------------------------------------------------------------
@@ -108,13 +117,25 @@ public class PetStoreImpl implements PetStoreFacade {
 	public Product getProduct(String productId) {
 		return productDao.getProduct(productId);
 	}
-
+	
+	public void insertProduct(Product product) {
+		productDao.insertProduct(product);
+	}
+	
 	public List<Item> getItemListByProduct(String productId) {
 		return itemDao.getItemListByProduct(productId);
 	}
 
 	public Item getItem(String itemId) {
 		return itemDao.getItem(itemId);
+	}
+	
+	public void insertInventoryQuantity(Item item) {
+		itemDao.insertInventoryQuantity(item);
+	}
+	
+	public void insertItem(Item item) {
+		 itemDao.insertItem(item);
 	}
 
 	public boolean isItemInStock(String itemId) {

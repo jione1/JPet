@@ -38,9 +38,14 @@ public interface PetStoreFacade {
 
 	Product getProduct(String productId);
 
-
+	void insertProduct(Product product);
+	
 	List<Item> getItemListByProduct(String productId);
 
+	void insertInventoryQuantity(Item item);
+	
+	void insertItem(Item item);
+	
 	Item getItem(String itemId);
 
 	boolean isItemInStock(String itemId);
@@ -51,6 +56,5 @@ public interface PetStoreFacade {
 	Order getOrder(int orderId);
 
 	List<Order> getOrdersByUsername(String username);
-	
 
 }

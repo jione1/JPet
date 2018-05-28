@@ -13,5 +13,6 @@ public interface ProductDao {
 	List<Product> searchProductList(String keywords) throws DataAccessException;
 
 	Product getProduct(String productId) throws DataAccessException;
-
+	
+	void insertProduct(Product product);
 }

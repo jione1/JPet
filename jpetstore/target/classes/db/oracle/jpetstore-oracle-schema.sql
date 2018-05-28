@@ -201,5 +201,3 @@ create table sequence (
 );
 
 grant all on sequence to public;
-
-drop table AUCTIONITEM;

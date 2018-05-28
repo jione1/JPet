@@ -30,7 +30,7 @@ import com.example.jpetstore.service.PetStoreFacade;
 public class OrderController {
 	@Autowired
 	private PetStoreFacade petStore;
-	@Autowired
+	
 	private OrderValidator orderValidator;
 	
 	@ModelAttribute("orderForm")

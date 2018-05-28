@@ -46,5 +46,9 @@ public class MybatisProductDao implements ProductDao {
 		public List<String> getKeywordList() {
 			return keywordList;
 		}
-	}	
+	}
+	
+	public void insertProduct(Product product) {
+		productMapper.insertProduct(product);
+	}
 }

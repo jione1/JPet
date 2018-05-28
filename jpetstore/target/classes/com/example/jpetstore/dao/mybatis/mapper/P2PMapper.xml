@@ -1,1 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.P2PMapper">
+<cache />
+
+<select id="getP2PPostList" resultType="P2P">
+	select
+		P.P2PTitle AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price,
+		I.ITEMIMAGE AS url
+	FROM ITEM I, P2P P
+	WHERE P2P.SELLERID=#{id}
+	AND ITEM.ITEMID=P2P.ITEMID;
+</select>
+
+<select id="getP2PDetail" resultType="P2P">
+	select
+		P.P2PTitle AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price,
+		I.PRODUCTID AS "item.productId",
+		pr.NAME AS "product.name",
+		pr.DESCN AS "product.description",
+		pr.CATEGORY AS "product.categoryId",
+		QTY AS quantity,
+		I.ITEMIMAGE AS url
+	FROM ITEM I, P2P P, Product Pr, INVENTORY V
+	WHERE P.SELLERID=#{id}
+	AND I.ITEMID=P.ITEMID 
+	AND P.PRODUCTID = I.PRODUCTID 
+	AND P.ITEMID = V.ITEMID;
+	
+</select>
+
+<!--  <insert id = "insertPost" parameterType="P2P">
+ 	INSERT ALL
+ 		INTO ITEM VALUES(ITEMID,PRODUCTID,LISTPRICE,ATTR2)
+ 		INTO P2P VALUES(ITEMID,SELLERID,P2PTITLE)
+ 		INTO PRODUCT VALUES(PRODUCTID,CATEGORY,NAME,DESCN)
+ 		INTO INVENTORY VALUES(ITEMID,QTY)
+ 		SELECT (#{itemId}) AS ITEMID,(#{item.productId}) AS PRODUCTID,
+ 		(#{item.listPrice}) AS LISTPRICE,(#{item.attribute2}) AS ATTR2 FROM DUAL
+ 		UNION ALL
+ 		SELECT (#{itemId}) AS ITEMID,(#{id}) AS SELLERID,
+ 		(#{title}) AS P2PTITLE FROM DUAL
+ 		UNION ALL
+ 		SELECT (#{item.productId}) AS PRODUCTID,(#{product.categoryId}) AS CATEGORY,
+ 		(#{product.name}) AS NAME,(#{product.description}) AS DESCN FROM DUAL
+ 		UNION ALL
+ 		SELECT (#{itemId}) AS ITEMID,(#{item.quantity}) AS QTY FROM DUAL;
+ </insert> -->
+ 
+<insert id ="insertPost" parameterType="P2P">
+    INSERT INTO P2P (ITEMID,PRODUCTID,LISTPRICE)
+      VALUES
+      (#{itemId}, #{productId}, #{listPrice})
+  </insert>
+</mapper>

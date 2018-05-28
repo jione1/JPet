@@ -18,13 +18,16 @@
                                 <a a href="<c:url value="/shop/index.do"/>">Home</a>
                             </li>
                             <li>
-                                <a href="product.html">Shop</a>
+                                <a href="<c:url value="/shop/viewItem.do"/>">Shop</a>
                             </li>
                             <li>
                                 <a href="<c:url value="/shop/viewCart.do"/>">Cart</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="<c:url value="/p2p/writeP2PPost.do"/>">Seller</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Q&A</a>
                             </li>
                         </ul>
                     </nav>
@@ -32,7 +35,7 @@
 
                 <!-- Header Icon -->
                 <div class="header-icons">
-                    <a href="#" class="header-wrapicon1 dis-block">
+                    <a href="<c:url value='shop/signonForm.do'/>" class="header-wrapicon1 dis-block">
                         <img src="../images-theme/icons/icon-header-01.png" class="header-icon1" alt="ICON">
                     </a>
 

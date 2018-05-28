@@ -26,12 +26,12 @@ public class ViewItemController {
 
 	@RequestMapping("/shop/viewItem.do")
 	public String handleRequest(
-			@RequestParam("itemId") String itemId,
+//			@RequestParam("itemId") String itemId,
 			ModelMap model) throws Exception {
-		Item item = this.petStore.getItem(itemId);
-		model.put("item", item);
-		model.put("product", item.getProduct());
-		return "Item";
+//		Item item = this.petStore.getItem(itemId);
+//		model.put("item", item);
+//		model.put("product", item.getProduct());
+		return "tiles/Item";
 	}
 
 }

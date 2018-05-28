@@ -38,7 +38,7 @@ public class ViewCartController {
 		UserSession userSession = 
 			(UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		handleRequest(page, cart, userSession);
-		return new ModelAndView("Cart", "cart", cart);
+		return new ModelAndView("tiles/Cart", "cart", cart);
 	}
 
 	@RequestMapping("/shop/checkout.do")

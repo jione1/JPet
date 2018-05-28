@@ -8,5 +8,5 @@ public interface P2PDao {
 	void deletePost(int postNum);
 	void updatePost(P2P p2p); //����ڰ� ���� ������ �� ����ϴ� �޼ҵ� 
 	List<P2P> getP2PPostList(String userId); //post ���� ����Ʈ�� ������ �� ���
-	
+	P2P getP2PDetail(String itemId);
 }

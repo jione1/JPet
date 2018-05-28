@@ -54,4 +54,6 @@
 		<aop:advisor pointcut="execution(* *..PetStoreFacade.insertOrder(*..Order))" advice-ref="emailAdvice"/>
 	</aop:config>
 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
 </beans>

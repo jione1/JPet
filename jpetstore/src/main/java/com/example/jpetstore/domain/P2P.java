@@ -1,10 +1,63 @@
 package com.example.jpetstore.domain;
 
-public class P2P extends Item{
-	
-	private Account account; 
+import java.io.Serializable;
 
-	//ÆÇ¸Å±ÛÀ» ¿Ã¸° userID
-	//p2p´Â È¸»ç¿¡¼­ ¾÷·Îµå ÇÑ itemµé°ú µ¿ÀÏÇÏ°Ô Ãë±ÞÇÏ±â ¶§¹®¿¡ itemÀ» »ó¼Ó¹Þ´Â´Ù.
+@SuppressWarnings("serial")
+public class P2P implements Serializable {
+
+	private String itemId;
+	private double price;
+	private String title;
+	private String id;
+	private String url;
+	private Item item;
+	private Product product;
 	
+	public String getItemId() {
+		return itemId;
+	}
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
+	//ï¿½Ç¸Å±ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ userID
+	//p2pï¿½ï¿½ È¸ï¿½ç¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ itemï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½Ó¹Þ´Â´ï¿½.
+
 }

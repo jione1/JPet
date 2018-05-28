@@ -34,5 +34,10 @@
     from PRODUCT
     WHERE lower(name) like #{value}
   </select>
-
+ 
+  <insert id="insertProduct">
+    INSERT INTO PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
+      VALUES
+      (#{productId,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, ${description})
+  </insert>
 </mapper>

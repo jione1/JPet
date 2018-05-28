@@ -49,7 +49,7 @@
       AND I.ITEMID = V.ITEMID
       AND I.ITEMID = #{value}
   </select>
-
+	
   <select id="getInventoryQuantity" resultType="int">
     SELECT QTY AS value
     FROM INVENTORY
@@ -61,4 +61,17 @@
     SET QTY = QTY - #{increment}
     WHERE ITEMID = #{itemId}
   </update>
+  
+  <insert id="insertItem" parameterType="Item">
+    INSERT INTO ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
+      VALUES
+      (#{itemId}, #{productId}, #{listPrice}, #{unitCost},#{status})
+  </insert>
+  
+  <insert id="insertInventoryQuantity" parameterType="Item">
+    INSERT INTO INVENTORY (ITEMID,QTY)
+      VALUES
+      (#{itemId}, #{quantity})
+  </insert>
+  
 </mapper>

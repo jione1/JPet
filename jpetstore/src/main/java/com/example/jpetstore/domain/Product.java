@@ -29,6 +29,6 @@ public class Product implements Serializable {
   /* Public Methods*/
 
   public String toString() {
-    return getName();
+    return getName() + " " + getProductId() + " " + getCategoryId() + getDescription();
   }
 }

@@ -7,13 +7,13 @@
                 </h4>
             </div>
             <!-- <div class="t-center s-text8 p-t-20">
-                Copyright © 2018 All rights reserved. 
+                Copyright ï¿½ 2018 All rights reserved. 
             </div> -->
         </div>
                 
         <div class="t-center p-l-15 p-r-15">
             <div class="t-center s-text8 p-t-20">
-                Copyright © 2018 All rights reserved. 
+                Copyright ï¿½ 2018 All rights reserved. 
             </div>
         </div>
     </footer>

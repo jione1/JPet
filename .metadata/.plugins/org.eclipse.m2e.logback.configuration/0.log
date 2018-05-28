@@ -1822,3 +1822,218 @@
 2018-05-21 15:57:50,324 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2018-05-21 15:57:50,337 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2018-05-21 15:57:50,337 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:01:06,704 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:01:06,706 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:01:06,708 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:01:06,709 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:01:33,483 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:01:33,485 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:01:33,487 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:01:33,487 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:02:42,028 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:02:42,030 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:02:42,032 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:02:42,033 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:02:51,098 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:02:51,101 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:02:51,103 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:02:51,104 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:03:00,115 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:00,117 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:03:00,121 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:00,122 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:03:19,538 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:19,540 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:03:19,542 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:19,542 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:03:35,990 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:35,991 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:03:35,993 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:35,994 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:03:55,120 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:55,122 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:03:55,126 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:03:55,127 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:05:04,965 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:05:04,968 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:05:04,970 [Worker-34] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:05:04,971 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:07:39,370 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:07:39,371 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:07:39,373 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:07:39,374 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:11:39,179 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:11:39,182 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:11:39,184 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:11:39,184 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:12:06,273 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:06,274 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:12:06,275 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:06,276 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:12:44,491 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:44,492 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:12:44,496 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:44,497 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:12:53,486 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:53,486 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:12:53,488 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:12:53,488 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:13:11,475 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:13:11,475 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:13:11,476 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:13:11,477 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:15:14,266 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:15:14,267 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:15:14,268 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:15:14,269 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:17:20,534 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:20,534 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:17:20,535 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:20,536 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:17:30,101 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:30,101 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:17:30,102 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:30,103 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:17:38,267 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:38,267 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:17:38,268 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:17:38,269 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:27:35,372 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:27:35,384 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:27:35,386 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:27:35,386 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:27:45,412 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:27:45,414 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:27:45,416 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:27:45,417 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:28:47,193 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:28:47,194 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:28:47,196 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:28:47,196 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:29:12,889 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:12,891 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:29:12,893 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:12,893 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:29:26,243 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:26,245 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:29:26,247 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:26,248 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:29:32,424 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:32,426 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:29:32,428 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:32,429 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:29:56,751 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:56,753 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:29:56,756 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:56,756 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:29:59,940 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:59,942 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:29:59,943 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:29:59,944 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:04,627 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:04,628 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:04,630 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:04,630 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:07,706 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:07,710 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:07,712 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:07,713 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:11,263 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:11,267 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:11,269 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:11,269 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:14,480 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:14,482 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:14,484 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:14,485 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:30,657 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:30,659 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:30,661 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:30,662 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:33,795 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:33,797 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:33,799 [Worker-51] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:33,799 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:36,603 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:36,604 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:36,606 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:36,606 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:40,842 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:40,858 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:40,860 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:40,860 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:43,977 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:43,978 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:43,980 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:43,980 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:30:47,123 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:47,124 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 34 resources
+2018-05-21 16:30:47,125 [Worker-52] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:30:47,126 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:33:49,968 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:33:49,969 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:33:49,970 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:33:49,970 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:33:51,044 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:33:51,044 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:33:51,045 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:33:51,046 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:37:36,259 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:37:36,267 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:37:36,268 [Worker-56] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:37:36,268 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:38:50,851 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:38:50,853 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-21 16:38:50,854 [Worker-57] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:38:50,855 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-21 16:39:21,687 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:39:21,688 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-05-21 16:39:21,690 [Worker-53] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-21 16:39:21,690 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:49:41,432 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-23 19:49:52,568 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:49:52,576 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 35 resources
+2018-05-23 19:49:52,584 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:49:52,585 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:52:13,238 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:52:13,241 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-23 19:52:13,242 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:52:13,243 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:54:09,395 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:09,396 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-23 19:54:09,398 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:09,398 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:54:17,563 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:17,563 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-23 19:54:17,565 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:17,565 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:54:22,134 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:22,141 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 35 resources
+2018-05-23 19:54:22,151 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:54:22,152 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:57:31,175 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:57:31,176 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-23 19:57:31,177 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:57:31,177 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 19:58:18,748 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:58:18,749 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-05-23 19:58:18,751 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 19:58:18,752 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-23 20:12:56,590 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-23 20:13:10,178 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 20:13:10,193 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 35 resources
+2018-05-23 20:13:10,201 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-23 20:13:10,201 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore/jpetstore/src/test/resources
+2018-05-28 14:06:10,876 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-28 14:06:30,096 [Worker-41] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.example:jpetstore:1.0.2-SNAPSHOT @ /Users/shineeseo/sosigae/jpetstore_temp/jpetstore/pom.xml.
+2018-05-28 14:06:31,628 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-28 14:06:31,637 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 35 resources
+2018-05-28 14:06:31,646 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-28 14:06:31,647 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore_temp/jpetstore/src/test/resources
+2018-05-28 14:06:31,651 [Worker-41] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of jpetstore
+2018-05-28 14:06:31,652 [Worker-41] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for jpetstore
+2018-05-28 14:06:31,657 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-28 14:07:07,558 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-28 14:07:07,569 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 35 resources
+2018-05-28 14:07:07,605 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-05-28 14:07:07,608 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/shineeseo/sosigae/jpetstore_temp/jpetstore/src/test/resources

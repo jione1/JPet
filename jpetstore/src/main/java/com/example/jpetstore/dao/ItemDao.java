@@ -18,12 +18,14 @@ public interface ItemDao {
   Item getItem(String itemId) throws DataAccessException;
   
   void updateQuantity(int itemId) throws DataAccessException;
-  //ÁÖ¹® Ãë¼Ò·Î ÀÎÇÑ ¼ö·® º¯È­°¡ ¹ß»ýÇÏ¿´À» ¶§ »ç¿ëÇÏ´Â ¸Þ¼Òµå 
+  //ï¿½Ö¹ï¿½ ï¿½ï¿½Ò·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ 
 
+  void insertInventoryQuantity(Item item);
+  
   void insertItem(Item item);
-  //ÆÇ¸ÅÀÚ°¡ ¿Ã¸° ¾ÆÀÌÅÛÀ» ÀúÀåÇÑ´Ù. 
+  //ï¿½Ç¸ï¿½ï¿½Ú°ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
   
   Item getItem(String itemId, String userId);
-  //ÆÇ¸ÅÀÚÀÇ id¿¡ µû¸¥ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù. 
+  //ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. 
   
 }
