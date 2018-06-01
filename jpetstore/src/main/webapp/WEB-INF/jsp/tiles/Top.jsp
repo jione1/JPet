@@ -27,7 +27,7 @@
                                 <a href="<c:url value="/p2p/writeP2PPost.do"/>">Seller</a>
                             </li>
                             <li>
-                                <a href="contact.html">Q&A</a>
+                                <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
                             </li>
                         </ul>
                     </nav>

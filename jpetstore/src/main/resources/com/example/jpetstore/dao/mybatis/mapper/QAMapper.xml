@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.QAMapper">
+	<cache />
+	
+	<insert id="insertQAPost" parameterType="QA">
+		INSERT INTO SSD01_4.Q_A
+			(QNUM, QTITLE, QDISCRIPTION, QTYPE)
+		VALUES
+			(#{qaNum}, #{qaTitle}, #{qaContent}, #{qaType})
+	</insert>
+	
+<!-- 	<update id="updateQAPost" parameterType="QA"> -->
+<!-- 		UPDATE Q_A -->
+<!-- 		SET QDISCRIPTION = #{content} -->
+<!-- 		WHERE QNUM= #{qaNum} AND USERID=#{SessionAccount} -->
+<!-- 	</update> -->
+	
+<!-- 	<delete id="deleteQAPost" parameterType="qaNum, SessionAccount"> -->
+<!-- 		DELETE FROM Q_A -->
+<!-- 		WHERE QNUM=#{qaNum} AND USERID=#{SessionAccount} -->
+<!-- 	</delete> -->
+
+	<select id="getQAList" resultType="QA">
+		SELECT *
+		FROM SSD01_4.Q_A
+	</select>
+
+<!-- 	<select id="getQA" resultType="QA"> -->
+<!-- 		SELECT * -->
+<!-- 		FROM Q_A -->
+<!-- 		WHERE QNUM = #{qaNum} -->
+<!-- 	</select> -->
+ </mapper>
