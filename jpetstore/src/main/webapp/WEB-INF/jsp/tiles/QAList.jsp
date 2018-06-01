@@ -18,11 +18,14 @@
 					<th style="width: 800px; border: 1px solid gray; text-align:center;">글 제목</th>
 					<th style="width: 200px; border: 1px solid gray; text-align:center;">ID</th>
 				</tr>
-				<tr>
-					<td style="border: 1px solid gray;"><a>1</a></td>
-					<td style="border: 1px solid gray">이구아나 질문드려요</td>
-					<td style="border: 1px solid gray">idididid</td>
-				</tr>
+				
+				<c:forEach var="QA" items="${QAList}">
+					<tr>
+						<td style="border: 1px solid gray; padding: 5px;"><a>${QA.qnum}</a></td>
+						<td style="border: 1px solid gray; padding: 5px;">${QA.title}</td>
+						<td style="border: 1px solid gray; padding: 5px;">${QA.userId}</td>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 		<p>&nbsp;</p>

@@ -22,8 +22,8 @@
 <!-- 		WHERE QNUM=#{qaNum} AND USERID=#{SessionAccount} -->
 <!-- 	</delete> -->
 
-	<select id="getQAList" resultType="QA">
-		SELECT *
+	<select id="getQAList" resultType="com.example.jpetstore.domain.QA">
+		SELECT QNUM, USERID, QTITLE as title, QDICRIPTION as content, QANSWER as isAnswered, QTYPE, ATIME, ITEMID, SELLERID, ADID
 		FROM SSD01_4.Q_A
 	</select>
 

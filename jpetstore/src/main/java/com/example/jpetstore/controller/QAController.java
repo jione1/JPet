@@ -50,12 +50,21 @@ public class QAController{
 	public List<QA> getQAList(){
 		List<QA> qaList = new ArrayList<QA>();
 		qaList = qaService.getQAList();
+		System.out.println("--------------------------------");
+		System.out.println(qaList.size());
+		for(int i = 0; i < qaList.size(); i++) {
+			System.out.println("Num" + qaList.get(i).getQnum());
+			System.out.println("UserId" + qaList.get(i).getUserId());
+			System.out.println("Title" + qaList.get(i).getTitle());
+			System.out.println("Content" + qaList.get(i).getContent());
+			System.out.println("isAnswered" + qaList.get(i).getIsAnswered());
+		}
+		System.out.println("--------------------------------");
 		return qaList;
 	}
 	
 	@RequestMapping("/qalist.do")
 	public String QAList(@ModelAttribute("QAList") List<QA> qaList) {
-		System.out.println(qaList.get(0).getTitle());
 		return qaListView;
 	}
 	
