@@ -30,7 +30,7 @@
                                 <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
                             </li>
                             <li>
-                                <a href="contact.html">Auction</a>
+                                <a href="<c:url value="/auction/auclist.do"/>">Auction</a>
                             </li>
                         </ul>
                     </nav>

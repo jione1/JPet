@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.jpetstore.domain.Product;
@@ -82,9 +83,10 @@ public class QAController{
 	}
 	
 		
-	@RequestMapping("/qaDetail/${QA.qnum}")
-	public String detailQA(@PathVariable int qnum, @ModelAttribute("QADetail") QA qaDetail) throws Exception{
-		qaService.getQA(qnum);
+	@RequestMapping("/qaDetail.do")
+	public String detailQA(@RequestParam("qnum") int qnum, @ModelAttribute("QADetail") QA qaDetail) throws Exception{
+		qaDetail = qaService.getQA(qnum);
+		System.out.println("qaDetail" + qaDetail.getTitle());
 		return qaDetailView;
 	}
 }

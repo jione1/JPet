@@ -1,6 +1,10 @@
 package com.example.jpetstore.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.example.jpetstore.domain.Auction;
+import com.example.jpetstore.domain.QA;
 import com.example.jpetstore.service.PetStoreFacade;
 
 
@@ -16,6 +21,8 @@ import com.example.jpetstore.service.PetStoreFacade;
 @SessionAttributes("userSession")
 public class AuctionFormController {
 	
+	@Value("tiles/AuctionList")
+	private String auctionList;
 	private PetStoreFacade petStore;
 	
 	@Autowired
@@ -25,59 +32,73 @@ public class AuctionFormController {
 	
 	private Auction auction;
 	
+	@ModelAttribute("AucList")
+	public List<Auction> getQAList(){
+		List<Auction> aucList = new ArrayList<Auction>();
+		return aucList;
+	}
+	
+	@RequestMapping("/auction/auclist.do") //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+	public String allAuction(@ModelAttribute("AucList") List<Auction> aucList) throws Exception {
+		//aucStatusï¿½ï¿½ true ï¿½ï¿½ ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ put
+		
+		return auctionList;
+		
+	}
+	
 //	@Autowired
 //	public void setAutcion(Auction auction) {
 //		this.auction = auction;
 //	}
 
-	@RequestMapping("/auction/newAuction.do") //¿Á¼Ç model ¿¡ ´ã±â 
+	@RequestMapping("/auction/newAuction.do") //ï¿½ï¿½ï¿½ï¿½ model ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 	public String nowAuction(
 			@RequestParam("auction_Num") String auction_Num,
 			ModelMap model) throws Exception {
-		//aucStatus°¡ false ÀÎ °Í ¸ðµ¨¿¡ put
+		//aucStatusï¿½ï¿½ false ï¿½ï¿½ ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ put
 		
 		return "NowAuction";
 		
 		}
 	
-	@RequestMapping("/auction/auclist.do") //Áö³­ °æ¸Å 
+	@RequestMapping("/auction/pastAuction.do") //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 	public String pastAuction(
 			@RequestParam("auction_Num") String auction_Num,
 			ModelMap model) throws Exception {
-		//aucStatus°¡ true ÀÎ °Í ¸ðµ¨¿¡ put
+		//aucStatusï¿½ï¿½ true ï¿½ï¿½ ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ put
 		
 		return "PastAuction";
 		
-		}
+	}
 	
-	@RequestMapping("/auction/aucInputPrice.do") //°¡°Ý ÀÔ·ÂÇÏ±â 
+	@RequestMapping("/auction/aucInputPrice.do") //ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï±ï¿½ 
 	public String inputPriceAuction(
 			@RequestParam("auction_Num") String auction_Num,
 			@ModelAttribute("userSession") UserSession userSession,
 			ModelMap model) throws Exception {
-		//aucparti¿¡ price°ª°ú »ç¿ëÀÚ id¸¦ ³Ö´Â´Ù.
+		//aucpartiï¿½ï¿½ priceï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½Ö´Â´ï¿½.
 		
 		return "AucPage";
 		
 		}
 	
-	@RequestMapping("/auction/aucOk.do") //³«ÂûÇÏ±â 
+	@RequestMapping("/auction/aucOk.do") //ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ 
 	public String okAuction(
 			@RequestParam("auction_Num") String auction_Num,
 			@ModelAttribute("maxPrice") String maxPrice,
 			ModelMap model) throws Exception {
-		//maxPrice°¡ ´©±ºÁö Ã£±â 
+		//maxPriceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ 
 		
 		return "AucPage";
 		
 		}				
 
-	@RequestMapping("/auction/aucFail.do") //³«Âû Æ÷±â 
+	@RequestMapping("/auction/aucFail.do") //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	public String failAuction(
 			@RequestParam("auction_Num") String auction_Num,
 			@ModelAttribute("maxPrice") String maxPrice,
 			ModelMap model) throws Exception {
-		//service ·Î º¸³»±â 
+		//service ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		
 		return "AuctionService";
 		

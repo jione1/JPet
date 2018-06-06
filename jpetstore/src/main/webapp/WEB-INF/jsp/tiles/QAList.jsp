@@ -21,7 +21,7 @@
 				
 				<c:forEach var="QA" items="${QAList}">
 					<tr>
-						<td style="border: 1px solid gray; padding: 5px;"><a href="<c:url value="/qa/qaDetail/${QA.qnum}"/>">${QA.qnum}</a></td>
+						<td style="border: 1px solid gray; padding: 5px;"> <a href="<c:url value="/qa/qaDetail.do"><c:param name="qnum" value="${QA.qnum }"/></c:url>">${QA.qnum}</a></td>
 						<td style="border: 1px solid gray; padding: 5px;">${QA.title}</td>
 						<td style="border: 1px solid gray; padding: 5px;">${QA.userId}</td>
 					</tr>
