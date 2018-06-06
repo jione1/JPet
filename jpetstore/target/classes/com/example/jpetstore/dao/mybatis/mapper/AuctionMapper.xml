@@ -5,7 +5,7 @@
   <cache />
   
   <insert id="insertAucItem" parameterType="Auction">
-  	INSERT INTO SSD01_4.AUCTIONITEM (ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM)
-  	VALUES(#{itemName},#{aucStatus},#{aucName},#{auctionCost},#{auction_num})
+  	INSERT INTO SSD01_4.AUCTIONITEM (SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM)
+  	VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{auctionCost},#{auction_num})
   </insert>
 </mapper>

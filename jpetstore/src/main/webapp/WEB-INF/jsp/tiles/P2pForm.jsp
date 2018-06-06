@@ -87,20 +87,6 @@
 	</form:form>
 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
-<script>
-function buttonSubmit() {
-	document.forms[0].submit();
-}
-</script>
->>>>>>> e48f615e717f64e6a926269757852c5a8616ee75
-=======
-
-
 <script type="text/javascript"></script>
 <script type="text/javascript">
 	function div_show(s, ss) {
@@ -138,4 +124,4 @@ function buttonSubmit() {
 		document.forms[0].submit(); 
 	}
 </script>
->>>>>>> df2fe0683ad68c2f62a85701e553daf74258cca8
+

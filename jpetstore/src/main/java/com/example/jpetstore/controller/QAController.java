@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.jpetstore.domain.Product;
 import com.example.jpetstore.domain.QA;
@@ -84,9 +85,12 @@ public class QAController{
 	
 		
 	@RequestMapping("/qaDetail.do")
-	public String detailQA(@RequestParam("qnum") int qnum, @ModelAttribute("QADetail") QA qaDetail) throws Exception{
-		qaDetail = qaService.getQA(qnum);
-		System.out.println("qaDetail" + qaDetail.getTitle());
-		return qaDetailView;
+	public ModelAndView detailQA(@RequestParam("qnum") int qnum) throws Exception{
+		ModelAndView qaDetail = new ModelAndView();
+		QA detailQa = new QA();
+		detailQa = qaService.getQA(qnum);
+		qaDetail.setViewName(qaDetailView);
+		qaDetail.addObject("QADetail", detailQa);
+		return qaDetail;
 	}
 }
