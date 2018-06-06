@@ -43,9 +43,7 @@
   </select>
  
   <insert id="insertProduct" parameterType="Product">
-  	<selectKey keyProperty="productId" resultType="int" order="BEFORE">
-        SELECT productnum.nextval AS productId FROM DUAL
-     </selectKey>
+  	
     INSERT INTO SSD01_4.PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
       VALUES
       (#{productId}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})

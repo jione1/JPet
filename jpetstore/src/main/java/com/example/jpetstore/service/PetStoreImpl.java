@@ -168,4 +168,9 @@ public class PetStoreImpl implements PetStoreFacade {
 		// TODO Auto-generated method stub
 		itemDao.deletePost(itemId);
 	}
+	
+	@Override
+	public void updatePost(String itemId) {
+		itemDao.updatePost(itemId);
+	}
 }

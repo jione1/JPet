@@ -1,20 +1,152 @@
 package com.example.jpetstore.domain;
 
-public class Auction {
-	//°æ¸Å itemÀ» Á¤ÀÇ
+import java.io.Serializable;
+import java.util.Date;
 
-	 private int acuNum;
-	 private int itemId; //ÁÖ¹®À» À§ÇØ itemID¸¦ ºÎ¿©
-	 private int MaxPrice; //°æ¸Å¸¦ ÅëÇØ ºÎ¿©µÇ´Â ÃÖ°í°¡°İ
-	 private int inputPrice; //±¸¸ÅÀÚµéÀÌ ¿Ã¸®´Â °¡°İ ÀúÀå
-	 private String userId; //Âü°¡ÇÏ´Â ±¸¸ÅÀÚµéÀÇ id
-	 private boolean aucStatus; //³«Âû À¯¹«
-	 private String itemName; //°æ¸Å¿¡ ¿Ã·ÁÁö´Â itemÀÇ ÀÌ¸§ 
-	 private String discription; //°æ¸Å¿¡ ¿Ã·ÁÁö´Â itemÀÇ ¼³¸í
-	 private int unitCost; //ÆÇ¸ÅÀÚ°¡ ¿Ã¸®´Â ÃÖÁ¶ °¡°İ (ÃÖÀú°¡°İ)
+import javax.xml.crypto.Data;
 
-	 public Boolean isSold(int itemId) {
-		 return false;
-	 }
+@SuppressWarnings("serial")
+public class Auction implements Serializable {
+	//ê²½ë§¤ itemì„ ì •ì˜
+	
+	//aucparti
+	 private int inputPrice; //êµ¬ë§¤ìë“¤ì´ ì˜¬ë¦¬ëŠ” ê°€ê²© ì €ì¥
+	 private String userId;
+	 private int auction_num;
 	 
+	 //auction
+	 private String itemId; //ì£¼ë¬¸ì„ ìœ„í•´ itemIDë¥¼ ë¶€ì—¬
+	 private Date endtime;
+	 private boolean orderStatus;
+	 private int maxPrice; //ê²½ë§¤ë¥¼ í†µí•´ ë¶€ì—¬ë˜ëŠ” ìµœê³ ê°€ê²©
+	 
+	 //autItem
+	 private boolean aucStatus; //ë‚™ì°° ìœ ë¬´
+	 private String aucImage;
+	 private String aucDiscription; //ê²½ë§¤ì— ì˜¬ë ¤ì§€ëŠ” itemì˜ ì„¤ëª…
+	 private String aucName;
+	 private int auctionCost; //íŒë§¤ìê°€ ì˜¬ë¦¬ëŠ” ìµœì¡° ê°€ê²© (ìµœì €ê°€ê²©)
+	 private String itemName; //ê²½ë§¤ì— ì˜¬ë ¤ì§€ëŠ” itemì˜ ì´ë¦„ 
+	 private int partiId; //ì°¸ê°€í•˜ëŠ” êµ¬ë§¤ìë“¤ì˜ id
+	 
+	 
+	 
+	 public Boolean isSold(int itemId) {
+		return aucStatus;
+	 }
+
+
+	public int getInputPrice() {
+		return inputPrice;
+	}
+	
+	public void setInputPrice(int inputPrice) {
+		this.inputPrice = inputPrice;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
+	public int getAuction_num() {
+		return auction_num;
+	}
+
+	public void setAuction_num(int auction_num) {
+		this.auction_num = auction_num;
+	}
+
+	public Date getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
+	}
+
+	public boolean isAucStatus() {
+		return aucStatus;
+	}
+
+
+	public void setAucStatus(boolean aucStatus) {
+		this.aucStatus = aucStatus;
+	}
+
+
+	public boolean isOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(boolean orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public int getMaxPrice() {
+		return maxPrice;
+	}
+
+	public void setMaxPrice(int maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+
+	public String getAucImage() {
+		return aucImage;
+	}
+
+	public void setAucImage(String aucImage) {
+		this.aucImage = aucImage;
+	}
+
+	public String getAucDiscription() {
+		return aucDiscription;
+	}
+
+	public void setAucDiscription(String aucDiscription) {
+		this.aucDiscription = aucDiscription;
+	}
+
+	public String getAucName() {
+		return aucName;
+	}
+
+	public void setAucName(String aucName) {
+		this.aucName = aucName;
+	}
+
+	public int getAuctionCost() {
+		return auctionCost;
+	}
+
+	public void setAuctionCost(int auctionCost) {
+		this.auctionCost = auctionCost;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+
+	public int getPartiId() {
+		return partiId;
+	}
+
+	public void setPartiId(int partiId) {
+		this.partiId = partiId;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}	 
 }

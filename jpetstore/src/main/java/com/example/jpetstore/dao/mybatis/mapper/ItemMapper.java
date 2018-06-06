@@ -42,4 +42,6 @@ public interface ItemMapper {
   boolean isItemInStock(String itemId);
 
   void deletePost(String itemId);
+  
+  void updatePost(String itemId);
 }

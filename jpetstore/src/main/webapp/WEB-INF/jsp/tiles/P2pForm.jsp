@@ -6,7 +6,8 @@
 	<h2>ITEM POSTING</h2>
 	<div class="p-t-22 p-b-50 bo3"></div>
 	<c:url var="post_url" value="/p2p/sendP2PPost.do" />
-	<form:form commandName="P2PForm" method="post" action="${post_url }" enctype="multipart/form-data">
+	<form:form commandName="P2PForm" method="post"
+		enctype="multipart/form-data">
 
 		<div class="form-group">
 			<label for="title">TITLE</label>
@@ -25,50 +26,68 @@
 		</div>
 		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
-			<label for="sort">SORT</label><div></div>
-			<form:radiobutton path="sort" value="P2P" label="P2P"
-				checked="checked" /><div></div>
-			<form:radiobutton path="sort" value="AUCTION" label="AUCTION" />
+			<label for="sort">SORT</label>
+			<div></div>
+			<form:radiobutton path="sort" name = "sort" value="P2P" label="P2P"
+				checked="checked" onClick="div_show(this.value, 'divshow');" />
+			<div></div>
+			<form:radiobutton path="sort" name = "sort" value="AUCTION" label="AUCTION"
+				onClick="div_show(this.value, 'divshow');" />
 			<%-- <form:errors path="sort" /> --%>
+
+			<div id="divshow" style="display: none;">
+				<div class='input-group'>
+					<span>END-TO-DATE</span>&nbsp;&nbsp;<input type='text'
+						name="endDate" id="datepicker" />
+					<script type="text/javascript">
+						$("#datepicker").datepicker({
+							dateFormat : 'yy-mm-dd'
+						});
+					</script>
+
+				</div>
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<div class="form-group">
+				<label for="category">CATEGORY</label>
+				<form:select path="category" items="${categories }" />
+				<%-- <form:errors path="category" /> --%>
+				<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<div class="form-group">
+				<label for="quantity">QUANTITY</label>
+				<form:input path="quantity" type="number" />
+				<%-- <form:errors path="quantity" /> --%>
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<div class="form-group">
+				<label for="price">PRICE</label>
+				<form:input path="price" placeholder="가격을 입력해주세요" />
+				<%-- <form:errors path="price" /> --%>
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<div class="form-group">
+				<label for="file">PICTURE</label>
+				<div></div>
+				<input type="file" id="file">
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<div class="form-group">
+				<label for="discription">DISCRIPTION</label>
+				<div></div>
+				<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " />
+			</div>
+			<div class="p-t-22 p-b-30 bo3"></div>
+			<form:hidden path="supplier" value="2" />
+			<!-- <input type="submit" value="등록하기" /> -->
+			<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+				onClick="buttonSubmit()">등록</button>
 		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<div class="form-group">
-			<label for="category">CATEGORY</label>
-			<form:select path="category" items="${categories }" />
-			<%-- <form:errors path="category" /> --%>
-			<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
-		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<div class="form-group">
-			<label for="quantity">QUANTITY</label>
-			<form:input path="quantity" type="number" />
-			<%-- <form:errors path="quantity" /> --%>
-		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<div class="form-group">
-			<label for="price">PRICE</label>
-			<form:input path="price" placeholder="가격을 입력해주세요" />
-			<%-- <form:errors path="price" /> --%>
-		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<div class="form-group">
-			<label for="file">PICTURE</label> <div></div>
-			<input type="file" id="file">
-		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<div class="form-group">
-			<label for="discription">DISCRIPTION</label><div></div>
-			<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " />
-		</div>
-		<div class="p-t-22 p-b-30 bo3"></div>
-		<form:hidden path="supplier" value="2" />
-		<!-- <input type="submit" value="등록하기" /> -->
-		<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onClick="buttonSubmit()">
-			등록
-		</button>
 	</form:form>
 </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -79,3 +98,44 @@ function buttonSubmit() {
 }
 </script>
 >>>>>>> e48f615e717f64e6a926269757852c5a8616ee75
+=======
+
+
+<script type="text/javascript"></script>
+<script type="text/javascript">
+	function div_show(s, ss) {
+		if (s == "AUCTION") {
+			document.getElementById(ss).style.display = "";
+		} else {
+			document.getElementById(ss).style.display = "none";
+		}
+	}
+</script>
+
+<script type="text/javascript">
+	function buttonSubmit() {
+		
+	 	var size = document.getElementsByName("sort").length;
+        var checkvalue;
+        for(var i = 0; i < size; i++) {
+             if(document.getElementsByName("sort")[i].checked) {
+                 checkvalue=document.getElementsByName("sort")[i].value;
+                 break;
+             }
+        }
+        
+		if (checkvalue == "P2P") {
+			
+			<c:url var="post_url" value="/p2p/sendP2PPost.do" />
+			document.forms[0].action = '<c:out value="${post_url}"/>';
+			
+		}
+		else if (checkvalue == "AUCTION"){
+			
+			<c:url var="post_url" value="/auction/sendAuctionPost.do" />
+			document.forms[0].action = '<c:out value="${post_url}"/>';
+		}
+		document.forms[0].submit(); 
+	}
+</script>
+>>>>>>> df2fe0683ad68c2f62a85701e553daf74258cca8
