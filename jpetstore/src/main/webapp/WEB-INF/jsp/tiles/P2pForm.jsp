@@ -4,8 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 	<h2>ITEM POSTING</h2>
+	<div class="p-t-22 p-b-50 bo3"></div>
 	<c:url var="post_url" value="/p2p/sendP2PPost.do" />
-	<form:form commandName="p2pForm" method="post" action="${post_url }" enctype="multipart/form-data">
+	<form:form commandName="P2PForm" method="post" action="${post_url }" enctype="multipart/form-data">
+
 		<div class="form-group">
 			<label for="title">TITLE</label>
 			<form:input path="title" cssClass="form-control"
@@ -13,6 +15,7 @@
 			<form:errors path="title" />
 			<!-- <input type="email" class="form-control" id="Email1" placeholder="Enter email"> -->
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
 			<label for="itemName">ITEM NAME</label>
 			<form:input path="itemName" cssClass="form-control"
@@ -20,43 +23,59 @@
 			<form:errors path="itemName" />
 			<!-- <input type="email" class="form-control" id="Email1" placeholder="Enter email"> -->
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
-			<label for="sort">SORT</label>
+			<label for="sort">SORT</label><div></div>
 			<form:radiobutton path="sort" value="P2P" label="P2P"
-				checked="checked" />
+				checked="checked" /><div></div>
 			<form:radiobutton path="sort" value="AUCTION" label="AUCTION" />
-			<form:errors path="sort" />
+			<%-- <form:errors path="sort" /> --%>
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
 			<label for="category">CATEGORY</label>
 			<form:select path="category" items="${categories }" />
-			<form:errors path="category" />
+			<%-- <form:errors path="category" /> --%>
 			<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
 			<label for="quantity">QUANTITY</label>
 			<form:input path="quantity" type="number" />
-			<form:errors path="quantity" />
+			<%-- <form:errors path="quantity" /> --%>
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
 			<label for="price">PRICE</label>
 			<form:input path="price" placeholder="가격을 입력해주세요" />
-			<form:errors path="quantity" />
+			<%-- <form:errors path="price" /> --%>
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
-			<label for="file">PICTURE</label> 
+			<label for="file">PICTURE</label> <div></div>
 			<input type="file" id="file">
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
-			<label for="discription">DISCRIPTION</label>
+			<label for="discription">DISCRIPTION</label><div></div>
 			<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " />
 		</div>
+		<div class="p-t-22 p-b-30 bo3"></div>
 		<form:hidden path="supplier" value="2" />
-		<input type="submit" value="등록하기" />
-		<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-			등록</button>
+		<!-- <input type="submit" value="등록하기" /> -->
+		<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" onClick="buttonSubmit()">
+			등록
+		</button>
 	</form:form>
 </div>
 
+<<<<<<< HEAD
 
 
+=======
+<script>
+function buttonSubmit() {
+	document.forms[0].submit();
+}
+</script>
+>>>>>>> e48f615e717f64e6a926269757852c5a8616ee75

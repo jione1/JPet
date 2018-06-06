@@ -9,7 +9,7 @@ import com.example.jpetstore.dao.SequenceDao;
 import com.example.jpetstore.dao.mybatis.mapper.SequenceMapper;
 import com.example.jpetstore.domain.Sequence;
 
-@Repository
+
 public class MybatisSequenceDao implements SequenceDao {
 	@Autowired
 	protected SequenceMapper sequenceMapper;
@@ -33,4 +33,16 @@ public class MybatisSequenceDao implements SequenceDao {
 	    sequenceMapper.updateSequence(parameterObject);
 	    return sequence.getNextId();
 	}
+
+@Override
+public int getSequence(String name) throws DataAccessException {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+@Override
+public void updateSequence(String name) throws DataAccessException {
+	// TODO Auto-generated method stub
+	
+}
 }

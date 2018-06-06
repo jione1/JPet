@@ -19,12 +19,6 @@ public class P2PServiceImpl implements P2PService {
 	
 	@Autowired
 	private ItemDao itemDao;
-	
-	@Override
-	public void deleteItem(int postNum) {
-		// TODO Auto-generated method stub
-		p2pDao.deletePost(postNum);
-	}
 
 	@Override
 	public void insertItem(Item item) {
@@ -39,7 +33,7 @@ public class P2PServiceImpl implements P2PService {
 	}
 
 	@Override
-	public List<P2P> getP2PList(String userId) {
+	public List<P2P> getP2PPostList(String userId) {
 		// TODO Auto-generated method stub
 		return p2pDao.getP2PPostList(userId);
 	}
@@ -55,5 +49,12 @@ public class P2PServiceImpl implements P2PService {
 		// TODO Auto-generated method stub
 		p2pDao.updatePost(p2p);
 	}
-
+	@Override
+	public List<P2P> getP2PList() {
+		return p2pDao.getP2PList();
+	}
+	@Override
+	public P2P getP2PSeller(String itemId) {
+		return p2pDao.getP2PSeller(itemId);
+	}
 }

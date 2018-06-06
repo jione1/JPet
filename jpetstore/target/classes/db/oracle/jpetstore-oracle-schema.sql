@@ -113,6 +113,7 @@ create table orders (
 
 create sequence ordernum increment by 1 cache 10000;
 
+
 grant all on orders to public;
 
 create table orderstatus (
@@ -171,6 +172,7 @@ create table item (
 );
 
 grant all on item to public;
+
 create index itemProd on item (productid);
 
 create table inventory (

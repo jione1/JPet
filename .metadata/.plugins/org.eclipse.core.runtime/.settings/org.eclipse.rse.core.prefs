@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 activeuserprofiles=DESKTOP-S3T73LI;Team;shineeseoui-MacBook-Pro
+=======
+activeuserprofiles=Team;shineeseoui-MBP;shineeseoui-MacBook-Pro
+>>>>>>> e48f615e717f64e6a926269757852c5a8616ee75
 eclipse.preferences.version=1
 org.eclipse.rse.systemtype.local.systemType.defaultUserId=shineeseo
 useridperkey=shineeseoui-MacBook-Pro.Local\=shineeseo;

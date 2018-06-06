@@ -56,5 +56,9 @@ public interface PetStoreFacade {
 	Order getOrder(int orderId);
 
 	List<Order> getOrdersByUsername(String username);
-
+		
+	int getOracleSequence(String name);
+	
+	void deletePost(String itemId);
+	
 }

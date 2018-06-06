@@ -10,6 +10,8 @@ import com.example.jpetstore.dao.CategoryDao;
 import com.example.jpetstore.dao.ItemDao;
 import com.example.jpetstore.dao.OrderDao;
 import com.example.jpetstore.dao.ProductDao;
+import com.example.jpetstore.dao.SequenceDao;
+import com.example.jpetstore.dao.mybatis.OracleSequenceDao;
 import com.example.jpetstore.domain.Account;
 import com.example.jpetstore.domain.Category;
 import com.example.jpetstore.domain.Item;
@@ -74,6 +76,8 @@ public class PetStoreImpl implements PetStoreFacade {
 	@Autowired	// @Qualifier("mybatisOrderDao")
 	private OrderDao orderDao;
 
+	@Autowired
+	private SequenceDao oracleSequenceDao;
 	//-------------------------------------------------------------------------
 	// Operation methods, implementing the PetStoreFacade interface
 	//-------------------------------------------------------------------------
@@ -153,5 +157,15 @@ public class PetStoreImpl implements PetStoreFacade {
 
 	public List<Order> getOrdersByUsername(String username) {
 		return orderDao.getOrdersByUsername(username);
+	}
+	
+	public int getOracleSequence(String name) {
+		return oracleSequenceDao.getNextId(name);
+	}
+	
+	@Override
+	public void deletePost(String itemId) {
+		// TODO Auto-generated method stub
+		itemDao.deletePost(itemId);
 	}
 }

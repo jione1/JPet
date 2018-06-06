@@ -7,7 +7,7 @@
             <div class="wrap_header">
                 <!-- Logo -->
                 <a href="<c:url value="/shop/index.do"/>" class="logo">
-                    <img src="../images-theme/icons/logo.png" alt="IMG-LOGO">
+                    <img src="../images-theme/icons/jpetlogo.png" style="heigth:100%">
                 </a>
 
                 <!-- Menu -->
@@ -18,16 +18,19 @@
                                 <a a href="<c:url value="/shop/index.do"/>">Home</a>
                             </li>
                             <li>
-                                <a href="<c:url value="/shop/viewItem.do"/>">Shop</a>
+                                <a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>">Shop</a>
                             </li>
                             <li>
                                 <a href="<c:url value="/shop/viewCart.do"/>">Cart</a>
                             </li>
                             <li>
-                                <a href="<c:url value="/p2p/writeP2PPost.do"/>">Seller</a>
+                                <a href="<c:url value="/p2p/writeP2PPost.do"/>">New Post</a>
                             </li>
                             <li>
                                 <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Auction</a>
                             </li>
                         </ul>
                     </nav>

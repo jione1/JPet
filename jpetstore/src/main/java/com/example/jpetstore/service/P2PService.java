@@ -16,16 +16,15 @@ public interface P2PService {
 	//void updateQuantity(int itemId, int quantity);
 	//����ڰ� �ֹ�/ �ֹ���� ���� ��� item�� ������ �����Ѵ�. 
 
-	List<P2P> getP2PList(String userId);
+	List<P2P> getP2PPostList(String userId);
 	//userId�� �´� p2p����Ʈ�� �޾ƿͼ� �Ǹ����������� �����Ѵ�. 
 
 	Item getItem(String itemId, String userId); 
 	//userId�� ������ �Ǹ��� �������� �����´�. 
 
-	void deleteItem(int postNum);
-	//cascade�� �̿��ؼ� ����� p2p�� �����. 
-
 	void updateP2P(P2P p2p);
 	//�Ǹ��ڰ� ������ ������ �����Ͽ��� ��� ȣ��ȴ�. 
-
+	List<P2P> getP2PList();
+	
+	P2P getP2PSeller(String itemId);
 }

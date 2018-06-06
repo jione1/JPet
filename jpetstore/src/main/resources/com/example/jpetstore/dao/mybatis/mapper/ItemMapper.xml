@@ -21,7 +21,7 @@
       ATTR3 AS attribute3,
       ATTR4 AS attribute4,
       ATTR5 AS attribute5
-    FROM ITEM I, PRODUCT P
+    FROM SSD01_4.ITEM I, SSD01_4.PRODUCT P
     WHERE P.PRODUCTID = I.PRODUCTID
       AND I.PRODUCTID = #{value}
   </select>
@@ -31,20 +31,13 @@
       I.ITEMID,
       I.PRODUCTID,
       LISTPRICE,
-      UNITCOST,
-      SUPPLIER AS supplierId,
       I.PRODUCTID AS "product.productId",
       NAME AS "product.name",
       DESCN AS "product.description",
       CATEGORY AS "product.categoryId",
       STATUS,
-      ATTR1 AS attribute1,
-      ATTR2 AS attribute2,
-      ATTR3 AS attribute3,
-      ATTR4 AS attribute4,
-      ATTR5 AS attribute5,
       QTY AS quantity
-    FROM ITEM I, INVENTORY V, PRODUCT P
+    FROM SSD01_4.ITEM I, SSD01_4.INVENTORY V, SSD01_4.PRODUCT P
     WHERE P.PRODUCTID = I.PRODUCTID
       AND I.ITEMID = V.ITEMID
       AND I.ITEMID = #{value}
@@ -63,15 +56,23 @@
   </update>
   
   <insert id="insertItem" parameterType="Item">
-    INSERT INTO ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
+   <selectKey keyProperty="itemId" resultType="int" order="BEFORE">
+        SELECT itemnum.nextval AS itemId FROM DUAL
+     </selectKey>
+    INSERT INTO SSD01_4.ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
       VALUES
       (#{itemId}, #{productId}, #{listPrice}, #{unitCost},#{status})
   </insert>
   
   <insert id="insertInventoryQuantity" parameterType="Item">
-    INSERT INTO INVENTORY (ITEMID,QTY)
+	
+    INSERT INTO SSD01_4.INVENTORY (ITEMID,QTY)
       VALUES
       (#{itemId}, #{quantity})
   </insert>
   
+  <delete id ="deletePost" parameterType="String">
+    DELETE FROM SSD01_4.ITEM 
+    WHERE ITEMID = #{itemId}
+  </delete>
 </mapper>

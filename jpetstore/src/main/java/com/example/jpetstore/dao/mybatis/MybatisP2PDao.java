@@ -27,11 +27,7 @@ public class MybatisP2PDao implements P2PDao{
 		return null;
 	}
 
-	@Override
-	public void deletePost(int postNum) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void updatePost(P2P p2p) {
@@ -42,7 +38,16 @@ public class MybatisP2PDao implements P2PDao{
 	@Override
 	public List<P2P> getP2PPostList(String userId) {
 		// TODO Auto-generated method stub
-		return null;
+		return p2pMapper.getP2PPostList(userId);
 	}
-
+	@Override
+	public List<P2P> getP2PList() {
+		// TODO Auto-generated method stub
+		return p2pMapper.getP2PList();
+	}
+	
+	@Override
+	public P2P getP2PSeller(String itemId) {
+		return p2pMapper.getP2PSeller(itemId);
+	}
 }

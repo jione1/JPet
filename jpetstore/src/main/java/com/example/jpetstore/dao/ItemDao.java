@@ -28,4 +28,5 @@ public interface ItemDao {
   Item getItem(String itemId, String userId);
   //�Ǹ����� id�� ���� �������� �����´�. 
   
+  void deletePost(String itemId);
 }
