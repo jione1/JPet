@@ -42,7 +42,7 @@ public class P2PController {
 	private SequenceDao sequenceDao;
 	
 	@Autowired
-	P2PServiceImpl p2pService;
+	private P2PServiceImpl p2pService;
 	
 	@Autowired
 	private P2PFormValidator p2pFormvalidator;
@@ -126,29 +126,29 @@ public class P2PController {
 				
 		petStore.insertProduct(pro);	
 		
-//		P2P p2p = new P2P();
-//		p2p.setItemId(id);
-//		p2p.setPrice(p2pForm.getPrice());
-//		p2p.setTitle(p2pForm.getTitle());
-//		p2p.setId(username);
-//		
-//		Item item = new Item();
-//		item.setItemId(id);
-//		item.setProductId(pro_id);
-//		item.setListPrice(p2p.getPrice());
-//		item.setUnitCost(p2p.getPrice());
-//		item.setStatus("P");
-////		item.setAttribute1(file);
-//		item.setQuantity(p2pForm.getQuantity());
-//		
-//		
-//		petStore.insertItem(item);
-//		
-//		petStore.insertInventoryQuantity(item);
-//
-//		p2pService.insertP2P(p2p);
+		P2P p2p = new P2P();
+		p2p.setItemId(id);
+		p2p.setPrice(p2pForm.getPrice());
+		p2p.setTitle(p2pForm.getTitle());
+		p2p.setId(username);
 		
-//		model.addAttribute("p2p", p2p);
+		Item item = new Item();
+		item.setItemId(id);
+		item.setProductId(pro_id);
+		item.setListPrice(p2p.getPrice());
+		item.setUnitCost(p2p.getPrice());
+		item.setStatus("P");
+//		item.setAttribute1(file);
+		item.setQuantity(p2pForm.getQuantity());
+		
+		
+		petStore.insertItem(item);
+		
+		petStore.insertInventoryQuantity(item);
+
+		p2pService.insertP2P(p2p);
+		
+		model.addAttribute("p2p", p2p);
 		model.addAttribute("product", pro);
 		model.addAttribute("item", item);
 		model.addAttribute("userId", username);

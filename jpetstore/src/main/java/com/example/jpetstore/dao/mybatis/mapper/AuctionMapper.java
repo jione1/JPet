@@ -1,11 +1,12 @@
-package com.example.jpetstore.dao;
+package com.example.jpetstore.dao.mybatis.mapper;
 
 import java.util.List;
 
 import com.example.jpetstore.domain.Auction;
 
-public interface AuctionItemDao {
-	
+public interface AuctionMapper {
+	void insertMaxPrice(int aucNum, double maxPrice);
+	void updateOrderStatus(int aucNum, boolean orderStatus);
 	void insertAucItem(Auction auction);
 	void updateAucStatus(int aucNum, boolean aucStatus);
 	void updateAucItem(Auction auction);
@@ -15,6 +16,5 @@ public interface AuctionItemDao {
 	void deleteMaxPrice(int acuNum, String userID);
 	
 	String findAucUserID(int maxPrice, String userID);
-	void insertMaxPrice(int aucNum, double maxPrice);
-	void updateOrderStatus(int aucNum, boolean orderStatus);
+
 }

@@ -5,7 +5,50 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-05-31T18:51:20Z</updated>
+  <updated>2018-06-06T06:22:20Z</updated>
+  <entry>
+    <title>This Week in Spring - June 5th, 2018</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/06/06/this-week-in-spring-june-5th-2018" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-06-06:3293</id>
+    <updated>2018-06-06T06:22:20Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It&amp;rsquo;s been a wild and wonderful week. I&amp;rsquo;ve just returned from the epic VOXXED Singapore event, just intime to enjoy a wonderful week home in Spring-time and sun-filled San Francisco. We&amp;rsquo;ve got a &lt;em&gt;ton&lt;/em&gt; of things to cover, so let&amp;rsquo;s get to it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pivotal Cloud Foundry &lt;a href="https://pivotal.io/platform/services-marketplace/data-management/minio"&gt;now supports Minio&lt;/a&gt;, a highly available S3-like HA enterprise grade object storage server for developers.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-release/milestones?direction=asc&amp;sort=due_date"&gt;Spring Cloud Finchley GA is scheduled for June 15&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In Part 4 of &amp;ldquo;Should that be a Microservice?&amp;rdquo; Nate Schutta &lt;a href="https://content.pivotal.io/blog/should-that-be-a-microservice-part-4-independent-scalability"&gt;talks Independent Scalability and why it&amp;rsquo;s important&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Batch ninja Mahmoud Ben Hassine just announced Spring Batch 4.1.0.M1 which includes, among other thing, &lt;a href="https://spring.io/blog/2018/05/31/spring-batch-4-1-0-m1-released"&gt;simplified testing and easier remote chunking&lt;/a&gt;. Get the bits now!&lt;/li&gt;
+  &lt;li&gt;In last week&amp;rsquo;s &lt;em&gt;Spring Tips&lt;/em&gt; we looked at JDBC, which is much more than just the venerable &lt;code&gt;JdbcTemplate&lt;/code&gt;! In this post we look at the &lt;code&gt;JdbcTemplate&lt;/code&gt;, various SQL command objects, &lt;code&gt;SimpleFlatMapper&lt;/code&gt;, and so much more. &lt;a href="https://spring.io/blog/2018/05/30/spring-tips-jdbc"&gt;Check it out!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud teammember Ryan Baxter has just announced &lt;a href="https://spring.io/blog/2018/05/29/spring-cloud-finchley-rc2-has-been-released"&gt;that Spring Cloud Finchley.RC2 was released!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Join Madhura Bhave and Stephane Maldini on June 20th for &lt;a href="https://www.meetup.com/sfjava/events/251270797/"&gt;this&lt;/a&gt; San Francisco JUG meetup!&lt;/li&gt;
+  &lt;li&gt;This is kind of interesting! It&amp;rsquo;s a &lt;a href="https://www.blueriq.com/blueriq-10/"&gt;rules-platform that targets Spring Boot, Spring Cloud and other frameworks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The latest release &lt;a href="https://jqassistant.org/jqassistant-1-4-0-and-sonarqube-plugin-released/"&gt;of jQAssistant now supports quality control rules for Spring and Spring Boot-based applications&lt;/a&gt; with the inclusion of the Spring plugin.&lt;/li&gt;
+  &lt;li&gt;The Spring I/O team (behind the &lt;em&gt;epic&lt;/em&gt; Spring I/O conference in Barcelona, Spain, are now &lt;a href="http://twitter.com/spring_io"&gt;publishing their talks and you should follow that account to get the latest videos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I really like this post by Spring creator Rod Johnson that describes the spirit of Spring and speaks to the &lt;a href="https://the-composition.com/developers-developers-developers-microsoft-github-and-the-ascendancy-of-code-7e6ceb51635f?source=userActivityShare-a17df5ec14a4-1528236113"&gt;recent acquisition of Github by Microsoft&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out the Vedran Pavic&amp;rsquo;s Spring I/O 2018 talk on Spring Session](&lt;a href="https://www.youtube.com/watch?v=sJcVaOERo6M&amp;feature=youtu.be"&gt;https://www.youtube.com/watch?v=sJcVaOERo6M&amp;feature=youtu.be&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Check out Spring Data Geode lead &lt;a href="https://www.infoq.com/presentations/apache-geode-spring-data-annotations"&gt;John Blum&amp;rsquo;s SpringOne Platform 2017 talk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Sleuth &lt;a href="https://twitter.com/springcloud/status/1004050966952448000"&gt;just accepted its 1000th pull-request&lt;/a&gt;! This project &lt;em&gt;just&lt;/em&gt; might have legs :-)&lt;/li&gt;
+  &lt;li&gt;In London? You should be at the SpringOne Tour event on 21-22 June in London! Learn about all &lt;a href="https://twitter.com/springcentral/status/1003701222707118080"&gt;things Cloud Native and Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Apache Kafka 2.0 just had a feature-freeze! &lt;a href="https://twitter.com/matthiasjsax/status/1002077052307095553?s=12"&gt;Congrats to the Apache Kafka team&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Redis Labs liked my &lt;a href="https://twitter.com/RedisLabs/status/1002749155322757120"&gt;Spring Tips video introducing Spring&amp;rsquo;s vast support for Redis&lt;/a&gt;, and you might too!&lt;/li&gt;
+  &lt;li&gt;Bartosz Jedrzejewski has a &lt;em&gt;great&lt;/em&gt; post &lt;a href="https://www.e4developer.com/2018/05/31/webflux-in-practice-asynchronous-service-with-webclient/"&gt;on building reacitve applications with Spring WebFlux &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is super cool! The IntelliJ IDEA support now includes the ability to group related confguration properties in &lt;code&gt;application.properties&lt;/code&gt;. Nice work &lt;a href="https://twitter.com/yanncebron/status/1002473045330726912?s=12"&gt;to Yann Cebron and the team&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Having issues with Java 10, Lombok and Spring Boot? &lt;a href="https://twitter.com/rotnroll666/status/1002130120092585984?s=12"&gt;You might want to look at this thread&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love this blog on test driven documentation &lt;a href="https://www.vojtechruzicka.com/spring-rest-docs/"&gt;with Spring REST Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Get your early bird &lt;a href="https://twitter.com/springcentral/status/1002294544967258112"&gt;tickets to the RabbitMQ conference&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Hurray! Pivotal Web Services now supports &lt;a href="https://twitter.com/springcentral/status/1002231331986620417"&gt;Docker images&lt;/a&gt;! Get it while it&amp;rsquo;s hot!&lt;/li&gt;
+  &lt;li&gt;I like this post, the fourth in a series, that looks at the canonical &amp;ldquo;REST in Practice&amp;rdquo; example, &lt;a href="https://blog.sourced-bvba.be//article/2018/05/17/tackling-restbucks-clean-architecture.4/"&gt;&lt;em&gt;Restbucks&lt;/em&gt;, and applies Clean Architecture&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://m.youtube.com/watch?v=x-5oREneJ_k&amp;list=PLjXUjSTUHs0SBkPlUEnkXcDqQKlyUOyAS&amp;index=2"&gt;YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;You should check out the slides from Spring Boot team legend Madhura Bhave&amp;rsquo;s Spring I/O 2018 talk on &lt;a href="https://twitter.com/springcentral/status/1001544783565766656"&gt;&amp;ldquo;What&amp;rsquo;s New in Spring Boot 2.0&amp;rdquo;&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Check out this &lt;a href="https://twitter.com/antirez/status/1001480569442783240?s=12"&gt;mega thread by Redis project lead Salvatore Sanfilippo on the latest and greatest in Redis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is exciting! The next version of &lt;a href="https://twitter.com/snicoll/status/1001125994173009923"&gt;Spring Boot, 2.1, now includes the Spring Integration graph endpoint&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Christiaan Roeleveld has just announced his new &lt;a href="https://automate-it.today/bosh-tutorial-video-series/"&gt;BOSH&lt;/a&gt; video series and it looks really good! BOSH is the driftless package manager distributed systems. &lt;a href="http://bosh.io"&gt;It&lt;/a&gt; manages the lifecycle of infrastructure and surfaces a portable API that works, agnostic of the underlying IaaS.&lt;/li&gt;
+  &lt;li&gt;There is &lt;a href="https://github.com/osis/cf-swift-client"&gt;now a Swift-language Cloud Foundry binding&lt;/a&gt;. Cool!&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Batch 4.1.0.M1 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/05/31/spring-batch-4-1-0-m1-released" />
@@ -1121,19 +1164,5 @@ Issues&lt;/a&gt;, or via the comments section. You can also ping me
 &lt;p&gt;Spring Boot 2.0.2 includes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/109?closed=1"&gt;over 80 fixes, improvements, and dependency updates&lt;/a&gt;. Thanks to everyone that has contributed with issue reports and pull requests. Please note that a number of the upgraded dependencies contain fixes for various security vulnerabilities. Please see &lt;a href="https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published"&gt;this blog post&lt;/a&gt; for further details.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.0.2.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 1.5.13</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/05/09/spring-boot-1-5-13" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-05-09:3271</id>
-    <updated>2018-05-09T11:27:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and community, I am pleased to announce that Spring Boot 1.5.13 has been released and is is now available from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Spring Boot 1.5.13 includes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/110?closed=1"&gt;over 20 fixes, improvements and dependency updates&lt;/a&gt;. Thanks to all that have contributed with issue reports and pull requests. Please note that a number of the upgraded dependencies contain fixes for various security vulnerabilities. Please see &lt;a href="https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published"&gt;this blog post&lt;/a&gt; for further details.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/1.5.13.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

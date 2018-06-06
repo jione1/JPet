@@ -11,7 +11,7 @@ import com.example.jpetstore.domain.Order;
 /**
  * @author Chang-Sup Park
  */
-@Service("orderServiceImpl")
+@Service
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired

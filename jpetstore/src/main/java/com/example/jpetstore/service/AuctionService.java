@@ -1,26 +1,33 @@
-//package com.example.jpetstore.service;
-//
-//import java.util.List;
-//
-//public interface AuctionService {
-//	void partiAuc(int aucNum, int inputPrice, String userID);
-//	//»ç¿ëÀÚ°¡ ¿Á¼Ç¿¡ Âü°¡ÇÏ¸é¼­ ¿øÇÏ´Â °¡°ÝÀ» ÀûÀ½ -> AucParti¿¡ µ¥ÀÌÅÍ »ðÀÔ
-//	
-//	void updateAucStatus(boolean aucStatus);
-//	//³«Âû¹ÞÀº Âü¿©ÀÚ°¡ ÁÖ¹®À» ÇßÀ» °æ¿ì aucstatus¸¦ true·Î ¼³Á¤ÇÏ¿© ÇöÀç ÁøÇàÇÏ°í ÀÖ´Â ¿Á¼Ç°ú ±¸º°ÇÑ´Ù.
-//	
-//	void updateOrderStatus(boolean orderStatus);
-//	//³«Âû¹ÞÀº Âü¿©ÀÚ°¡ ÁÖ¹®À» ÇßÀ» °æ¿ì orderStatus¸¦ true·Î ¼³Á¤ÇÏ¿© ÇöÀç ÁøÇàÇÏ°í ÀÖ´Â ¿Á¼Ç°ú ±¸º°ÇÑ´Ù.
-//	
-//	List<AucItem> getAucList();
-//	//°æ¸Å ¸®½ºÆ®¸¦ ¸ðµÎ ºÒ·¯¿Â´Ù. Áö³­°æ¸Å->aucstatus°¡ true / ÁøÇàÁßÀÎ °æ¸Å -> aucstatus°¡ false
-//	
-//	void deleteMaxInputPrice(int aucNum);
-//	//³«Âû¹ÞÀº »ç¿ëÀÚ°¡ ³«ÂûÀ» Æ÷±âÇßÀ» °æ¿ì inputpriceÁß °¡Àå ³ôÀº °¡°ÝÀ» deleteÇÑ ÈÄ¿¡ maxprice¸¦ º¯°æÇÑ´Ù.
-//	
-//	Auction getAuctionPost(int aucNum);
-//	//¿Á¼Ç¹øÈ£¿¡ µû¸¥ ¿Á¼Ç Æ÷½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù. 
-//	
-//	String findAucUserID(int maxPrice);
-//	//Å« °ªÀ» ÀÔ·ÂÇÑ »ç¿ëÀÚÀÇ ¾ÆÀÌµð¸¦ ¹Þ¾Æ¿Â´Ù. 
-//}
+package com.example.jpetstore.service;
+
+import java.util.List;
+
+import com.example.jpetstore.domain.Auction;
+
+public interface AuctionService {
+	void partiAuc(int aucNum, int inputPrice, String userID);
+	//ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -> AucPartiï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	
+	void updateAucStatus(int aucNum, boolean aucStatus);
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ aucstatusï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	
+	void updateOrderStatus(int aucNum, boolean orderStatus);
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ orderStatusï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	
+	List<Auction> getAucList();
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½->aucstatusï¿½ï¿½ true / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -> aucstatusï¿½ï¿½ false
+	
+	void deleteMaxInputPrice(int aucNum, String userID);
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ inputpriceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ deleteï¿½ï¿½ ï¿½Ä¿ï¿½ maxpriceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	
+	Auction getAuctionPost(int aucNum);
+	//ï¿½ï¿½ï¿½Ç¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½. 
+	
+	String findAucUserID(int maxPrice, String userID);
+	//Å« ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ¾Æ¿Â´ï¿½.
+	
+	void insertMaxPrice(int aucNum, double maxPrice);
+	void insertAucItem(Auction auction);
+	void updateAucItem(Auction auction);
+	void insertPrice(int aucNum, int inputPrice, String userID);
+}

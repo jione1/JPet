@@ -61,4 +61,6 @@ public interface PetStoreFacade {
 	
 	void deletePost(String itemId);
 	
+	void updatePost(String itemId);
+	
 }

@@ -56,9 +56,7 @@
   </update>
   
   <insert id="insertItem" parameterType="Item">
-   <selectKey keyProperty="itemId" resultType="int" order="BEFORE">
-        SELECT itemnum.nextval AS itemId FROM DUAL
-     </selectKey>
+   
     INSERT INTO SSD01_4.ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
       VALUES
       (#{itemId}, #{productId}, #{listPrice}, #{unitCost},#{status})
@@ -75,4 +73,10 @@
     DELETE FROM SSD01_4.ITEM 
     WHERE ITEMID = #{itemId}
   </delete>
+  
+  <update id ="updatePost" parameterType="String">
+    UPDATE SSD01_4.ITEM 
+    SET
+    WHERE ITEMID = #{itemId}
+  </update>
 </mapper>
