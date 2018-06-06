@@ -7,14 +7,13 @@
 
 <select id="getP2PPostList" resultType="P2P">
 	select
-		P.P2PTitle AS title,
+		P.P2PTITLE AS title,
 		P.SELLERID AS id,
 		I.ITEMID AS itemId,
-		I.LISTPRICE AS price,
-		I.ITEMIMAGE AS url
-	FROM ITEM I, P2P P
-	WHERE P2P.SELLERID=#{id}
-	AND ITEM.ITEMID=P2P.ITEMID;
+		I.LISTPRICE AS price
+	FROM SSD01_4.ITEM I, SSD01_4.P2P P
+	WHERE P.SELLERID=#{id}
+	AND I.ITEMID=P.ITEMID
 </select>
 
 <select id="getP2PDetail" resultType="P2P">
@@ -33,31 +32,39 @@
 	WHERE P.SELLERID=#{id}
 	AND I.ITEMID=P.ITEMID 
 	AND P.PRODUCTID = I.PRODUCTID 
-	AND P.ITEMID = V.ITEMID;
+	AND P.ITEMID = V.ITEMID
 	
 </select>
 
-<!--  <insert id = "insertPost" parameterType="P2P">
- 	INSERT ALL
- 		INTO ITEM VALUES(ITEMID,PRODUCTID,LISTPRICE,ATTR2)
- 		INTO P2P VALUES(ITEMID,SELLERID,P2PTITLE)
- 		INTO PRODUCT VALUES(PRODUCTID,CATEGORY,NAME,DESCN)
- 		INTO INVENTORY VALUES(ITEMID,QTY)
- 		SELECT (#{itemId}) AS ITEMID,(#{item.productId}) AS PRODUCTID,
- 		(#{item.listPrice}) AS LISTPRICE,(#{item.attribute2}) AS ATTR2 FROM DUAL
- 		UNION ALL
- 		SELECT (#{itemId}) AS ITEMID,(#{id}) AS SELLERID,
- 		(#{title}) AS P2PTITLE FROM DUAL
- 		UNION ALL
- 		SELECT (#{item.productId}) AS PRODUCTID,(#{product.categoryId}) AS CATEGORY,
- 		(#{product.name}) AS NAME,(#{product.description}) AS DESCN FROM DUAL
- 		UNION ALL
- 		SELECT (#{itemId}) AS ITEMID,(#{item.quantity}) AS QTY FROM DUAL;
- </insert> -->
- 
+<select id="getP2PList" resultType="P2P">
+	select
+		P.P2PTITLE AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price
+	FROM SSD01_4.ITEM I, SSD01_4.P2P P
+	WHERE I.ITEMID=P.ITEMID
+</select>
+
+<select id="getP2PSeller" resultType="P2P">
+	select
+		SELLERID AS id 
+	FROM SSD01_4.P2P 
+	WHERE ITEMID = #{value}
+</select>
+
+
 <insert id ="insertPost" parameterType="P2P">
     INSERT INTO SSD01_4.P2P (P2PTITLE,SELLERID,ITEMID)
       VALUES
       (#{title}, #{id}, #{itemId})
   </insert>
+  
+  
+  <update id ="updatePost" parameterType="P2P">
+    UPDATE SSD01_4.P2P 
+    SET P2PTITLE = #{title}
+    WHERE ITEMID = #{itemId}
+  </update>
+  
 </mapper>

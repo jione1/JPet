@@ -18,9 +18,15 @@ public class Item implements Serializable {
   private String attribute5;
   private Product product;
   private int quantity;
- 
+  private String title;
   
  
+public String getTitle() {
+	return title;
+}
+public void setTitle(String title) {
+	this.title = title;
+}
 /* JavaBeans Properties */
   public String getItemId() { return itemId; }
   public void setItemId(String itemId) { this.itemId = itemId.trim(); }

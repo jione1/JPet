@@ -11,12 +11,12 @@
   </select>
       
   <select id="getOracleSequence" resultType="Sequence">
-    select '$name$' as name, $name$.nextval as nextid from dual
-  </select>
+        select '${name}' as name, ${name}.NEXTVAL as nextId from dual
+   </select>
    
   <update id="updateSequence">
     UPDATE SEQUENCE
-    SET NEXTID = #{nextId}
+    SET NEXTID = NEXTID+1
     WHERE NAME = #{name}
   </update>
 

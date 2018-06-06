@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <body>
 	<!-- breadcrumb -->
 	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
 		<a href="index.html" class="s-text16"> Home <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <a href="product.html" class="s-text16"> Women <i
+		</a> <a href="product.html" class="s-text16"> Fish <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <a href="#" class="s-text16"> T-Shirt <i
+		</a> <a href="#" class="s-text16"> JellyFish <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <span class="s-text17"> Boxy T-Shirt with Roll Sleeve Detail </span>
+		</a> <span class="s-text17"> JellyFish-01 </span>
 	</div>
 
 	<!-- Product Detail -->
@@ -43,14 +44,13 @@
 			</div>
 
 			<div class="w-size14 p-t-30 respon5">
-				<h4 class="product-detail-name m-text16 p-b-13">Boxy T-Shirt
-					with Roll Sleeve Detail</h4>
+				<h4 class="product-detail-name m-text16 p-b-13">${product.getName()}</h4>
 
-				<span class="m-text17"> $22 </span>
+				<span class="m-text17"> ₩ ${item.getListPrice()} </span>
 
-				<p class="s-text8 p-t-10">Nulla eget sem vitae eros pharetra
+				<!-- <p class="s-text8 p-t-10">Nulla eget sem vitae eros pharetra
 					viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
-				</p>
+				</p> -->
 
 				<!--  -->
 				<div class="p-t-33 p-b-60">
@@ -111,8 +111,8 @@
 				</div>
 
 				<div class="p-b-45">
-					<span class="s-text8 m-r-35">SKU: MUG-01</span> <span
-						class="s-text8">Categories: Mug, Design</span>
+					<span class="s-text8 m-r-35">SKU: ${item.getItemId() }</span> <span
+						class="s-text8">Categories: Fish, Pet</span>
 				</div>
 
 				<!--  -->
@@ -126,16 +126,15 @@
 					</h5>
 
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">Fusce ornare mi vel risus porttitor
-							dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit.
-							Proin gravida arcu nisl, a dignissim mauris placerat</p>
+						<p class="s-text8">${product.getDescription()}</p>
 					</div>
 				</div>
 
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<h5
 						class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						판매자 페이지</h5>
+						<a style="text-decoration:none ;" href="<c:url value="/p2p/viewSellerPage.do"><c:param name="userId" value="${userId}"/></c:url>">
+						판매자 페이지[${userId}]</a></h5>
 				</div>
 
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
@@ -143,12 +142,15 @@
 						class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
 						Q&A (0)</h5>
 				</div>
-				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14"
-				>
+				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 						<!-- Button -->
 						<button
-							class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+							class="flex-c-m size11 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 							판매자에게 질문하기</button>
+					</div>
+					<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+					<button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn">
+							삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn">수정 </button>
 					</div>
 			</div>
 		</div>
@@ -415,7 +417,9 @@
 	</div>
 	</section>
 
-
+<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
@@ -466,6 +470,51 @@
 			});
 		});
 	</script>
-
+	
 	<!--===============================================================================================-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script>
+	$(function(){
+	    $('#updateBtn').click(function(){
+	   	 	var itemId = '<c:out value="${item.getItemId()}"/>';
+			$.ajax({
+		  		url : "/jpetstore/shop/updatePost.do",
+		  		async : true,
+		  		type: "POST",
+		  		data:  { "itemId": itemId },
+		  		success:function() {
+		  			alert("성공!!");
+		  		},
+		  		fail:function() {
+		  			alert("실패 !!");
+		  		}
+		  	}); 	
+	    });
+	});
+	
+	$(function(){
+	    $('#deleteBtn').click(function(){
+	   	 	var itemId = '<c:out value="${item.getItemId()}"/>'; 
+	   	 	
+			$.ajax({
+		  		url : "/jpetstore/shop/deletePost.do",
+		  		async : true,
+		  		type: "POST",
+		  		data:  { "itemId": itemId },
+		  		success:function(response) {
+		  			alert("삭제되었습니다. ");
+		  			window.location.href="http://localhost:8081/jpetstore/shop/viewCategory.do?categoryId=FISH"
+		  			
+		  		},
+		  		fail:function(response) {
+		  			alert(response);
+		  			
+		  		}
+		  	}); 	
+	    });
+	});
+	
+	</script>
+	<!--===============================================================================================-->
+	
 	<script src="js/main.js" type="text/javascript"></script>
