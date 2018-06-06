@@ -17,4 +17,5 @@ public interface AuctionItemDao {
 	String findAucUserID(int maxPrice, String userID);
 	void insertMaxPrice(int aucNum, double maxPrice);
 	void updateOrderStatus(int aucNum, boolean orderStatus);
+	int auctionListSize();
 }

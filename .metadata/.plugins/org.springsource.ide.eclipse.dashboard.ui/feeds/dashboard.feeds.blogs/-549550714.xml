@@ -5,7 +5,20 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-06-06T06:22:20Z</updated>
+  <updated>2018-06-06T08:01:00Z</updated>
+  <entry>
+    <title>Spring Tips: JPA</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/06/06/spring-tips-jpa" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-06-06:3292</id>
+    <updated>2018-06-06T08:01:00Z</updated>
+    <content type="html">&lt;p&gt;speaker: &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hi Spring fans! In this installment we look at the Java Persistence API (JPA) and its most ubiquitous implementation Hibernate. We look at basic Spring support for JPA, Spring Boot&amp;rsquo;s auto-configuration and supported configuration properties, mapped superclasses, auditing (using Spring Data&amp;rsquo;s JPA auditing facility) and journaling (using the Hibernate Envers project and Spring Data Envers).&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/2E8_0Qxi6Tg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - June 5th, 2018</title>
     <link rel="alternate" href="https://spring.io/blog/2018/06/06/this-week-in-spring-june-5th-2018" />
@@ -1150,19 +1163,5 @@ Issues&lt;/a&gt;, or via the comments section. You can also ping me
     <content type="html">&lt;p&gt;speaker: &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hi Spring fans! In this installment we&amp;rsquo;ll look at the new OAuth client support in Spring Security 5.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/gSUeGi4sLlA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.0.2</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/05/09/spring-boot-2-0-2" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-05-09:3272</id>
-    <updated>2018-05-09T15:39:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and the community, I am pleased to announce that Spring Boot 2.0.2 is now available from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Spring Boot 2.0.2 includes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/109?closed=1"&gt;over 80 fixes, improvements, and dependency updates&lt;/a&gt;. Thanks to everyone that has contributed with issue reports and pull requests. Please note that a number of the upgraded dependencies contain fixes for various security vulnerabilities. Please see &lt;a href="https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published"&gt;this blog post&lt;/a&gt; for further details.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.0.2.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

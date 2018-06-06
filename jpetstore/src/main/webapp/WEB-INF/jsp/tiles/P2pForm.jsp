@@ -45,23 +45,25 @@
 							dateFormat : 'yy-mm-dd'
 						});
 					</script>
-
 				</div>
 			</div>
 			<div class="p-t-22 p-b-30 bo3"></div>
-			<div class="form-group">
-				<label for="category">CATEGORY</label>
-				<form:select path="category" items="${categories }" />
-				<%-- <form:errors path="category" /> --%>
-				<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
-			</div>
+			<div id = "divhidden">
+				<div class="form-group">
+					<label for="category">CATEGORY</label>
+					<form:select path="category" items="${categories }" />
+					<%-- <form:errors path="category" /> --%>
+					<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
+				</div>
+				<div class="p-t-22 p-b-30 bo3"></div>
+				<div class="form-group">
+					<label for="quantity">QUANTITY</label>
+					<form:input path="quantity" type="number" />
+					<%-- <form:errors path="quantity" /> --%>
+				</div>
+			
 			<div class="p-t-22 p-b-30 bo3"></div>
-			<div class="form-group">
-				<label for="quantity">QUANTITY</label>
-				<form:input path="quantity" type="number" />
-				<%-- <form:errors path="quantity" /> --%>
 			</div>
-			<div class="p-t-22 p-b-30 bo3"></div>
 			<div class="form-group">
 				<label for="price">PRICE</label>
 				<form:input path="price" placeholder="가격을 입력해주세요" />
@@ -95,8 +97,10 @@
 	function div_show(s, ss) {
 		if (s == "AUCTION") {
 			document.getElementById(ss).style.display = "";
+			document.getElementById('divhidden').style.display="none";
 		} else {
 			document.getElementById(ss).style.display = "none";
+			document.getElementById('divhidden').style.display="";
 		}
 	}
 </script>

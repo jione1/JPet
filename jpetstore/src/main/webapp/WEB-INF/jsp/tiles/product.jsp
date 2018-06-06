@@ -30,11 +30,11 @@
 						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="BIRDS"/></c:url>" class="s-text13"> BIRDS </a></li>
 					</ul>
 
-					<div class="p-t-22 p-b-50 bo3"></div>
+					<div class="p-t-22 p-b-50 bo3" style="display:none"></div>
 
-					<div class="p-t-22 p-b-50 bo3"></div>
+					<div class="p-t-22 p-b-50 bo3" style="display:none"></div>
 
-					<div class="pos-relative bo4 of-hidden"></div>
+					<div class="pos-relative bo4 of-hidden" style="display:none"></div>
 				</div>
 			</div>
 

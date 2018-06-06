@@ -2,6 +2,7 @@ package com.example.jpetstore.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import com.example.jpetstore.dao.SequenceDao;
 import com.example.jpetstore.domain.Auction;
 import com.example.jpetstore.domain.Item;
+import com.example.jpetstore.domain.P2P;
 import com.example.jpetstore.domain.Product;
 import com.example.jpetstore.service.AuctionService;
+import com.example.jpetstore.service.P2PService;
 import com.example.jpetstore.service.PetStoreFacade;
 
 
@@ -44,6 +47,8 @@ public class AuctionFormController {
 	
 	private Auction auction;
 	
+	@Autowired
+	private P2PService p2pService;
 
 	@RequestMapping("/auction/newAuction.do") //옥션 model 에 담기 
 	public String nowAuction(
@@ -101,28 +106,12 @@ public class AuctionFormController {
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
 		System.out.println(username);
-		
-		int item_seq = 203;
-		int product_seq = item_seq;
-		
-		System.out.println(item_seq + " " + product_seq);
-		
-		String id = "P2P-" + (item_seq);
-		String pro_id;
-		
-		if (auctionForm.getCategory().equals("FISH")) {
-			pro_id = "P2P-FI-" + (product_seq);
-		} else if (auctionForm.getCategory().equals("DOGS")) {
-			pro_id = "P2P-DO-" + (product_seq);
-		}else if (auctionForm.getCategory().equals("CATS")) {
-			pro_id = "P2P-CA-" + (product_seq);
-		}else if (auctionForm.getCategory().equals("REPTILES")) {
-			pro_id = "P2P-RE-" + (product_seq);
-		}else {
-			pro_id = "P2P-BI-" + (product_seq);
-		}
-		System.out.println(pro_id);
-		
+	
+		ArrayList<P2P> p2pList = new ArrayList<P2P>(this.p2pService.getP2PList());
+		int item_seq = p2pList.size();
+
+		String id = "AUC-" + (item_seq + 1);
+		String pro_id = "AUC-PRO-" + (item_seq + 1);
 		
 		Product pro = new Product();
 		
@@ -145,6 +134,9 @@ public class AuctionFormController {
 		
 		petStore.insertItem(item);
 		
+		int size = auctionService.auctionListSize();
+	
+		System.out.println(size);
 		auction = new Auction();
 		
 		auction.setItemId(id);
@@ -157,8 +149,9 @@ public class AuctionFormController {
 		auction.setAucName(auctionForm.getTitle());
 		auction.setAuctionCost((int)item.getListPrice());
 		auction.setUserId(username);
-		auction.setAuction_num(1);
+		auction.setAuction_num(size+1);
 		auction.setItemName(auctionForm.getItemName());
+		auction.setUserId(username);
 		
 		auctionService.insertAucItem(auction);
 		

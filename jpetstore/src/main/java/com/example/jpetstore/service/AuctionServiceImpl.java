@@ -85,4 +85,8 @@ public class AuctionServiceImpl implements AuctionService {
 		return null;
 	}
 	
+	@Override
+	public int auctionListSize() {
+		return auctionItemDao.auctionListSize();
+	}
 }

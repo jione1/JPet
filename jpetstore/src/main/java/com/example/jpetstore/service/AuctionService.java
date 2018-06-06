@@ -30,4 +30,5 @@ public interface AuctionService {
 	void insertAucItem(Auction auction);
 	void updateAucItem(Auction auction);
 	void insertPrice(int aucNum, int inputPrice, String userID);
+	int auctionListSize();
 }

@@ -195,8 +195,9 @@ select
 	
 	
 	
-	alter table P2P
-drop constraint FK_P2P_1;
+alter table AUCTIONITEM drop column SELLERID;
+alter table AUCTIONITEM add SELLERID varchar2(80) not null;
+delete from AUCTIONITEM;
 
 
 	

@@ -46,7 +46,7 @@
   	
     INSERT INTO SSD01_4.PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
       VALUES
-      (#{productId}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+      (#{productId,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
   
 </mapper>

@@ -69,4 +69,7 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 		
 	}
 
+	public int auctionListSize() {
+		return auctionMapper.auctionListSize();
+	}
 }

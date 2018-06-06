@@ -94,31 +94,33 @@ public class P2PController {
 		String username = userSession.getAccount().getUsername();
 		System.out.println(username);
 		
-		int item_seq = sequenceDao.getNextId("itemnum");
-		int product_seq = item_seq;
+//		int item_seq = sequenceDao.getNextId("itemnum");
+//		int product_seq = item_seq;
+//		
+//		System.out.println(item_seq + " " + product_seq);
 		
-		System.out.println(item_seq + " " + product_seq);
-		
-		String id = "P2P-" + (item_seq-20000);
+		ArrayList<P2P> p2pList = new ArrayList<P2P>(this.p2pService.getP2PList());
+		int item_seq = p2pList.size();
+		String id = "P2P-" + (item_seq+1);
 		String pro_id;
 		
 		if (p2pForm.getCategory().equals("FISH")) {
-			pro_id = "P2P-FI-" + (product_seq-20000);
+			pro_id = "P2P-FI-" + (item_seq+1);
 		} else if (p2pForm.getCategory().equals("DOGS")) {
-			pro_id = "P2P-DO-" + (product_seq-20000);
+			pro_id = "P2P-DO-" + (item_seq+1);
 		}else if (p2pForm.getCategory().equals("CATS")) {
-			pro_id = "P2P-CA-" + (product_seq-20000);
+			pro_id = "P2P-CA-" + (item_seq+1);
 		}else if (p2pForm.getCategory().equals("REPTILES")) {
-			pro_id = "P2P-RE-" + (product_seq-20000);
+			pro_id = "P2P-RE-" + (item_seq+1);
 		}else {
-			pro_id = "P2P-BI-" + (product_seq-20000);
+			pro_id = "P2P-BI-" + (item_seq+1);
 		}
 		System.out.println(pro_id);
 		
 		
 		Product pro = new Product();
 		
-//		pro.setProductId(pro_id);
+		pro.setProductId(pro_id);
 		pro.setCategoryId(p2pForm.getCategory());
 		
 		pro.setName(p2pForm.getItemName());
