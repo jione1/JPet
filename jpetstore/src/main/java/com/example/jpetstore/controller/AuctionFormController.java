@@ -109,15 +109,19 @@ public class AuctionFormController {
 	
 		ArrayList<P2P> p2pList = new ArrayList<P2P>(this.p2pService.getP2PList());
 		int item_seq = p2pList.size();
-
-		String id = "AUC-" + (item_seq + 1);
-		String pro_id = "AUC-PRO-" + (item_seq + 1);
+		System.out.println(item_seq);
+		
+		int size = auctionService.auctionListSize();
+		
+		System.out.println(size);
+		
+		String id = "AUC-" + (item_seq + size + 1);
+		String pro_id = "AUC-PRO-" + (item_seq + size + 1);
 		
 		Product pro = new Product();
 		
 		pro.setProductId(pro_id);
-		pro.setCategoryId(auctionForm.getCategory());
-		
+		pro.setCategoryId("FISH");
 		pro.setName(auctionForm.getItemName());
 		pro.setDescription(auctionForm.getAucDiscription());
 				
@@ -134,9 +138,7 @@ public class AuctionFormController {
 		
 		petStore.insertItem(item);
 		
-		int size = auctionService.auctionListSize();
-	
-		System.out.println(size);
+		
 		auction = new Auction();
 		
 		auction.setItemId(id);
