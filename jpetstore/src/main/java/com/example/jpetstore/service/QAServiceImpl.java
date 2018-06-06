@@ -38,5 +38,10 @@ public class QAServiceImpl implements QAService {
 		// TODO Auto-generated method stub
 		return qaDao.getQAList();
 	}
+	
+	@Override
+	public QA getQA(int qaNum) {
+		return qaDao.getQA(qaNum);
+	}
 
 }

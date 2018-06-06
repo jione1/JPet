@@ -1,42 +1,42 @@
 package com.example.jpetstore.controller;
 
-import com.example.jpetstore.domain.Account;
+//import com.example.jpetstore.domain.Account;
 
 public class QAForm {
-	private int qaNum;
-	private Account writerAccount;
+//	private int qaNum;
+//	private Account writerAccount;
 	private String qaTitle;
 	private String qaContent;
 	private int qaType;
 	
-	public int getQaNum() {
-		return qaNum;
-	}
-	public void setQaNum(int qaNum) {
-		this.qaNum = qaNum;
-	}
-	public String getWriterAccount() {
-		return writerAccount.getUsername();
-	}
-	public void setWriterAccount(Account writerAccount) {
-		this.writerAccount = writerAccount;
-	}
-	public String getTitle() {
+//	public int getQaNum() {
+//		return qaNum;
+//	}
+//	public void setQaNum(int qaNum) {
+//		this.qaNum = qaNum;
+//	}
+//	public String getWriterAccount() {
+//		return writerAccount.getUsername();
+//	}
+//	public void setWriterAccount(Account writerAccount) {
+//		this.writerAccount = writerAccount;
+//	}
+	public String getQaTitle() {
 		return qaTitle;
 	}
-	public void setTitle(String title) {
+	public void setQaTitle(String title) {
 		this.qaTitle = title;
 	}
-	public String getContent() {
+	public String getQaContent() {
 		return qaContent;
 	}
-	public void setContent(String content) {
+	public void setQaContent(String content) {
 		this.qaContent = content;
 	}
-	public int getType() {
+	public int getQaType() {
 		return qaType;
 	}
-	public void setType(int type) {
+	public void setQaType(int type) {
 		this.qaType = type;
 	}
 }

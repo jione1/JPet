@@ -6,9 +6,9 @@
 	
 	<insert id="insertQAPost" parameterType="QA">
 		INSERT INTO SSD01_4.Q_A
-			(QNUM, QTITLE, QDISCRIPTION, QTYPE)
+			(QNUM, USERID, QTITLE, QDICRIPTION, QANSWER, QTYPE)
 		VALUES
-			(#{qaNum}, #{qaTitle}, #{qaContent}, #{qaType})
+			(#{qnum}, #{userId}, #{title}, #{content}, #{isAnswered}, #{qtype})
 	</insert>
 	
 <!-- 	<update id="updateQAPost" parameterType="QA"> -->
@@ -27,9 +27,9 @@
 		FROM SSD01_4.Q_A
 	</select>
 
-<!-- 	<select id="getQA" resultType="QA"> -->
-<!-- 		SELECT * -->
-<!-- 		FROM Q_A -->
-<!-- 		WHERE QNUM = #{qaNum} -->
-<!-- 	</select> -->
+	<select id="getQA" resultType="QA">
+		SELECT *
+		FROM SSD01_4.Q_A
+		WHERE QNUM = #{qaNum}
+	</select>
  </mapper>

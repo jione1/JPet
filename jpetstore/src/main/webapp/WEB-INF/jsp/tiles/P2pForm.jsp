@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <div class="container">
 	<h2>ITEM POSTING</h2>
 	<c:url var="post_url" value="/p2p/sendP2PPost.do" />
@@ -58,4 +57,6 @@
 			등록</button>
 	</form:form>
 </div>
+
+
 

@@ -1,6 +1,10 @@
 
 (function ($) {
     "use strict";
+    
+    $( function() {
+    	  $( "#datepicker" ).datepicker();
+    	} );
 
     /*[ Load page ]
     ===========================================================*/

@@ -43,7 +43,7 @@ public class MybatisQADao implements QADao {
 	@Override
 	public QA getQA(int qaNum) {
 		// TODO Auto-generated method stub
-		return null;
+		return qaMapper.getQA(qaNum);
 	}
 
 }

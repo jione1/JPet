@@ -17,4 +17,7 @@ public interface QAService {
 		
 		//QA글 목록보기
 		List<QA> getQAList();
+		
+		//QA글 자세히 보기
+		QA getQA(int qaNum);
 }

@@ -42,7 +42,7 @@ public class QA implements Serializable{
 	public String getIsAnswered() {
 		return isAnswered;
 	}
-	public void setAnswered(String isAnswered) {
+	public void setIsAnswered(String isAnswered) {
 		this.isAnswered = isAnswered;
 	}
 	public int getQtype() {

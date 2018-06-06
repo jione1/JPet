@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -28,10 +29,13 @@ import com.example.jpetstore.service.QAService;
 @SessionAttributes("userSession")
 public class QAController{
 	
+	private int qaListLen = 0;
 	@Value("tiles/QAForm")
 	private String qaFormView;
 	@Value("tiles/QAList")
 	private String qaListView;
+	@Value("tiles/QADetail")
+	private String qaDetailView;
 	@Autowired
 	private QAService qaService;
 	
@@ -42,7 +46,7 @@ public class QAController{
 	}
 
 	@RequestMapping("/qawriteform.do")
-	public String writeQAForm(@ModelAttribute("qaFrom") QAForm qaForm) throws Exception {
+	public String writeQAForm(@ModelAttribute("qaForm") QAForm qaForm) throws Exception {
 		return qaFormView;
 	}
 	
@@ -50,16 +54,7 @@ public class QAController{
 	public List<QA> getQAList(){
 		List<QA> qaList = new ArrayList<QA>();
 		qaList = qaService.getQAList();
-		System.out.println("--------------------------------");
-		System.out.println(qaList.size());
-		for(int i = 0; i < qaList.size(); i++) {
-			System.out.println("Num" + qaList.get(i).getQnum());
-			System.out.println("UserId" + qaList.get(i).getUserId());
-			System.out.println("Title" + qaList.get(i).getTitle());
-			System.out.println("Content" + qaList.get(i).getContent());
-			System.out.println("isAnswered" + qaList.get(i).getIsAnswered());
-		}
-		System.out.println("--------------------------------");
+		qaListLen = qaList.size();
 		return qaList;
 	}
 	
@@ -68,16 +63,28 @@ public class QAController{
 		return qaListView;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public String sendQAPost(
-			HttpServletRequest request,
-			@ModelAttribute("QAForm") QAForm qaForm,
-			ModelMap model,
-			@ModelAttribute("userSession") UserSession userSession) throws Exception {
+	@RequestMapping("/qawrite.do")
+	public String sendQAPost(HttpServletRequest request, @ModelAttribute("QAForm") QAForm qaForm,
+			ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
 		String username = userSession.getAccount().getUsername();
 		System.out.println("Session ID" + username);
 		
+		QA qa = new QA();
+		qa.setQnum(qaListLen + 1);
+		qa.setUserId(username);
+		qa.setTitle(qaForm.getQaTitle());
+		qa.setContent(qaForm.getQaContent());
+		qa.setIsAnswered("false");
+		qa.setQtype(qaForm.getQaType());
 		
-		return qaListView;  
+		qaService.insertQA(qa);
+		return "redirect:" + "/qa/qalist.do";
+	}
+	
+		
+	@RequestMapping("/qaDetail/${QA.qnum}")
+	public String detailQA(@PathVariable int qnum, @ModelAttribute("QADetail") QA qaDetail) throws Exception{
+		qaService.getQA(qnum);
+		return qaDetailView;
 	}
 }
