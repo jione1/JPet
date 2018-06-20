@@ -57,15 +57,8 @@ public class AuctionFormController {
 		//aucStatus가 false 인 것 모델에 put
 
 		return "NowAuction";
-<<<<<<< HEAD
-		
 	}
 	
-=======
-
-	}
-
->>>>>>> origin/shinee
 	@RequestMapping("/auction/auclist.do") //지난 경매 
 	public String pastAuction(
 			@RequestParam("auction_Num") String auction_Num,
