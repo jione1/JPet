@@ -9,7 +9,9 @@ public interface QADao {
 
 	//새로운 QA글 삽입
 	void insertQAPost(QA qa);
-		
+	
+	void insertQASellerPost(QA qa);
+	
 	//작성한 QA글 삭제
 	void deletQAPost(int qaNum, Account SessionAccount);
 		

@@ -14,16 +14,14 @@
 		
 			<table cellpading="5px" style="border: 1px solid gray">
 				<tr>
-					<th style="width: 100px; border: 1px solid gray; text-align:center;">No</th>
 					<th style="width: 800px; border: 1px solid gray; text-align:center;">글 제목</th>
-					<th style="width: 200px; border: 1px solid gray; text-align:center;">ID</th>
+					<th style="width: 300px; border: 1px solid gray; text-align:center;">ID</th>
 				</tr>
 				
 				<c:forEach var="QA" items="${QAList}">
 					<tr>
-						<td style="border: 1px solid gray; padding: 5px;"> <a href="<c:url value="/qa/qaDetail.do"><c:param name="qnum" value="${QA.qnum }"/></c:url>">${QA.qnum}</a></td>
-						<td style="border: 1px solid gray; padding: 5px;">${QA.title}</td>
-						<td style="border: 1px solid gray; padding: 5px;">${QA.userId}</td>
+						<td style="border: 1px solid gray; padding: 8px; padding-left: 20px;"><a href="<c:url value="/qa/qaDetail.do"><c:param name="qnum" value="${QA.qnum }"/></c:url>">${QA.title}</td>
+						<td style="border: 1px solid gray; padding: 5px; padding-left: 20px">${QA.userId}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -31,7 +29,6 @@
 		<p>&nbsp;</p>
 		<div class="w-size25 container">
 		<!-- Button -->
-		
 			<a href="<c:url value="/qa/qawriteform.do"/>" class="w3-button flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">글 작성</a>
 		</div>
 		

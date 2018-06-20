@@ -9,6 +9,8 @@ public interface QAService {
 		//새로운 QA글 삽입
 		void insertQA(QA qa);
 		
+		void insertQASeller(QA qa);
+		
 		//작성한 QA글 삭제
 		void deletQA(int qaNum, Account SessionAccount);
 		

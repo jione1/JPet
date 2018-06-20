@@ -20,7 +20,11 @@ public class QAServiceImpl implements QAService {
 		// TODO Auto-generated method stub
 		qaDao.insertQAPost(qa);
 	}
-
+	@Override
+	public void insertQASeller(QA qa) {
+		qaDao.insertQASellerPost(qa);
+	}
+	
 	@Override
 	public void deletQA(int qaNum, Account SessionAccount) {
 		// TODO Auto-generated method stub

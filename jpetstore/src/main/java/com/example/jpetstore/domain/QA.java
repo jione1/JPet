@@ -11,9 +11,9 @@ public class QA implements Serializable{
 	private String isAnswered;
 	private int qtype;
 	private String answeredTime;
-	private Item itmeid;
-	private Account sellerId;
-	private Account adminId;
+	private String itemid;
+	private String sellerId;
+	private String adminId;
 	
 	public int getQnum() {
 		return qnum;
@@ -57,22 +57,22 @@ public class QA implements Serializable{
 	public void setAnsweredTime(String answeredTime) {
 		this.answeredTime = answeredTime;
 	}
-	public Item getItmeid() {
-		return itmeid;
+	public String getItemid() {
+		return itemid;
 	}
-	public void setItmeid(Item itmeid) {
-		this.itmeid = itmeid;
+	public void setItemid(String itmeid) {
+		this.itemid = itmeid;
 	}
-	public Account getSellerId() {
+	public String getSellerId() {
 		return sellerId;
 	}
-	public void setSellerId(Account sellerId) {
+	public void setSellerId(String sellerId) {
 		this.sellerId = sellerId;
 	}
-	public Account getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
-	public void setAdminId(Account adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 	

@@ -38,6 +38,8 @@ public class QAController{
 	private String qaListView;
 	@Value("tiles/QADetail")
 	private String qaDetailView;
+	@Value("tiles/QAReplyForm")
+	private String qaReplyFormView;
 	@Autowired
 	private QAService qaService;
 	
@@ -49,6 +51,15 @@ public class QAController{
 
 	@RequestMapping("/qawriteform.do")
 	public String writeQAForm(@ModelAttribute("qaForm") QAForm qaForm) throws Exception {
+		qaForm.setQaType(1);
+		return qaFormView;
+	}
+	
+	@RequestMapping("/qawriteToSeller.do")
+	public String writeQAFormToSeller(@RequestParam("sellerId") String sellerId, @RequestParam("itemId") String itemId, @ModelAttribute("qaForm") QAForm qaForm) throws Exception{
+		qaForm.setQaType(2);
+		qaForm.setSellerId(sellerId);
+		qaForm.setItemId(itemId);
 		return qaFormView;
 	}
 	
@@ -79,18 +90,31 @@ public class QAController{
 		qa.setIsAnswered("false");
 		qa.setQtype(qaForm.getQaType());
 		
-		qaService.insertQA(qa);
+		if(qaForm.getQaType() == 2) {
+			qa.setSellerId(qaForm.getSellerId());
+			qa.setItemid(qaForm.getItemId());
+			qaService.insertQASeller(qa);
+		}
+
+		else {
+			qaService.insertQA(qa);
+		}
+		
 		return "redirect:" + "/qa/qalist.do";
 	}
 	
-		
 	@RequestMapping("/qaDetail.do")
-	public ModelAndView detailQA(@RequestParam("qnum") int qnum) throws Exception{
+	public ModelAndView detailQA(@RequestParam("qnum") int qnum, @ModelAttribute("userSession") UserSession userSession) throws Exception{
 		ModelAndView qaDetail = new ModelAndView();
 		QA detailQa = new QA();
 		detailQa = qaService.getQA(qnum);
 		qaDetail.setViewName(qaDetailView);
 		qaDetail.addObject("QADetail", detailQa);
 		return qaDetail;
+	}
+	
+	@RequestMapping("/qaReply.do")
+	public String ReplyQA(@RequestParam("qnum") int qnum, @ModelAttribute("QAReplyForm") QAForm qaForm) throws Exception{
+		return qaReplyFormView;
 	}
 }

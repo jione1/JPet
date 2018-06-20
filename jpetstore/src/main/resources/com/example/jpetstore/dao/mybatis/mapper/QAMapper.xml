@@ -6,11 +6,18 @@
 	
 	<insert id="insertQAPost" parameterType="QA">
 		INSERT INTO SSD01_4.Q_A
-			(QNUM, USERID, QTITLE, QDICRIPTION, QANSWER, QTYPE)
+			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE)
 		VALUES
-			(#{qnum}, #{userId}, #{title}, #{content}, #{isAnswered}, #{qtype})
+			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype})
 	</insert>
 	
+	<insert id="insertQASellerPost" parameterType="QA">
+		INSERT INTO SSD01_4.Q_A
+			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE, ITEMID, SELLERID)
+		VALUES
+			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype}, #{itemid}, #{sellerId})
+	</insert>
+
 <!-- 	<update id="updateQAPost" parameterType="QA"> -->
 <!-- 		UPDATE Q_A -->
 <!-- 		SET QDISCRIPTION = #{content} -->

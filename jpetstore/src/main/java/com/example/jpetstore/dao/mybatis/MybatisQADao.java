@@ -21,6 +21,9 @@ public class MybatisQADao implements QADao {
 		// TODO Auto-generated method stub
 		qaMapper.insertQAPost(qa);
 	}
+	public void insertQASellerPost(QA qa) {
+		qaMapper.insertQASellerPost(qa);
+	}
 
 	@Override
 	public void deletQAPost(int qaNum, Account SessionAccount) {

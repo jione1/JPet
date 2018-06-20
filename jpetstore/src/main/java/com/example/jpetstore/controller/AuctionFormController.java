@@ -53,7 +53,7 @@ public class AuctionFormController {
 		
 		return "NowAuction";
 		
-		}
+	}
 	
 	@RequestMapping("/auction/auclist.do") //지난 경매 
 	public String pastAuction(

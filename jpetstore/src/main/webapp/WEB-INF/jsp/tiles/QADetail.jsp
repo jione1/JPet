@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,9 +33,25 @@
 		<p>&nbsp;</p>
 		<div class="w-size25 container">
 			<a href="<c:url value="/qa/qalist.do"/>" class="w3-button flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">목록가기</a>
-		</div>
+			<p>&nbsp;</p>
+			<a href="<c:url value="/qa/qaReply.do"><c:param name="qnum" value="${QADetail.qnum}"/></c:url>" class="w3-button flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" id="replyBtn">댓글 작성</a>
 		
+		</div>
 	</section>
-
+	<script>
+	$(document).ready(function() {
+		var sellerId =  '<c:out value = "${QADetail.sellerId}"/>';
+		var sessionId = '<c:out value = "${userSession.getAccount().getUsername()}"/>';
+		
+		if (sellerId == sessionId || sessionId == "admin") {
+			document.getElementById('replyBtn').style.display = "";
+		} else {
+			document.getElementById('replyBtn').style.display = "none";
+		}
+	});
+	
+    
+	</script>
+	
 </body>
 </html>

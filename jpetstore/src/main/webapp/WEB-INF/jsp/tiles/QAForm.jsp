@@ -14,23 +14,33 @@
 							문의 게시판
 						</h4>
 
-						<div class="bo4 size15 m-b-20">
-							<label for="qaTitle">TITLE</label>
+						<div class="size15 m-b-20">
+							<label for="qaTitle" style="font-size: 20px">TITLE</label>
 							<form:input cssClass="sizefull s-text7 p-l-22 p-r-22" path="qaTitle" placeholder="제목을 입력해주세요"/>
 							<form:errors path="qaTitle"/>
 						</div>
+						
+						<p>&nbsp;</p>
 
 						<div class="size15 m-b-20">
-							<label for="qaType">Type</label>
+							<label for="qaType" style="font-size: 20px">Type</label>
 							<form:select path="qaType" cssClass="size15">
-								<form:option value="1">관리자에게 문의</form:option>
-								<form:option value="2">판매자에게 문의</form:option>
+								<c:choose>
+									<c:when test="${qaForm.qaType == 1}">
+										<form:option value="1">관리자에게 문의</form:option>
+									</c:when>
+									<c:when test="${qaForm.qaType == 2}">
+										<form:option value="2">판매자에게 문의</form:option>
+										<form:hidden path="sellerId" value="${qaForm.sellerId}" />
+										<form:hidden path="itemId" value="${qaForm.itemId}" />
+									</c:when>
+								</c:choose>
 							</form:select>
 							<form:errors path="qaType"/>
 						</div>
 						
 						<p>&nbsp;</p>
-						<label for="qaContent">Content</label>
+						<label for="qaContent" style="font-size: 20px">Content</label>
 						<form:input cssClass="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" path="qaContent" placeholder="내용을 입력해주세요"/>
 						<form:errors path="qaContent"/>
 						<div class="w-size25">

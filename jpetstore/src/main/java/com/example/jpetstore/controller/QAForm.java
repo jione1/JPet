@@ -3,24 +3,13 @@ package com.example.jpetstore.controller;
 //import com.example.jpetstore.domain.Account;
 
 public class QAForm {
-//	private int qaNum;
-//	private Account writerAccount;
 	private String qaTitle;
 	private String qaContent;
 	private int qaType;
+	private String answer;
+	private String sellerId;
+	private String itemId;
 	
-//	public int getQaNum() {
-//		return qaNum;
-//	}
-//	public void setQaNum(int qaNum) {
-//		this.qaNum = qaNum;
-//	}
-//	public String getWriterAccount() {
-//		return writerAccount.getUsername();
-//	}
-//	public void setWriterAccount(Account writerAccount) {
-//		this.writerAccount = writerAccount;
-//	}
 	public String getQaTitle() {
 		return qaTitle;
 	}
@@ -39,4 +28,23 @@ public class QAForm {
 	public void setQaType(int type) {
 		this.qaType = type;
 	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	public String getSellerId() {
+		return sellerId;
+	}
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
+	}
+	public String getItemId() {
+		return itemId;
+	}
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+	
 }

@@ -144,9 +144,7 @@
 				</div>
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 						<!-- Button -->
-						<button
-							class="flex-c-m size11 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-							판매자에게 질문하기</button>
+						<a href="<c:url value="/qa/qawriteToSeller.do"><c:param name="sellerId" value="${userId}"/><c:param name="itemId" value="${item.getItemId()}"/></c:url>" class="w3-button flex-c-m size11 bg1 bo-rad-23 hov1 m-text3 trans-0-4">판매자에게 질문하기</a>
 					</div>
 					<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn">
