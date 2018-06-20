@@ -98,12 +98,12 @@ public class AuctionForm implements Serializable {
 		this.aucName = aucName;
 	}
 
-	public int getAuctionCost() {
-		return auctionCost;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setAuctionCost(int auctionCost) {
-		this.auctionCost = auctionCost;
+	public void setPrice(int auctionCost) {
+		this.price = auctionCost;
 	}
 
 	public String getItemName() {
@@ -138,7 +138,7 @@ public class AuctionForm implements Serializable {
 	private String aucImage;
 	private String aucDiscription; //경매에 올려지는 item의 설명
 	private String aucName;
-	private int auctionCost; //판매자가 올리는 최조 가격 (최저가격)
+	private int price; //판매자가 올리는 최조 가격 (최저가격)
 	private String itemName; //경매에 올려지는 item의 이름 
 	private int partiId; //참가하는 구
 

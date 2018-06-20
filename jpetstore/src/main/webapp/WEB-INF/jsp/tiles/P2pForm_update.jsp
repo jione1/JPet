@@ -2,6 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import = "com.example.jpetstore.domain.*" %>    
+
+<%
+	P2P p2p = (P2P)session.getAttribute("P2P");
+	if(p2p == null ){
+		  System.out.println("로그인 안한 사용자");
+	 }else{
+	  System.out.println("로그인한 사용자");
+	 }
+
+	
+%>
 <div class="container">
 	<h2>ITEM POSTING</h2>
 	<div class="p-t-22 p-b-50 bo3"></div>
@@ -12,7 +24,7 @@
 		<div class="form-group">
 			<label for="title">TITLE</label>
 			<form:input path="title" cssClass="form-control"
-				placeholder="제목을 입력해주세요" />
+				 />
 			<form:errors path="title" />
 			<!-- <input type="email" class="form-control" id="Email1" placeholder="Enter email"> -->
 		</div>
@@ -89,6 +101,8 @@
 	</form:form>
 </div>
 
+
+
 <script type="text/javascript"></script>
 <script type="text/javascript">
 	function div_show(s, ss) {
@@ -128,4 +142,3 @@
 		document.forms[0].submit(); 
 	}
 </script>
-

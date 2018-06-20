@@ -14,7 +14,6 @@ public interface AuctionService {
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	//�������� �����ڰ� �ֹ��� ���� ��� orderStatus�� true�� �����Ͽ� ���� �����ϰ� �ִ� ���ǰ� �����Ѵ�.
 	
-	List<Auction> getAucList();
 	//��� ����Ʈ�� ��� �ҷ��´�. �������->aucstatus�� true / �������� ��� -> aucstatus�� false
 	
 	void deleteMaxInputPrice(int aucNum, String userID);
@@ -30,4 +29,6 @@ public interface AuctionService {
 	void insertAucItem(Auction auction);
 	void updateAucItem(Auction auction);
 	void insertPrice(int aucNum, int inputPrice, String userID);
+	int auctionListSize();
+	List<Auction> getAuctionList();
 }

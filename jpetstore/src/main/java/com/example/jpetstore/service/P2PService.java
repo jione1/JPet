@@ -26,5 +26,7 @@ public interface P2PService {
 	//�Ǹ��ڰ� ������ ������ �����Ͽ��� ��� ȣ��ȴ�. 
 	List<P2P> getP2PList();
 	
+	P2P getP2PDetail(String itemId);
+	
 	P2P getP2PSeller(String itemId);
 }

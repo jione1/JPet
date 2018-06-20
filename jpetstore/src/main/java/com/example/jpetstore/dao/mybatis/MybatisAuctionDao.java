@@ -52,12 +52,6 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	}
 
 	@Override
-	public List<Auction> getAuctionList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void insertMaxPrice(int aucNum, double maxPrice) {
 		// TODO Auto-generated method stub
 		
@@ -69,4 +63,11 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 		
 	}
 
+	public int auctionListSize() {
+		return auctionMapper.auctionListSize();
+	}
+	
+	public List<Auction> getAuctionList() {
+		return auctionMapper.getAuctionList();
+	}
 }

@@ -74,15 +74,18 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	public List<Auction> getAucList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Auction getAuctionPost(int aucNum) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	@Override
+	public int auctionListSize() {
+		return auctionItemDao.auctionListSize();
+	}
+	
+	@Override
+	public List<Auction> getAuctionList() {
+		return auctionItemDao.getAuctionList();
+	}
 }

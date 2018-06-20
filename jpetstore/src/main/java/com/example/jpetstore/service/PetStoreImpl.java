@@ -170,7 +170,7 @@ public class PetStoreImpl implements PetStoreFacade {
 	}
 	
 	@Override
-	public void updatePost(String itemId) {
-		itemDao.updatePost(itemId);
+	public void updatePost(Item item) {
+		itemDao.updatePost(item);
 	}
 }

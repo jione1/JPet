@@ -1,13 +1,16 @@
 package com.example.jpetstore.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.P2P;
@@ -54,22 +57,26 @@ public class ViewItemController {
 	
 	@RequestMapping("/shop/deletePost.do")
 	public String deletePost(HttpServletRequest request, @RequestParam("itemId") String itemId, ModelMap model) throws Exception {
-		String old_url = request.getHeader("referer");
-		System.out.println(" 글 삭제 ======> "+old_url);
+//		String old_url = request.getHeader("referer");
+//		System.out.println(" 글 삭제 ======> "+old_url);
 		System.out.println(itemId + "삭제중...");
 		this.petStore.deletePost(itemId);
 		
 		return "tiles/index";
 	}
 	
-	@RequestMapping("/shop/updatePost.do")
-	public String updatePost(HttpServletRequest request, @ModelAttribute("p2pForm") P2P p2pForm, ModelMap model) throws Exception {
-//		String old_url = request.getHeader("referer");
-//		System.out.println(" 글 삭제 ======> "+old_url);
-//		System.out.println(itemId + "수정...");
-//		this.petStore.updatePost(itemId);
-//		
-		return "tiles/index";
+	@RequestMapping(value = "/shop/updatePost.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String updatePost(@RequestParam("itemId") String itemId, HttpSession session) throws Exception {
+		P2P p2p = p2pService.getP2PDetail(itemId);
+		session.setAttribute("P2P", p2p);
+		return "tiles/P2pForm_update";
+	}
+	
+	@RequestMapping(value = "/shop/updatePost.do", method = RequestMethod.GET)
+	@ResponseBody
+	public String updatePost() throws Exception {
+		return "tiles/P2pForm_update";
 	}
 
 }

@@ -7,11 +7,11 @@
 	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
 		<a href="index.html" class="s-text16"> Home <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <a href="product.html" class="s-text16"> Fish <i
+		</a> <a href="product.html" class="s-text16"> ${product.getCategoryId() } <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <a href="#" class="s-text16"> JellyFish <i
+		</a> <a href="#" class="s-text16"> ${product.getName() } <i
 			class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a> <span class="s-text17"> JellyFish-01 </span>
+		</a> <span class="s-text17"> ${item.getItemId() } </span>
 	</div>
 
 	<!-- Product Detail -->
@@ -112,7 +112,7 @@
 
 				<div class="p-b-45">
 					<span class="s-text8 m-r-35">SKU: ${item.getItemId() }</span> <span
-						class="s-text8">Categories: Fish, Pet</span>
+						class="s-text8">Categories: ${product.getCategoryId() }, Pet</span>
 				</div>
 
 				<!--  -->
@@ -133,7 +133,7 @@
 				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
 					<h5
 						class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						<a style="text-decoration:none ;" href="<c:url value="/p2p/viewSellerPage.do"><c:param name="userId" value="${userId}"/></c:url>">
+						<a style="text-decoration:none;color:black;"  href="<c:url value="/p2p/viewSellerPage.do"><c:param name="userId" value="${userId}"/></c:url>">
 						판매자 페이지[${userId}]</a></h5>
 				</div>
 
@@ -146,9 +146,9 @@
 						<!-- Button -->
 						<a href="<c:url value="/qa/qawriteToSeller.do"><c:param name="sellerId" value="${userId}"/><c:param name="itemId" value="${item.getItemId()}"/></c:url>" class="w3-button flex-c-m size11 bg1 bo-rad-23 hov1 m-text3 trans-0-4">판매자에게 질문하기</a>
 					</div>
-					<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-					<button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn">
-							삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn">수정 </button>
+					<div class="wrap-dropdown-content bo7 p-t-15 p-b-14" id = "hiddenBtn">
+					<button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn" style="display:none">
+							삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn" style="display:none">수정 </button>
 					</div>
 			</div>
 		</div>
@@ -472,16 +472,34 @@
 	<!--===============================================================================================-->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script>
+	$(document).ready(function() {
+		var userId =  '<c:out value = "${userId}"/>';
+		var sessionId = '<c:out value = "${userSession.getAccount().getUsername()}"/>';
+		
+		if (userId == sessionId) {
+			document.getElementById('deleteBtn').style.display = "";
+			document.getElementById('updateBtn').style.display = "";
+		} else {
+			document.getElementById('deleteBtn').style.display = "none";
+			document.getElementById('updateBtn').style.display = "none";
+		}
+		}
+	);
+	</script>
+	<script>
 	$(function(){
 	    $('#updateBtn').click(function(){
 	   	 	var itemId = '<c:out value="${item.getItemId()}"/>';
+	   	 	alert("수정페이지로 이동합니다~");
 			$.ajax({
 		  		url : "/jpetstore/shop/updatePost.do",
 		  		async : true,
 		  		type: "POST",
 		  		data:  { "itemId": itemId },
-		  		success:function() {
-		  			alert("성공!!");
+		  		success:function(response) {
+		  			alert(response);
+		  			windows.location.href="http://localhost:8081/jpetstore/shop/updatePost.do";
+		  			
 		  		},
 		  		fail:function() {
 		  			alert("실패 !!");
@@ -493,7 +511,7 @@
 	$(function(){
 	    $('#deleteBtn').click(function(){
 	   	 	var itemId = '<c:out value="${item.getItemId()}"/>'; 
-	   	 	
+	   	 	confirm("정말로 삭제하시겠습니까?");
 			$.ajax({
 		  		url : "/jpetstore/shop/deletePost.do",
 		  		async : true,

@@ -77,55 +77,47 @@ public class P2PController {
 	//����ϱ⸦ ������ �� ����� ���ε� 
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
 	public String sendP2PPost(
-			HttpServletRequest request,
-			@ModelAttribute("P2PForm") P2PForm p2pForm,
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
+			@ModelAttribute("P2PForm") P2PForm p2pForm,
 			BindingResult bindingResult
 			) throws Exception {
 		//�ۼ��� form �� item �� �������� ���� 
-//		p2pFormvalidator.validate(p2pForm, bindingResult);
-//		
-//		if (bindingResult.hasErrors()) {
-//			return "tiles/P2pForm";
-//		}
+		p2pFormvalidator.validate(p2pForm, bindingResult);
+		
+		if (bindingResult.hasErrors()) {
+			return "tiles/P2pForm";
+		}
 		
 //		MultipartFile file = p2pForm.getFile();
 		String username = userSession.getAccount().getUsername();
 		System.out.println(username);
 		
 		int item_seq = sequenceDao.getNextId("itemnum");
-		int product_seq = item_seq;
 		
-		System.out.println(item_seq + " " + product_seq);
-		
-		String id = "P2P-" + (item_seq-20000);
+		String id = "P2P-" + item_seq;
 		String pro_id;
 		
 		if (p2pForm.getCategory().equals("FISH")) {
-			pro_id = "P2P-FI-" + (product_seq-20000);
+			pro_id = "P2P-FI-" + item_seq;
 		} else if (p2pForm.getCategory().equals("DOGS")) {
-			pro_id = "P2P-DO-" + (product_seq-20000);
+			pro_id = "P2P-DO-" + item_seq;
 		}else if (p2pForm.getCategory().equals("CATS")) {
-			pro_id = "P2P-CA-" + (product_seq-20000);
+			pro_id = "P2P-CA-" + item_seq;
 		}else if (p2pForm.getCategory().equals("REPTILES")) {
-			pro_id = "P2P-RE-" + (product_seq-20000);
+			pro_id = "P2P-RE-" + item_seq;
 		}else {
-			pro_id = "P2P-BI-" + (product_seq-20000);
+			pro_id = "P2P-BI-" + item_seq;
 		}
-		System.out.println(pro_id);
 		
 		
 		Product pro = new Product();
 		
-//		pro.setProductId(pro_id);
+		pro.setProductId(pro_id);
 		pro.setCategoryId(p2pForm.getCategory());
-		
 		pro.setName(p2pForm.getItemName());
 		pro.setDescription(p2pForm.getDiscription());
 				
-		petStore.insertProduct(pro);	
-		
 		P2P p2p = new P2P();
 		p2p.setItemId(id);
 		p2p.setPrice(p2pForm.getPrice());
@@ -140,19 +132,16 @@ public class P2PController {
 		item.setStatus("P");
 //		item.setAttribute1(file);
 		item.setQuantity(p2pForm.getQuantity());
-		
-		
-		petStore.insertItem(item);
-		
-		petStore.insertInventoryQuantity(item);
 
+		petStore.insertProduct(pro);	
+		petStore.insertItem(item);
+		petStore.insertInventoryQuantity(item);
 		p2pService.insertP2P(p2p);
 		
 		model.addAttribute("p2p", p2p);
 		model.addAttribute("product", pro);
 		model.addAttribute("item", item);
 		model.addAttribute("userId", username);
-		
 		return "tiles/Item";
 	
 		}

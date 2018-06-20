@@ -39,8 +39,8 @@
 		p:baseAddress="http://localhost:8081/services/" />
 
 	<!-- RMI exporter for the JPetStore OrderService -->
-	<bean class="org.springframework.remoting.rmi.RmiServiceExporter"
+	<!-- <bean class="org.springframework.remoting.rmi.RmiServiceExporter"
 		p:service-ref="orderServiceImpl" 
 		p:serviceName="RmiOrderService"
-		p:serviceInterface="com.example.jpetstore.service.OrderService" />
+		p:serviceInterface="com.example.jpetstore.service.OrderService" /> -->
 </beans>
