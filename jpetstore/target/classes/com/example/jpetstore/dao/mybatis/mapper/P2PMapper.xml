@@ -11,7 +11,7 @@
 		P.SELLERID AS id,
 		I.ITEMID AS itemId,
 		I.LISTPRICE AS price
-	FROM SSD01_4.ITEM I, SSD01_4.P2P P
+	FROM ITEM I, P2P P
 	WHERE P.SELLERID=#{id}
 	AND I.ITEMID=P.ITEMID
 </select>
@@ -23,15 +23,15 @@
 		I.ITEMID AS itemId,
 		I.LISTPRICE AS price,
 		I.PRODUCTID AS "item.productId",
-		pr.NAME AS "product.name",
-		pr.DESCN AS "product.description",
-		pr.CATEGORY AS "product.categoryId",
-		QTY AS quantity,
-		I.ITEMIMAGE AS url
+		Pr.NAME AS "product.name",
+		Pr.DESCN AS "product.description",
+		Pr.CATEGORY AS "product.categoryId",
+		QTY AS quantity
+		
 	FROM ITEM I, P2P P, Product Pr, INVENTORY V
 	WHERE P.SELLERID=#{id}
 	AND I.ITEMID=P.ITEMID 
-	AND P.PRODUCTID = I.PRODUCTID 
+	AND Pr.PRODUCTID = I.PRODUCTID 
 	AND P.ITEMID = V.ITEMID
 	
 </select>
@@ -42,27 +42,27 @@
 		P.SELLERID AS id,
 		I.ITEMID AS itemId,
 		I.LISTPRICE AS price
-	FROM SSD01_4.ITEM I, SSD01_4.P2P P
+	FROM ITEM I, P2P P
 	WHERE I.ITEMID=P.ITEMID
 </select>
 
 <select id="getP2PSeller" resultType="P2P">
 	select
 		SELLERID AS id 
-	FROM SSD01_4.P2P 
+	FROM P2P 
 	WHERE ITEMID = #{value}
 </select>
 
 
 <insert id ="insertPost" parameterType="P2P">
-    INSERT INTO SSD01_4.P2P (P2PTITLE,SELLERID,ITEMID)
+    INSERT INTO P2P (P2PTITLE,SELLERID,ITEMID)
       VALUES
       (#{title}, #{id}, #{itemId})
   </insert>
   
   
   <update id ="updatePost" parameterType="P2P">
-    UPDATE SSD01_4.P2P 
+    UPDATE P2P 
     SET P2PTITLE = #{title}
     WHERE ITEMID = #{itemId}
   </update>

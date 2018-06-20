@@ -16,7 +16,7 @@
 				<div class="leftbar p-r-20 p-r-0-sm">
 					<div
 						class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-						<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+						<img src="../images-theme/icons/person.png" alt="IMG-PRODUCT">
 						<span>${userId}</span>
 					</div>
 				</div>

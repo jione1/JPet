@@ -43,5 +43,5 @@ public interface ItemMapper {
 
   void deletePost(String itemId);
   
-  void updatePost(String itemId);
+  void updatePost(Item item);
 }

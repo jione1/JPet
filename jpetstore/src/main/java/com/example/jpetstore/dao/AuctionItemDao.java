@@ -18,4 +18,5 @@ public interface AuctionItemDao {
 	void insertMaxPrice(int aucNum, double maxPrice);
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	int auctionListSize();
+	
 }

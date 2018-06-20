@@ -8,7 +8,28 @@ import javax.xml.crypto.Data;
 @SuppressWarnings("serial")
 public class Auction implements Serializable {
 	//경매 item을 정의
+	private Product product;
+	private Item item;
 	
+	public Product getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
+	public Item getItem() {
+		return item;
+	}
+
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
 	//aucparti
 	 private int inputPrice; //구매자들이 올리는 가격 저장
 	 private String userId;
@@ -24,8 +45,8 @@ public class Auction implements Serializable {
 	 private boolean aucStatus; //낙찰 유무
 	 private String aucImage;
 	 private String aucDiscription; //경매에 올려지는 item의 설명
-	 private String aucName;
-	 private int auctionCost; //판매자가 올리는 최조 가격 (최저가격)
+	 private String aucName;//title
+	 private int price; //판매자가 올리는 최조 가격 (최저가격)
 	 private String itemName; //경매에 올려지는 item의 이름 
 	 private int partiId; //참가하는 구매자들의 id
 	 
@@ -118,12 +139,12 @@ public class Auction implements Serializable {
 		this.aucName = aucName;
 	}
 
-	public int getAuctionCost() {
-		return auctionCost;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setAuctionCost(int auctionCost) {
-		this.auctionCost = auctionCost;
+	public void setPrice(int auctionCost) {
+		this.price = auctionCost;
 	}
 
 	public String getItemId() {

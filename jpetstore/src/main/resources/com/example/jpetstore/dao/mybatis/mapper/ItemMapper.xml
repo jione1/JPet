@@ -21,7 +21,7 @@
       ATTR3 AS attribute3,
       ATTR4 AS attribute4,
       ATTR5 AS attribute5
-    FROM SSD01_4.ITEM I, SSD01_4.PRODUCT P
+    FROM ITEM I, PRODUCT P
     WHERE P.PRODUCTID = I.PRODUCTID
       AND I.PRODUCTID = #{value}
   </select>
@@ -37,7 +37,7 @@
       CATEGORY AS "product.categoryId",
       STATUS,
       QTY AS quantity
-    FROM SSD01_4.ITEM I, SSD01_4.INVENTORY V, SSD01_4.PRODUCT P
+    FROM ITEM I, INVENTORY V, PRODUCT P
     WHERE P.PRODUCTID = I.PRODUCTID
       AND I.ITEMID = V.ITEMID
       AND I.ITEMID = #{value}
@@ -57,26 +57,26 @@
   
   <insert id="insertItem" parameterType="Item">
    
-    INSERT INTO SSD01_4.ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
+    INSERT INTO ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,STATUS)
       VALUES
       (#{itemId}, #{productId}, #{listPrice}, #{unitCost},#{status})
   </insert>
   
   <insert id="insertInventoryQuantity" parameterType="Item">
 	
-    INSERT INTO SSD01_4.INVENTORY (ITEMID,QTY)
+    INSERT INTO INVENTORY (ITEMID,QTY)
       VALUES
       (#{itemId}, #{quantity})
   </insert>
   
   <delete id ="deletePost" parameterType="String">
-    DELETE FROM SSD01_4.ITEM 
+    DELETE FROM ITEM 
     WHERE ITEMID = #{itemId}
   </delete>
   
-  <update id ="updatePost" parameterType="String">
-    UPDATE SSD01_4.ITEM 
-    SET
+  <update id ="updatePost" parameterType="Item">
+    UPDATE ITEM 
+    SET 
     WHERE ITEMID = #{itemId}
   </update>
 </mapper>

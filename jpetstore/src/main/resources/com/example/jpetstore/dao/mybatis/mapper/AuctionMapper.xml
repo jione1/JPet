@@ -2,15 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.jpetstore.dao.mybatis.mapper.AuctionMapper">
-  <cache />
-  
-  <insert id="insertAucItem" parameterType="Auction">
-  	INSERT INTO SSD01_4.AUCTIONITEM (SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM)
-  	VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{auctionCost},#{auction_num})
-  </insert>
-  
-  <select id ="auctionListSize" resultType="int">
-  	SELECT count(*) FROM SSD01_4.AUCTIONITEM
-  </select>
-  
+	<cache />
+
+	<insert id="insertAucItem" parameterType="Auction">
+		INSERT INTO AUCTIONITEM
+		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM)
+		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{price},#{auction_num})
+	</insert>
+
+	<select id="auctionListSize" resultType="int">
+		SELECT count(*) FROM AUCTIONITEM
+	</select>
+	
+	<select id="getAuctionList" resultType="Auction">
+		SELECT 
+			SELLERID AS userId,
+			ITEMNAME AS itemName,
+			AUCSTATUS AS aucStatus,
+			P.DESCN AS aucDiscription,
+			AUCNAME AS aucName,
+			AUCTIONCOST AS price,
+			AUCTION_NUM AS auction_num
+			
+		FROM AUCTIONITEM A, PRODUCT P, ITEM I
+		WHERE P.PRODUCTID = I.PRODUCTID 
+		AND P.NAME = A.ITEMNAME
+	</select>
+
 </mapper>

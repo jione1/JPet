@@ -75,7 +75,7 @@ public class MybatisItemDao implements ItemDao {
 		itemMapper.deletePost(itemId);
 	}
 	
-	public void updatePost(String itemId) {
-		itemMapper.updatePost(itemId);
+	public void updatePost(Item item) {
+		itemMapper.updatePost(item);
 	}
 }

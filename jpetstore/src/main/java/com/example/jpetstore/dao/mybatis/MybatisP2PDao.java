@@ -24,7 +24,7 @@ public class MybatisP2PDao implements P2PDao{
 	@Override
 	public P2P getP2PDetail(String itemId) {
 		// TODO Auto-generated method stub
-		return null;
+		return p2pMapper.getP2PDetail(itemId);
 	}
 
 	

@@ -18,4 +18,5 @@ public interface AuctionMapper {
 	String findAucUserID(int maxPrice, String userID);
 	
 	int auctionListSize();
+	
 }

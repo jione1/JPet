@@ -27,6 +27,12 @@ public class P2PServiceImpl implements P2PService {
 	}
 
 	@Override
+	public P2P getP2PDetail(String itemId) {
+		// TODO Auto-generated method stub
+		return p2pDao.getP2PDetail(itemId);
+	}
+
+	@Override
 	public void insertP2P(P2P p2p) {
 		// TODO Auto-generated method stub
 		p2pDao.insertPost(p2p);
