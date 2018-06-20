@@ -65,6 +65,37 @@
       <br> 
       <a href='<c:url value="/shop/newOrder.do"/>'>
         <img border="0" src="../images/button_continue.gif" alt="" /></a>
+        
+        <p>
+			<form method="post"
+			action="https://kapi.kakao.com/v1/payment/ready" 
+			-H "Authorization: KakaoAK eb8c19bbcb9d4176ff28f3a8a2f55174" 
+			--data-urlencode "cid=TC0ONETIME" 
+			--data-urlencode "partner_order_id=partner_order_id" 
+			--data-urlencode "partner_user_id=partner_user_id" 
+			--data-urlencode "item_name=커피" 
+			--data-urlencode "quantity=1" 
+			--data-urlencode "total_amount=4100" 
+			--data-urlencode "vat_amount=200" 
+			--data-urlencode "tax_free_amount=0" 
+			--data-urlencode "approval_url=https://developers.kakao.com/success" 
+			--data-urlencode "fail_url=https://developers.kakao.com/fail" 
+			--data-urlencode "cancel_url=https://developers.kakao.com/cancel" >
+				
+				<!--°áÁ¦Á¤º¸¼ÂÆÃ-->
+				
+				<form action="/kakao/kakaoPay">
+					<input type="hidden" name="partner_order_id" value="${ordernum}"> <!-- ÁÖ¹®¹øÈ£ -->
+					<input type="hidden" name="partner_user_id" value="${session.userid}"> <!-- »çÀÌÆ® ÁÖ¹®À¯Àúid -->
+					<input type="hidden" name="item_name" value="${cartItem.item.product.name}"> <!-- »óÇ°¸í -->
+					<input type="hidden" name="quantity" value="${cartItem.quantity}"> <!-- ¼ö·® -->
+					<input type="hidden" name="total_amount" value="${cart.subTotal}"> <!-- »óÇ°ÃÑ¾× -->
+					<input type="hidden" name="tax_free_amount" value="0"> <!-- ºñ°ú¼¼±Ý¾× -->
+	
+					<input type="image" src="../images/kakaopay.png" height="30" width="100">
+				</form>
+			</form>
+			</p>
     </td>
     <td style="text-align: right; vertical-align: top; width: 20%">&nbsp;</td>
   </tr>

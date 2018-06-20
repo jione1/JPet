@@ -32,4 +32,9 @@
   <a href='<c:url value="/shop/newAccount.do"/>'> 
     <img border="0" src="../images/button_register_now.gif" alt="" />
   </a>
+
+  <a href='https://kauth.kakao.com/oauth/authorize?client_id=1472597e6ed7e4b9234dd8d12f932b68&redirect_uri=http://localhost:8080/jpetstore/shop/index.do&response_type=code'>
+    <img border="0" src="../images/kakaologin.png" alt="" width="120" height="30"/>
+  </a>
+ 
 </div>
