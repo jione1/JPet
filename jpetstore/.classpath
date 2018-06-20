@@ -28,5 +28,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/jar_파일/jackson-all-1.9.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/jar_파일/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/jar_파일/javax.json-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/jar_파일/json_simple-1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
