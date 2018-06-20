@@ -27,6 +27,7 @@ public class Account implements Serializable {
   private boolean bannerOption;
   private String bannerName;
   private String tendecyResult;
+  private String profileImagePath;
 
   /* JavaBeans Properties */
 
@@ -91,5 +92,12 @@ public String getUsername() { return username; }
 
   public String getBannerName() { return bannerName; }
   public void setBannerName(String bannerName) { this.bannerName = bannerName; }
+public String getProfileImagePath() {
+	return profileImagePath;
+}
+public void setProfileImagePath(String profileImagePath) {
+	this.profileImagePath = profileImagePath;
+}
+
 
 }

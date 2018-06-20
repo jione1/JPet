@@ -23,9 +23,10 @@ public interface PetStoreFacade {
 	void insertAccount(Account account);
 
 	void updateAccount(Account account);
+	
+	void kakaoLogin(Account account);
 
 	List<String> getUsernameList();
-
 
 	List<Category> getCategoryList();
 
