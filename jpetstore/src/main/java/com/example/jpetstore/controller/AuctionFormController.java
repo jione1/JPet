@@ -69,11 +69,15 @@ public class AuctionFormController {
 
 	}
 
-	@RequestMapping("/auction/aucTemplist.do") //지난 경매 
+	@RequestMapping("/auction/aucTemplist.do") //현 경매 
 	public String tempActionList(
 			ModelMap model) throws Exception {
 		//aucStatus가 true 인 것 모델에 put
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
 
+		model.addAttribute("itemList", auctionList);
+		model.addAttribute("listnum", auctionList.size());
+		
 		return "tiles/AuctionList";
 
 	}
@@ -113,69 +117,16 @@ public class AuctionFormController {
 	@RequestMapping("/auction/sendAuctionPost.do")
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
-<<<<<<< HEAD
-		System.out.println(username);
-		
-		int item_seq = 280;
-		int product_seq = item_seq;
-		
-		System.out.println(item_seq + " " + product_seq);
-		
-		String id = "P2P-" + (item_seq);
-		String pro_id;
-		
-		if (auctionForm.getCategory().equals("FISH")) {
-			pro_id = "P2P-FI-" + (product_seq);
-		} else if (auctionForm.getCategory().equals("DOGS")) {
-			pro_id = "P2P-DO-" + (product_seq);
-		}else if (auctionForm.getCategory().equals("CATS")) {
-			pro_id = "P2P-CA-" + (product_seq);
-		}else if (auctionForm.getCategory().equals("REPTILES")) {
-			pro_id = "P2P-RE-" + (product_seq);
-		}else {
-			pro_id = "P2P-BI-" + (product_seq);
-		}
-		System.out.println(pro_id);
-=======
-
-//		ArrayList<P2P> p2pList = new ArrayList<P2P>(this.p2pService.getP2PList());
-//		int item_seq = p2pList.size();
-//
-//		int size = auctionService.auctionListSize();
-//
-//
-//		String id = "AUC-" + (item_seq + size + 1);
-//		String pro_id = "AUC-PRO-" + (item_seq + size + 1);
 
 		int auc_item_seq = sequenceDao.getNextId("auction_num");
->>>>>>> origin/shinee
 		
 		String id = "AUC-" + auc_item_seq;
 		String pro_id = "AUC-PRO-" + auc_item_seq;
 		
-		auction = new Auction();
-
-		auction.setItemId(id);
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date endTime = transFormat.parse(request.getParameter("endDate"));
-
-		auction.setEndtime(endTime);
-		auction.setMaxPrice(auctionForm.getPrice());
-		auction.setAucStatus(false);
-		auction.setAucName(auctionForm.getTitle());
-		auction.setPrice(auctionForm.getPrice());
-		auction.setUserId(username);
-		auction.setAuction_num(auc_item_seq);
-		auction.setItemName(auctionForm.getItemName());
-		auction.setUserId(username);
-
-		auctionService.insertAucItem(auction);
-
-
 		Product pro = new Product();
 
 		pro.setProductId(pro_id);
-		pro.setCategoryId("FISH");
+		pro.setCategoryId("AUCTIONS");
 		pro.setName(auctionForm.getItemName());
 		pro.setDescription(auctionForm.getAucDiscription());
 
@@ -191,29 +142,29 @@ public class AuctionFormController {
 		item.setQuantity(1);
 
 		petStore.insertItem(item);
+		
+		auction = new Auction();
 
-<<<<<<< HEAD
-		auction.setEndtime(endTime);
-		auction.setMaxPrice((int)item.getListPrice());
-		auction.setAucStatus(false);
+		auction.setItemId(id);
+		
+		auction.setAucEnd(request.getParameter("aucEnd"));
+		auction.setMaxPrice(auctionForm.getPrice());
+		auction.setAucStatus("0");
 		auction.setAucName(auctionForm.getTitle());
-		auction.setAuctionCost((int)item.getListPrice());
+		auction.setPrice(auctionForm.getPrice());
 		auction.setUserId(username);
-		auction.setAuction_num(3);
+		auction.setAuction_num(auc_item_seq);
 		auction.setItemName(auctionForm.getItemName());
 		auction.setUserId(username);
-		auctionService.insertAucItem(auction);
 		
-		return "tiles/AuctionItem";
-=======
-		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
+		auctionService.insertAucItem(auction);
 
-		System.out.println("auctionlist" + auctionList.size());
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
 
 		model.addAttribute("itemList", auctionList);
 		model.addAttribute("listnum", auctionList.size());
 
 		return "tiles/AuctionList";
->>>>>>> origin/shinee
+
 	}
 }

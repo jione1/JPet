@@ -15,10 +15,10 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<button style="width:45%" class="w3-button flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">지난 경매</button>
 				</div>
-
+				
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <c:set var="count" value="${listnum div 3}" />
-					<c:forEach var="item" items="${itemList}" begin="0" end="${count}">
+					<c:forEach var="item" items="${itemList}" begin="0" end="${first}">
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
                         <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
 

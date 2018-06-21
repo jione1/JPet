@@ -28,7 +28,7 @@
       NAME,
       DESCN as description,
       CATEGORY as categoryId
-    FROM SSD01_4.PRODUCT
+    FROM PRODUCT
     WHERE CATEGORY = #{value}
   </select>
 
@@ -44,7 +44,7 @@
  
   <insert id="insertProduct" parameterType="Product">
   	
-    INSERT INTO SSD01_4.PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
+    INSERT INTO PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
       VALUES
       (#{productId,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
