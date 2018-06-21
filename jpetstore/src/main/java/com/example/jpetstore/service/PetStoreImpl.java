@@ -195,14 +195,19 @@ public class PetStoreImpl implements PetStoreFacade {
 			public void run() {
 				Date curTime = new Date();
 				aucItemDao.closeAuction(curTime);
+				System.out.println("====================================");
+				System.out.println("curTime " + curTime);
 			}
 		};
-		
 //		HashMap<String, Date> hashMap = new HashMap<String, Date>();
 //		hashMap.put("curTime", new Date());
 //		hashMap.put("endTime", endTime);
 		
 		scheduler.schedule(updateStatus, endTime);
+		
+		
+		System.out.println("======================================");
+		System.out.println("endTime" + endTime);
 	}
 	
 }

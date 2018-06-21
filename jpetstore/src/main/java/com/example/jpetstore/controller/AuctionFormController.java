@@ -8,14 +8,12 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.example.jpetstore.dao.SequenceDao;
@@ -58,7 +56,7 @@ public class AuctionFormController {
 			ModelMap model) throws Exception {
 		//aucStatus가 false 인 것 모델에 put
 
-		return "tiles/AuctionList";
+		return "NowAuction";
 	}
 	
 	@RequestMapping("/auction/auclist.do") //지난 경매 
@@ -71,11 +69,15 @@ public class AuctionFormController {
 
 	}
 
-	@RequestMapping("/auction/aucTemplist.do") //지난 경매 
+	@RequestMapping("/auction/aucTemplist.do") //현 경매 
 	public String tempActionList(
 			ModelMap model) throws Exception {
 		//aucStatus가 true 인 것 모델에 put
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
 
+		model.addAttribute("itemList", auctionList);
+		model.addAttribute("listnum", auctionList.size());
+		
 		return "tiles/AuctionList";
 
 	}
@@ -113,49 +115,18 @@ public class AuctionFormController {
 
 	}	
 	@RequestMapping("/auction/sendAuctionPost.do")
-	public ModelAndView sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
+	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
-
-//		ArrayList<P2P> p2pList = new ArrayList<P2P>(this.p2pService.getP2PList());
-//		int item_seq = p2pList.size();
-//
-//		int size = auctionService.auctionListSize();
-//
-//
-//		String id = "AUC-" + (item_seq + size + 1);
-//		String pro_id = "AUC-PRO-" + (item_seq + size + 1);
 
 		int auc_item_seq = sequenceDao.getNextId("auction_num");
 		
 		String id = "AUC-" + auc_item_seq;
 		String pro_id = "AUC-PRO-" + auc_item_seq;
 		
-		auction = new Auction();
-
-		auction.setItemId(id);
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date endTime = transFormat.parse(request.getParameter("endDate"));
-		
-		//지원
-		petStore.testScheduler(endTime);
-
-		auction.setEndtime(endTime);
-		auction.setMaxPrice(auctionForm.getPrice());
-		auction.setAucStatus(false);
-		auction.setAucName(auctionForm.getTitle());
-		auction.setPrice(auctionForm.getPrice());
-		auction.setUserId(username);
-		auction.setAuction_num(auc_item_seq);
-		auction.setItemName(auctionForm.getItemName());
-		auction.setUserId(username);
-
-		auctionService.insertAucItem(auction);
-
-
 		Product pro = new Product();
 
 		pro.setProductId(pro_id);
-		pro.setCategoryId("FISH");
+		pro.setCategoryId("AUCTIONS");
 		pro.setName(auctionForm.getItemName());
 		pro.setDescription(auctionForm.getAucDiscription());
 
@@ -171,22 +142,37 @@ public class AuctionFormController {
 		item.setQuantity(1);
 
 		petStore.insertItem(item);
+		
+		auction = new Auction();
+
+		auction.setItemId(id);
+		
+		auction.setAucEnd(request.getParameter("aucEnd"));
+		auction.setMaxPrice(auctionForm.getPrice());
+		auction.setAucStatus("0");
+		auction.setAucName(auctionForm.getTitle());
+		auction.setPrice(auctionForm.getPrice());
+		auction.setUserId(username);
+		auction.setAuction_num(auc_item_seq);
+		auction.setItemName(auctionForm.getItemName());
+		auction.setUserId(username);
+		
+		auctionService.insertAucItem(auction);
+		
+		//jione
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 11:05");
+		petStore.testScheduler(endTime);
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
 
-		System.out.println("auctionlist" + auctionList.size());
-
 		model.addAttribute("itemList", auctionList);
 		model.addAttribute("listnum", auctionList.size());
-
-		//jione
-		return new ModelAndView("tiles/AuctionList", "endTime", endTime);
+		model.addAttribute("endTime", endTime);
+		
+		System.out.println("endTime " + endTime);
+		
+		return "tiles/AuctionList";
 
 	}
-	
-//	@RequestMapping("/auction/aucTemplist.do")
-//	public ModelAndView aucTimer(HttpServletRequest request, @DateTimeFormat(pattern="yyyy-mm-dd") Date closeTime)throws Exception{
-//		petStore.testScheduler(closeTime);
-//		return new ModelAndView("Scheduled", "closeTime", closeTime);
-//	}
 }
