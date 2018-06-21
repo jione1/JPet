@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.QAMapper">
+	<cache />
+	
+	<insert id="insertQAPost" parameterType="QA">
+		INSERT INTO Q_A
+			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE)
+		VALUES
+			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype})
+	</insert>
+	
+	<insert id="insertQASellerPost" parameterType="QA">
+		INSERT INTO Q_A
+			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE, ITEMID, SELLERID)
+		VALUES
+			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype}, #{itemid}, #{sellerId})
+	</insert>
+
+<!-- 	<update id="updateQAPost" parameterType="QA"> -->
+<!-- 		UPDATE Q_A -->
+<!-- 		SET QDISCRIPTION = #{content} -->
+<!-- 		WHERE QNUM= #{qaNum} AND USERID=#{SessionAccount} -->
+<!-- 	</update> -->
+	
+<!-- 	<delete id="deleteQAPost" parameterType="qaNum, SessionAccount"> -->
+<!-- 		DELETE FROM Q_A -->
+<!-- 		WHERE QNUM=#{qaNum} AND USERID=#{SessionAccount} -->
+<!-- 	</delete> -->
+
+	<select id="getQAList" resultType="com.example.jpetstore.domain.QA">
+		SELECT QNUM, USERID, QTITLE as title, QDICRIPTION as content, QANSWER as isAnswered, QTYPE, ATIME, ITEMID, SELLERID, ADID
+		FROM Q_A
+	</select>
+
+	<select id="getQA" resultType="QA">
+		SELECT QNUM, USERID, QTITLE as title, QDICRIPTION as content, QANSWER as isAnswered, QTYPE, ATIME, ITEMID, SELLERID, ADID
+		FROM Q_A
+		WHERE QNUM = #{qaNum}
+	</select>
+ </mapper>

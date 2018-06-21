@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.3.201803200843-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/webapp/WEB-INF/remoting-servlet.xml</config>
+		<config>src/main/resources/applicationContext.xml</config>
+		<config>src/main/resources/dataAccessContext-mybatis.xml</config>
+		<config>src/main/webapp/WEB-INF/petstore-servlet.xml</config>
+		<config>src/main/resources/dataAccessContext-jdbc.xml</config>
+	</configs>
+	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/petstore-servlet-with-tiles.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

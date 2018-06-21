@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore.dao.mybatis.mapper.P2PMapper">
+<cache />
+
+<select id="getP2PPostList" resultType="P2P">
+	select
+		P.P2PTITLE AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price
+	FROM ITEM I, P2P P
+	WHERE P.SELLERID=#{id}
+	AND I.ITEMID=P.ITEMID
+</select>
+
+<select id="getP2PDetail" resultType="P2P">
+	select
+		P.P2PTitle AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price,
+		I.PRODUCTID AS "item.productId",
+		Pr.NAME AS "product.name",
+		Pr.DESCN AS "product.description",
+		Pr.CATEGORY AS "product.categoryId",
+		QTY AS quantity
+		
+	FROM ITEM I, P2P P, Product Pr, INVENTORY V
+	WHERE P.SELLERID=#{id}
+	AND I.ITEMID=P.ITEMID 
+	AND Pr.PRODUCTID = I.PRODUCTID 
+	AND P.ITEMID = V.ITEMID
+	
+</select>
+
+<select id="getP2PList" resultType="P2P">
+	select
+		P.P2PTITLE AS title,
+		P.SELLERID AS id,
+		I.ITEMID AS itemId,
+		I.LISTPRICE AS price
+	FROM ITEM I, P2P P
+	WHERE I.ITEMID=P.ITEMID
+</select>
+
+<select id="getP2PSeller" resultType="P2P">
+	select
+		SELLERID AS id 
+	FROM P2P 
+	WHERE ITEMID = #{value}
+</select>
+
+
+<insert id ="insertPost" parameterType="P2P">
+    INSERT INTO P2P (P2PTITLE,SELLERID,ITEMID)
+      VALUES
+      (#{title}, #{id}, #{itemId})
+  </insert>
+  
+  
+  <update id ="updatePost" parameterType="P2P">
+    UPDATE P2P 
+    SET P2PTITLE = #{title}
+    WHERE ITEMID = #{itemId}
+  </update>
+  
+</mapper>
