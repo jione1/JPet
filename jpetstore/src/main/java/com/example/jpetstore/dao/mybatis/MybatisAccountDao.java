@@ -48,4 +48,8 @@ public class MybatisAccountDao implements AccountDao {
 	public List<String> getUsernameList() throws DataAccessException {
 		return accountMapper.getUsernameList();
 	}
+	
+	public void kakaoLogin(Account account) throws DataAccessException {
+		accountMapper.kakaoLogin(account);
+	}
 }

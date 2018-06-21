@@ -54,4 +54,28 @@
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 <task:scheduler id="scheduler" pool-size="10"/>
 
+<context:property-placeholder location="classpath:/*.properties" />
+
+<!-- 외부 properties 설정  -->
+	<bean id="result" class="com.example.jpetstore.domain.Tendency_WhatKind" >
+		<property name="kind">
+			<list>
+				<value>${quest1.tendency}</value>
+				<value>${quest2.tendency}</value>
+				<value>${quest3.tendency}</value>
+				<value>${quest4.tendency}</value>
+				<value>${quest5.tendency}</value>
+				<value>${quest6.tendency}</value>
+				<value>${quest7.tendency}</value>
+				<value>${quest8.tendency}</value>
+				<value>${quest9.tendency}</value>
+				<value>${quest10.tendency}</value>
+				<value>${quest11.tendency}</value>
+				<value>${quest12.tendency}</value>
+				
+			</list>
+		</property>
+	</bean>
+
+
 </beans>

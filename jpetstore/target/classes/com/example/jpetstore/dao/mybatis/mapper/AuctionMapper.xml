@@ -2,8 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.jpetstore.dao.mybatis.mapper.AuctionMapper">
+<<<<<<< HEAD
   <cache />
  
+=======
+	<cache />
+
+>>>>>>> origin/shineeauction
 	<insert id="insertAucItem" parameterType="Auction">
 		INSERT INTO AUCTIONITEM
 		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM, AUCEND)
@@ -28,6 +33,7 @@
 		WHERE P.PRODUCTID = I.PRODUCTID 
 		AND P.NAME = A.ITEMNAME
 	</select>
+<<<<<<< HEAD
 	
 	<update id="closeAuction" parameterType="Date">
 		<![CDATA[
@@ -36,4 +42,7 @@
 			WHERE ENDTIME <= #{curTime}
 		]]>
 	</update>
+=======
+
+>>>>>>> origin/shineeauction
 </mapper>

@@ -22,6 +22,8 @@ INSERT INTO category VALUES ('DOGS','Dogs','<image src="../images/dogs_icon.gif"
 INSERT INTO category VALUES ('REPTILES','Reptiles','<image src="../images/reptiles_icon.gif"><font size="5" color="blue"> Reptiles</font>');
 INSERT INTO category VALUES ('CATS','Cats','<image src="../images/cats_icon.gif"><font size="5" color="blue"> Cats</font>');
 INSERT INTO category VALUES ('BIRDS','Birds','<image src="../images/birds_icon.gif"><font size="5" color="blue"> Birds</font>');
+INSERT INTO category VALUES ('AUCTIONS');
+
 
 INSERT INTO product VALUES ('FI-SW-01','FISH','Angelfish','<image src="../images/fish1.jpg">Salt Water fish from Australia');
 INSERT INTO product VALUES ('FI-SW-02','FISH','Tiger Shark','<image src="../images/fish4.gif">Salt Water fish from Australia');
@@ -100,3 +102,13 @@ INSERT INTO inventory (itemid, qty ) VALUES ('EST-25',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-26',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-27',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-28',10000);
+
+select * from user_sequences;
+drop sequence AUCTION_NUM ;
+delete from ITEM where ITEMID like 'AUC-10';
+delete from PRODUCT where PRODUCTID like 'AUC-PRO-10';
+
+delete from AUCTIONITEM where AUCTION_NUM =10;
+
+
+          

@@ -82,7 +82,7 @@
                             </p>
 
                             <div class="w-size2 p-t-25">
-                                <a href="#" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                                <a href="<c:url value="/tendency/tendencyStart.do"/>" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
                                     분석하기
                                 </a>
                             </div>

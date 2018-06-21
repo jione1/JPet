@@ -10,7 +10,35 @@ import com.example.jpetstore.domain.Auction;
 public class AuctionForm implements Serializable {
 	//jione
 	private Auction auction;
-	
+
+	//aucparti
+	private int inputPrice; //구매자들이 올리는 가격 저장
+	private String userId;
+	private int auction_num;
+
+	//auction
+	private int itemId; //주문을 위해 itemID를 부여
+	private boolean orderStatus;
+	private int maxPrice; //경매를 통해 부여되는 최고가격
+
+	//autItem
+	private String aucEnd;
+	private String aucStatus; //낙찰 유무
+	private String aucImage;
+	private String aucDiscription; //경매에 올려지는 item의 설명
+	private String aucName;
+	private int price; //판매자가 올리는 최조 가격 (최저가격)
+	private String itemName; //경매에 올려지는 item의 이름 
+	private int partiId; //참가하는 구
+
+	public Auction getAuction() {
+		return auction;
+	}
+
+	public void setAuction(Auction auction) {
+		this.auction = auction;
+	}
+
 	public int getInputPrice() {
 		return inputPrice;
 	}
@@ -43,12 +71,12 @@ public class AuctionForm implements Serializable {
 		this.itemId = itemId;
 	}
 
-	public Data getEndtime() {
-		return endtime;
+	public String getAucEnd() {
+		return aucEnd;
 	}
 
-	public void setEndtime(Data endtime) {
-		this.endtime = endtime;
+	public void setAucEnd(String aucEnd) {
+		this.aucEnd = aucEnd;
 	}
 
 	public boolean isOrderStatus() {
@@ -67,11 +95,11 @@ public class AuctionForm implements Serializable {
 		this.maxPrice = maxPrice;
 	}
 
-	public boolean isAucStatus() {
+	public String getAucStatus() {
 		return aucStatus;
 	}
 
-	public void setAucStatus(boolean aucStatus) {
+	public void setAucStatus(String aucStatus) {
 		this.aucStatus = aucStatus;
 	}
 
@@ -103,8 +131,8 @@ public class AuctionForm implements Serializable {
 		return price;
 	}
 
-	public void setPrice(int auctionCost) {
-		this.price = auctionCost;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getItemName() {
@@ -121,42 +149,6 @@ public class AuctionForm implements Serializable {
 
 	public void setPartiId(int partiId) {
 		this.partiId = partiId;
-	}
-
-	//aucparti
-	private int inputPrice; //구매자들이 올리는 가격 저장
-	private String userId;
-	private int auction_num;
-
-	//auction
-	private int itemId; //주문을 위해 itemID를 부여
-	private Data endtime;
-	private boolean orderStatus;
-	private int maxPrice; //경매를 통해 부여되는 최고가격
-
-	//autItem
-	private boolean aucStatus; //낙찰 유무
-	private String aucImage;
-	private String aucDiscription; //경매에 올려지는 item의 설명
-	private String aucName;
-	private int price; //판매자가 올리는 최조 가격 (최저가격)
-	private String itemName; //경매에 올려지는 item의 이름 
-	private int partiId; //참가하는 구
-
-	private String category;
-
-	private String title;
-
-	private String productId;
-	
-	private boolean auctionStatus;
-
-	public boolean isAuctionStatus() {
-		return auctionStatus;
-	}
-
-	public void setAuctionStatus(boolean auctionStatus) {
-		this.auctionStatus = auctionStatus;
 	}
 
 	public String getCategory() {
@@ -183,26 +175,20 @@ public class AuctionForm implements Serializable {
 		this.productId = productId;
 	}
 
-	public void setAuction(Auction auction) {
-		this.auction = auction;
-	}
-
-
-	public AuctionForm(Auction auction) {
-		this.auction = auction;
-		this.auctionStatus = false;
-	}
-
-	public AuctionForm() {
-		this.auction = new Auction();
-		this.auctionStatus = true;
-	}
-
-	public Auction getAuction() {
-		return auction;
-	}
-
-	public boolean autionStatus() {
+	public boolean isAuctionStatus() {
 		return auctionStatus;
 	}
+
+	public void setAuctionStatus(boolean auctionStatus) {
+		this.auctionStatus = auctionStatus;
+	}
+
+	private String category;
+
+	private String title;
+
+	private String productId;
+
+	private boolean auctionStatus;
+
 }

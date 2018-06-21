@@ -10,7 +10,26 @@ public class Auction implements Serializable {
 	//경매 item을 정의
 	private Product product;
 	private Item item;
-	
+	//aucparti
+	private int inputPrice; //구매자들이 올리는 가격 저장
+	private String userId;
+	private int auction_num;
+
+	//auction
+	private String itemId; //주문을 위해 itemID를 부여
+	private String aucEnd;
+	private boolean orderStatus;
+	private int maxPrice; //경매를 통해 부여되는 최고가격
+
+	//autItem
+	private String aucStatus; //낙찰 유무
+	private String aucImage;
+	private String aucDiscription; //경매에 올려지는 item의 설명
+	private String aucName;//title
+	private int price; //판매자가 올리는 최조 가격 (최저가격)
+	private String itemName; //경매에 올려지는 item의 이름 
+	private int partiId; //참가하는 구매자들의 id
+
 	public Product getProduct() {
 		return product;
 	}
@@ -30,49 +49,40 @@ public class Auction implements Serializable {
 		this.item = item;
 	}
 
-	//aucparti
-	 private int inputPrice; //구매자들이 올리는 가격 저장
-	 private String userId;
-	 private int auction_num;
-	 
-	 //auction
-	 private String itemId; //주문을 위해 itemID를 부여
-	 private Date endtime;
-	 private boolean orderStatus;
-	 private int maxPrice; //경매를 통해 부여되는 최고가격
-	 
-	 //autItem
-	 private boolean aucStatus; //낙찰 유무
-	 private String aucImage;
-	 private String aucDiscription; //경매에 올려지는 item의 설명
-	 private String aucName;//title
-	 private int price; //판매자가 올리는 최조 가격 (최저가격)
-	 private String itemName; //경매에 올려지는 item의 이름 
-	 private int partiId; //참가하는 구매자들의 id
-	 
-	 
-	 
-	 public Boolean isSold(int itemId) {
+
+	public String getAucEnd() {
+		return aucEnd;
+	}
+
+
+	public void setAucEnd(String endTime) {
+		this.aucEnd = endTime;
+	}
+
+	
+
+
+	public String isSold(int itemId) {
 		return aucStatus;
-	 }
+	}
 
 
 	public int getInputPrice() {
 		return inputPrice;
 	}
-	
+
 	public void setInputPrice(int inputPrice) {
 		this.inputPrice = inputPrice;
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
+
 	public int getAuction_num() {
 		return auction_num;
 	}
@@ -81,21 +91,13 @@ public class Auction implements Serializable {
 		this.auction_num = auction_num;
 	}
 
-	public Date getEndtime() {
-		return endtime;
-	}
-
-	public void setEndtime(Date endtime) {
-		this.endtime = endtime;
-	}
-
-	public boolean isAucStatus() {
+	public String isAucStatus() {
 		return aucStatus;
 	}
 
 
-	public void setAucStatus(boolean aucStatus) {
-		this.aucStatus = aucStatus;
+	public void setAucStatus(String string) {
+		this.aucStatus = string;
 	}
 
 
