@@ -8,6 +8,7 @@ import com.example.jpetstore.domain.Auction;
 
 @SuppressWarnings("serial")
 public class AuctionForm implements Serializable {
+	//jione
 	private Auction auction;
 	
 	public int getInputPrice() {
