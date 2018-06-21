@@ -1,5 +1,6 @@
 package com.example.jpetstore.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.jpetstore.domain.Account;
@@ -63,5 +64,8 @@ public interface PetStoreFacade {
 	void deletePost(String itemId);
 	
 	void updatePost(Item item);
+	
+	//jione-scheduler
+	void testScheduler(Date endTime);
 	
 }

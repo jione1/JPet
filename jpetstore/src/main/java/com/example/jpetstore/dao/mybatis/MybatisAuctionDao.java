@@ -1,5 +1,6 @@
 package com.example.jpetstore.dao.mybatis;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,9 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	
 	public List<Auction> getAuctionList() {
 		return auctionMapper.getAuctionList();
+	}
+	
+	public void closeAuction(Date curTime) {
+		auctionMapper.closeAuction(curTime);
 	}
 }

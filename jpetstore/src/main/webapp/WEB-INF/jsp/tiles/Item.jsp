@@ -74,7 +74,7 @@
 						<div class="s-text15 w-size15 t-center">성별</div>
 
 						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="color">
+							<select class="selection-2 size15" name="color">
 								<option>Choose an option</option>
 								<option>Female</option>
 								<option>Male</option>

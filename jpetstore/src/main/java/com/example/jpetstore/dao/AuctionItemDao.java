@@ -1,5 +1,6 @@
 package com.example.jpetstore.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.jpetstore.domain.Auction;
@@ -19,4 +20,7 @@ public interface AuctionItemDao {
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	int auctionListSize();
 	
+	
+	
+	void closeAuction(Date curTime);
 }

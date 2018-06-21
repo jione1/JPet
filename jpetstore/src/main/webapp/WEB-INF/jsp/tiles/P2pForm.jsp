@@ -50,7 +50,7 @@
 			<div id = "divhidden">
 				<div class="form-group">
 					<label for="category">CATEGORY</label>
-					<form:select path="category" items="${categories }" />
+					<form:select path="category" items="${categories }" cssClass="size10"/>
 					<%-- <form:errors path="category" /> --%>
 					<!-- <input type="password" class="form-control" id="Password1" placeholder="Password"> -->
 				</div>

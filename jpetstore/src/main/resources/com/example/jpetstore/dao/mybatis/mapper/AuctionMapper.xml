@@ -6,8 +6,8 @@
  
 	<insert id="insertAucItem" parameterType="Auction">
 		INSERT INTO AUCTIONITEM
-		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM)
-		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{price},#{auction_num})
+		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM, AUCEND)
+		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{price},#{auction_num}, #{aucEnd, jdbcType=DATE})
 	</insert>
 
 	<select id="auctionListSize" resultType="int">
@@ -28,4 +28,12 @@
 		WHERE P.PRODUCTID = I.PRODUCTID 
 		AND P.NAME = A.ITEMNAME
 	</select>
+	
+	<update id="closeAuction" parameterType="Date">
+		<![CDATA[
+			UPDATE AUCTIONITME 
+			SET AUCSTATUS = '1'
+			WHERE ENDTIME <= #{curTime}
+		]]>
+	</update>
 </mapper>
