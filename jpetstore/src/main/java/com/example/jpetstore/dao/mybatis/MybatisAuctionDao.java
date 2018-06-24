@@ -95,4 +95,8 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 		auctionMapper.closeAuction(curTime);
 	}
 
+	@Override
+	public int countInput(int auction_Num) {
+		return auctionMapper.countInput(auction_Num);
+	}
 }

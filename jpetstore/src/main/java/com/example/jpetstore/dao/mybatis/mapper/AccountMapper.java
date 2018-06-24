@@ -46,6 +46,4 @@ public interface AccountMapper {
 
 
   void kakaoLogin(Account account);
-
-
 }

@@ -25,4 +25,6 @@ public interface AuctionMapper {
 	int findMaxPrice(int aucNum);
 
 	void closeAuction(Date curTime);
+	
+	int countInput(int auction_Num);
 }

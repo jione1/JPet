@@ -35,5 +35,6 @@ public interface AuctionItemDao {
 	
 	void closeAuction(Date curTime);
 
+	int countInput(int auction_Num);
 	
 }

@@ -32,7 +32,7 @@
     <img border="0" src="../images/button_register_now.jpg" alt="" height="50"/>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href='https://kauth.kakao.com/oauth/authorize?client_id=1472597e6ed7e4b9234dd8d12f932b68&redirect_uri=http://localhost:8080/jpetstore/shop/index.do&response_type=code'>
+  <a href='https://kauth.kakao.com/oauth/authorize?client_id=1472597e6ed7e4b9234dd8d12f932b68&redirect_uri=http://localhost:8080/jpetstore/kakaologin.do&response_type=code'>
     <img border="0" src="../images/kakaologin.png" alt="" width="120" height="50"/>
   </a>
  

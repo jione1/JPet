@@ -25,7 +25,7 @@ public class KakaoLogin {
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 		postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
 		postParams.add(new BasicNameValuePair("client_id", "1472597e6ed7e4b9234dd8d12f932b68")); // REST API KEY
-		postParams.add(new BasicNameValuePair("redirect_uri", "/oauth")); // 리다이렉트 URI
+		postParams.add(new BasicNameValuePair("redirect_uri", "http://localhost:8080/jpetstore/kakaologin.do")); // 리다이렉트 URI
 		postParams.add(new BasicNameValuePair("code", autorize_code)); // 로그인 과정중 얻은 code 값
 
 		final HttpClient client = HttpClientBuilder.create().build();
@@ -56,20 +56,26 @@ public class KakaoLogin {
 
 		return returnNode;
 	}
+	
 
 	public static JsonNode getKakaoUserInfo(String autorize_code) {
+		final String RequestUrl = "https://kapi.kakao.com/v2/user/me";
+		
+		String CLIENT_ID = "1472597e6ed7e4b9234dd8d12f932b68"; // REST API KEY
+	    String REDIRECT_URI = "http://localhost:8080/jpetstore/kakaologin.do"; // 리다이렉트 URI
+	    String code = autorize_code; // 로그인 과정중 얻은 토큰 값
 
-		final String RequestUrl = "https://kapi.kakao.com/v1/user/me";
+	    final HttpClient client = HttpClientBuilder.create().build();
+	    final HttpPost post = new HttpPost(RequestUrl);
 
-		final HttpClient client = HttpClientBuilder.create().build();
-		final HttpPost post = new HttpPost(RequestUrl);
+	    // add header
 
-		// add header
-		post.addHeader("Authorization", "Bearer " + autorize_code);
+	    post.addHeader("Authorization", "Bearer " + autorize_code);
 
-		JsonNode returnNode = null;
+	    JsonNode returnNode = null;
 
 		try {
+
 			final HttpResponse response = client.execute(post);
 			final int responseCode = response.getStatusLine().getStatusCode();
 
@@ -90,24 +96,5 @@ public class KakaoLogin {
 			// clear resources
 		}
 		return returnNode;
-
-	}
-
-	public static Account changeData(JsonNode userInfo) {
-		Account acc = new Account();
-
-		acc.setUsername(userInfo.path("id").asText());// id -> vo 넣기
-
-		if (userInfo.path("kaccount_email_verified").asText().equals("true")) { // 이메일 받기 허용 한 경우
-			acc.setEmail(userInfo.path("kaccount_email").asText()); // email 넣기
-		} else { // 이메일 거부 할 경우 코드 추후 개발
-
-		}
-
-		JsonNode properties = userInfo.path("properties"); // 추가정보 받아오기
-		if (properties.has("nickname"))
-			acc.setUsername(properties.path("nickname").asText());
-			acc.setProfileImagePath(properties.path("profile_image").asText());
-		return acc;
 	}
 }

@@ -251,18 +251,20 @@ public class AuctionFormController {
 	public String hadleRequset (
 			@RequestParam("auction_Num") int auction_Num,
 			ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
-//		System.out.println("여기");
+		
 		Auction auction = auctionService.getAuctionDetail(auction_Num);
-//		System.out.println("here");
-		int maxPrice = auctionService.findMaxPrice(auction_Num);
-//		System.out.println("maxPrice" + maxPrice);
-		if(maxPrice <= auction.getInputPrice())
-			maxPrice = auction.getInputPrice();
+		
+		int inputNum = auctionService.countInput(auction_Num);
+		int maxPrice = 0;
+		if(inputNum != 0)  
+			maxPrice = auctionService.findMaxPrice(auction_Num);
+		else
+			maxPrice = auction.getAuctionCost();
+		
+		System.out.println("최고가격 : " + maxPrice);
 		
 		auction.setMaxPrice(maxPrice);
-		
-		System.out.println("옥션" + auction.getAuctionCost());
-		
+
 		model.put("auction", auction);
 
 		return "tiles/AuctionDetail";

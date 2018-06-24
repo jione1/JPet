@@ -37,5 +37,6 @@ public interface AuctionService {
 	Auction getAuctionDetail(int auction_Num);
 
 	int findMaxPrice(int auctNum);
-
+	
+	int countInput(int auction_Num);
 }

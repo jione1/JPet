@@ -112,4 +112,10 @@ public class AuctionServiceImpl implements AuctionService {
 	public int findMaxPrice(int aucNum) {
 		return auctionItemDao.findMaxPrice(aucNum);
 	}
+	
+	@Override
+	public int countInput(int auction_Num) {
+		// TODO Auto-generated method stub
+		return auctionItemDao.countInput(auction_Num);
+	}
 }

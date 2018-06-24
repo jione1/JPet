@@ -102,4 +102,9 @@
 		WHERE AUCEND <= #{curTime}]]>
 	</update>
 
+	<select id="countInput" resultType="int">
+		SELECT COUNT(INPUTPRICE)
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
 </mapper>
