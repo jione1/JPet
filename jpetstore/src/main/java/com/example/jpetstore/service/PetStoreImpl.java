@@ -212,12 +212,8 @@ public class PetStoreImpl implements PetStoreFacade {
 				System.out.println("curTime " + curTime);
 			}
 		};
-//		HashMap<String, Date> hashMap = new HashMap<String, Date>();
-//		hashMap.put("curTime", new Date());
-//		hashMap.put("endTime", endTime);
 		
 		scheduler.schedule(updateStatus, endTime);
-		
 		
 		System.out.println("======================================");
 		System.out.println("endTime" + endTime);

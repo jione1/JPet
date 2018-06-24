@@ -169,6 +169,7 @@ public class AuctionFormController {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 01:00");
 		petStore.testScheduler(endTime);
+		
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
 
@@ -244,7 +245,6 @@ public class AuctionFormController {
 		
 		// 그 다음 큰 값에 똑같이 진행 
 		okAuction(auction_Num, session, userSession);
-	
 	}	
 
 	@RequestMapping("/auction/viewAuctionDetail.do") //옥션 상세보기
