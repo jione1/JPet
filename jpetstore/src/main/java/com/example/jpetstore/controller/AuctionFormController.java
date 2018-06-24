@@ -4,20 +4,27 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.example.jpetstore.dao.SequenceDao;
 import com.example.jpetstore.domain.Auction;
+import com.example.jpetstore.domain.Cart;
 import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.P2P;
 import com.example.jpetstore.domain.Product;
@@ -44,12 +51,22 @@ public class AuctionFormController {
 
 	@Autowired
 	private SequenceDao sequenceDao;
-
+	
 	private Auction auction;
 
 	@Autowired
 	private P2PService p2pService;
 
+	@ModelAttribute("sessionCart")
+	public Cart createCart() {
+		return new Cart();
+	}
+
+	@ModelAttribute("auctionForm")
+	public AuctionForm auctionForm() {
+		return new AuctionForm();
+	}
+	
 	@RequestMapping("/auction/newAuction.do") //옥션 model 에 담기 
 	public String nowAuction(
 			@RequestParam("auction_Num") String auction_Num,
@@ -59,13 +76,14 @@ public class AuctionFormController {
 		return "NowAuction";
 	}
 	
-	@RequestMapping("/auction/auclist.do") //지난 경매 
+	@RequestMapping("/auction/auclist.do") //지난 경매
 	public String pastAuction(
-			@RequestParam("auction_Num") String auction_Num,
 			ModelMap model) throws Exception {
-		//aucStatus가 true 인 것 모델에 put
-
-		return "PastAuction";
+		//aucStatus가 1 인 것 
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getLastAuctionList();
+		model.addAttribute("itemList", auctionList);
+		model.addAttribute("listnum", auctionList.size());
+		return "tiles/AuctionList";
 
 	}
 
@@ -73,7 +91,7 @@ public class AuctionFormController {
 	public String tempActionList(
 			ModelMap model) throws Exception {
 		//aucStatus가 true 인 것 모델에 put
-		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
 
 		model.addAttribute("itemList", auctionList);
 		model.addAttribute("listnum", auctionList.size());
@@ -82,47 +100,93 @@ public class AuctionFormController {
 
 	}
 	
-	@RequestMapping("/auction/aucInputPrice.do") //가격 입력하기 
-	public String inputPriceAuction(
-			@RequestParam("auction_Num") String auction_Num,
-			@ModelAttribute("userSession") UserSession userSession,
+	@RequestMapping("/auction/aucCurlist.do") //현 경매 
+	public String ActionCurList(
 			ModelMap model) throws Exception {
-		//aucparti에 price값과 사용자 id를 넣는다.
-
-		return "AucPage";
+		//aucStatus가 0 인 것 
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
+		model.addAttribute("itemList", auctionList);
+		model.addAttribute("listnum", auctionList.size());
+		return "tiles/AuctionList";
 
 	}
-
-	@RequestMapping("/auction/aucOk.do") //낙찰하기 
-	public String okAuction(
-			@RequestParam("auction_Num") String auction_Num,
-			@ModelAttribute("maxPrice") String maxPrice,
+	
+	@RequestMapping("/auction/aucDetail.do") //경매 아이템 상세 보기 
+	public String ShowAuctionDetail(@ModelAttribute("auctionForm") AuctionForm auctionForm, @RequestParam("auction_Num") int auction_Num,
 			ModelMap model) throws Exception {
+
+		Auction auction = auctionService.getAuctionDetail(auction_Num);
+
+		model.addAttribute("item", auction);
+		return "tiles/AuctionParti";
+
+	}
+	
+	@RequestMapping("/auction/aucOk.do") //낙찰하기 
+	public void okAuction(
+			@RequestParam("auction_Num") int auction_Num,
+			HttpSession session) throws Exception {
+		
 		//maxPrice가 누군지 찾기 
+		String userId = auctionService.findAucUserID(auction_Num);
+		
+		//해당 옥션 가져오기 
+		Auction auction = auctionService.getAuctionDetail(auction_Num);
+		
+		//cart에 넣기 - session에 넣으면 알아서?
+		
+		Cart cart = createCart();
+		handleRequest(auction.getItemId(), cart);
+		
+//		session.setAttribute("sessionCart", auction);
+	}
+	
+	public ModelAndView handleRequest(
+			@RequestParam("workingItemId") String workingItemId,
+			@ModelAttribute("sessionCart") Cart cart 
+			) throws Exception {
+		if (cart.containsItemId(workingItemId)) {
+			cart.incrementQuantityByItemId(workingItemId);
+		}
+		else {
+			// isInStock is a "real-time" property that must be updated
+			// every time an item is added to the cart, even if other
+			// item details are cached.
+			boolean isInStock = this.petStore.isItemInStock(workingItemId);
+			Item item = this.petStore.getItem(workingItemId);
+			cart.addItem(item, isInStock);
+		}
+		return new ModelAndView("Cart", "cart", cart);
+	}
+	
 
-		return "AucPage";
-
-	}				
 
 	@RequestMapping("/auction/aucFail.do") //낙찰 포기 
-	public String failAuction(
-			@RequestParam("auction_Num") String auction_Num,
-			@ModelAttribute("maxPrice") String maxPrice,
-			ModelMap model) throws Exception {
-		//service 로 보내기 
+	public void failAuction(
+			@RequestParam("auction_Num") int auction_Num,
+			HttpSession session) throws Exception { 
+		
+		//가장 큰 값 행 지우기
+		auctionService.deleteMaxPrice(auction_Num);
+		
+		// 그 다음 큰 값에 똑같이 진행 
+		okAuction(auction_Num, session);
 
-		return "AuctionService";
-
+//		String userId = auctionService.findAucUserID(auction_Num);
+	
 	}	
+
 	@RequestMapping("/auction/sendAuctionPost.do")
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
 
-		int auc_item_seq = sequenceDao.getNextId("auction_num");
+		int item_seq = sequenceDao.getNextId("itemnum");
+		int prd_seq = sequenceDao.getNextId("productnum");
+		int auc_item_seq= sequenceDao.getNextId("auction_num");
+		String id = "AUC-" + item_seq;
+		String pro_id = "AUC-PRO-" + prd_seq;
 		
-		String id = "AUC-" + auc_item_seq;
-		String pro_id = "AUC-PRO-" + auc_item_seq;
-		
+		System.out.println("itemId = " + id + " prod_id = " + pro_id );
 		Product pro = new Product();
 
 		pro.setProductId(pro_id);
@@ -159,7 +223,7 @@ public class AuctionFormController {
 		
 		auctionService.insertAucItem(auction);
 
-		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
+		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
 
 		model.addAttribute("itemList", auctionList);
 		model.addAttribute("listnum", auctionList.size());
@@ -167,4 +231,28 @@ public class AuctionFormController {
 		return "tiles/AuctionList";
 
 	}
+	@RequestMapping("/auction/aucInputPrice.do") //가격 입력하기 
+	public String inputPriceAuction(
+			@RequestParam("auction_Num") int auction_Num,
+			@ModelAttribute("userSession") UserSession userSession,
+			@ModelAttribute("AuctionForm") AuctionForm auctionForm,
+			ModelMap model) throws Exception {
+		//aucparti에 price값과 사용자 id를 넣는다.
+		
+		String username = userSession.getAccount().getUsername();
+		
+//		Auction acution = new Auction();
+		auction.setInputPrice(auctionForm.getInputPrice());
+		
+		int inputPrice = auction.getInputPrice();
+		auction.setPartiId(username);
+		
+		auctionService.insertPrice(auction_Num, inputPrice, username);
+		
+		return "tiles/AuctionList";
+		
+		}
+
+	
+	
 }

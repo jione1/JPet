@@ -104,11 +104,33 @@ INSERT INTO inventory (itemid, qty ) VALUES ('EST-27',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-28',10000);
 
 select * from user_sequences;
+drop sequence itemnum ;
 drop sequence AUCTION_NUM ;
-delete from ITEM where ITEMID like 'AUC-10';
-delete from PRODUCT where PRODUCTID like 'AUC-PRO-10';
+drop sequence productnum ;
 
+delete from Q_A where ITEMID like 'P2P-%'
+delete from P2P where ITEMID like 'P2P-%';
+delete from AUCPARTI;
+delete from AUCTIONITEM where ITEMNAME in (select NAME from PRODUCT where PRODUCTID like 'AUC-%' ) ;
+
+delete from ITEM where ITEMID like 'P2P-%';
+delete from ITEM where ITEMID like 'AUC-%';
+delete from INVENTORY where ITEMID like 'P2P-%';
+delete from PRODUCT where PRODUCTID like 'P2P-%';
+delete from PRODUCT where PRODUCTID like 'AUC-%';
+
+
+alter table item modify productid varchar2(30);
 delete from AUCTIONITEM where AUCTION_NUM =10;
 
+create sequence productnum
+START WITH       1
+increment by 1
 
-          
+maxvalue 9999999999
+
+nocache
+
+nocycle;
+
+     

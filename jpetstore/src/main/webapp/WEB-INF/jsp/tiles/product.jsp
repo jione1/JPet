@@ -18,7 +18,7 @@
 					<h4 class="m-text14 p-b-7">Categories</h4>
 
 					<ul class="p-b-54">
-						<li class="p-t-4"><a href="#" class="s-text13 active1">
+						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>" class="s-text13 active1">
 								FISH </a></li>
 
 						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="DOGS"/></c:url>" class="s-text13"> DOGS </a></li>
@@ -56,7 +56,7 @@
 							<div class="block2">
 								<div
 									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src=${file } alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -94,7 +94,7 @@
 							<div class="block2">
 								<div
 									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -117,8 +117,7 @@
 										class="block2-name dis-block s-text3 p-b-5"> <c:out
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
-											value="${item.getListPrice()}" />
-									</span>
+											value="${item.getListPrice()}" /></span>
 								</div>
 							</div>
 						</c:forEach>
@@ -130,7 +129,7 @@
 							<div class="block2">
 								<div
 									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"

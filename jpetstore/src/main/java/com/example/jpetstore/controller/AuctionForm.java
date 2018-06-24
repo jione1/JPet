@@ -2,14 +2,10 @@ package com.example.jpetstore.controller;
 
 import java.io.Serializable;
 
-import javax.xml.crypto.Data;
-
-import com.example.jpetstore.domain.Auction;
 
 @SuppressWarnings("serial")
 public class AuctionForm implements Serializable {
-	private Auction auction;
-
+	
 	//aucparti
 	private int inputPrice; //구매자들이 올리는 가격 저장
 	private String userId;
@@ -29,14 +25,6 @@ public class AuctionForm implements Serializable {
 	private int price; //판매자가 올리는 최조 가격 (최저가격)
 	private String itemName; //경매에 올려지는 item의 이름 
 	private int partiId; //참가하는 구
-
-	public Auction getAuction() {
-		return auction;
-	}
-
-	public void setAuction(Auction auction) {
-		this.auction = auction;
-	}
 
 	public int getInputPrice() {
 		return inputPrice;

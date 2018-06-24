@@ -10,13 +10,14 @@ public interface AuctionMapper {
 	void insertAucItem(Auction auction);
 	void updateAucStatus(int aucNum, boolean aucStatus);
 	void updateAucItem(Auction auction);
-	List<Auction> getAuctionList();
+	List<Auction> getLastAuctionList();
+	List<Auction> getCurAuctionList();
 	void insertPrice(int aucNum, int inputPrice,  String userID);
 	
-	void deleteMaxPrice(int acuNum, String userID);
-	
-	String findAucUserID(int maxPrice, String userID);
-	
 	int auctionListSize();
+	Auction getAucDetail(int aucNum);
+	void deleteMaxPrice(int aucNum);
+	String findAucUserID(int aucNum);
+
 	
 }

@@ -14,19 +14,63 @@
 		SELECT count(*) FROM AUCTIONITEM
 	</select>
 	
-	<select id="getAuctionList" resultType="Auction">
+	<select id="getCurAuctionList" resultType="Auction">
 		SELECT 
 			SELLERID AS userId,
 			ITEMNAME AS itemName,
 			AUCSTATUS AS aucStatus,
-			P.DESCN AS aucDiscription,
+			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
 			AUCTION_NUM AS auction_num
-			
-		FROM AUCTIONITEM A, PRODUCT P, ITEM I
-		WHERE P.PRODUCTID = I.PRODUCTID 
-		AND P.NAME = A.ITEMNAME
+		FROM AUCTIONITEM A
+		WHERE  A.AUCSTATUS = '0'
+		
+		
+	</select>
+	<select id="getLastAuctionList" resultType="Auction">
+		SELECT 
+			SELLERID AS userId,
+			ITEMNAME AS itemName,
+			AUCSTATUS AS aucStatus,
+			AUCDISCRIPTION AS aucDiscription,
+			AUCNAME AS aucName,
+			AUCTIONCOST AS price,
+			AUCTION_NUM AS auction_num
+		FROM AUCTIONITEM A
+		WHERE  A.AUCSTATUS = '1'
+	</select>
+	
+	<!-- 최고값 작성한 사람 id 불러오기  -->
+	<select id="findAucUserID" parameterType="Auction">
+		SELECT MAX(USERID)
+		KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
+		AS USERID
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
+	
+	<!-- 낙찰 포기 시 큰 값 제거  -->
+	<delete id="deleteMaxPrice">
+		DELETE FROM AUCPARTI
+		WHERE INPUTPRICE = (
+			SELECT MAX(INPUTPRICE) 
+			FROM AUCPARTI
+			WHERE AUCTION_NUM = #{aucNum})
+	</delete>
+	
+	
+	<!-- 경매 참여하기 ( 가격 작성 ) -->
+	<insert id="inputPrice" parameterType="Auction">
+		INSERT INTO AUCPARTI (INPUTPRICE, USERID, AUCTION_NUM)
+		VALUES(#{inputPrice}, #{userId}, #{aucNum})
+	</insert>
+	
+	<!-- cart에 넣기 위해서 해당 auctionItem 가져오기  -->
+	<select id="getAucDetail" resultType="Auction">
+		SELECT * 
+		FROM AUCTIONITEM
+		WHERE AUCTION_NUM = #{aucNum}
 	</select>
 
 </mapper>

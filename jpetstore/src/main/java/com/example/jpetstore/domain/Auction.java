@@ -1,15 +1,23 @@
 package com.example.jpetstore.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.xml.crypto.Data;
 
 @SuppressWarnings("serial")
 public class Auction implements Serializable {
+	@Override
+	public String toString() {
+		return "Auction [product=" + product + ", item=" + item + ", inputPrice=" + inputPrice + ", userId=" + userId
+				+ ", auction_num=" + auction_num + ", itemId=" + itemId + ", aucEnd=" + aucEnd + ", orderStatus="
+				+ orderStatus + ", maxPrice=" + maxPrice + ", aucStatus=" + aucStatus + ", aucImage=" + aucImage
+				+ ", aucDiscription=" + aucDiscription + ", aucName=" + aucName + ", price=" + price + ", itemName="
+				+ itemName + ", partiId=" + partiId + "]";
+	}
+
 	//경매 item을 정의
 	private Product product;
 	private Item item;
+	
 	//aucparti
 	private int inputPrice; //구매자들이 올리는 가격 저장
 	private String userId;
@@ -28,7 +36,7 @@ public class Auction implements Serializable {
 	private String aucName;//title
 	private int price; //판매자가 올리는 최조 가격 (최저가격)
 	private String itemName; //경매에 올려지는 item의 이름 
-	private int partiId; //참가하는 구매자들의 id
+	private String partiId; //참가하는 구매자들의 id
 
 	public Product getProduct() {
 		return product;
@@ -157,11 +165,11 @@ public class Auction implements Serializable {
 		this.itemId = itemId;
 	}
 
-	public int getPartiId() {
+	public String getPartiId() {
 		return partiId;
 	}
 
-	public void setPartiId(int partiId) {
+	public void setPartiId(String partiId) {
 		this.partiId = partiId;
 	}
 

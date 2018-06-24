@@ -16,22 +16,17 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	private AuctionMapper auctionMapper;
 	
 	@Override
-	public void insertPrice(int aucNum, int inputPrice, String userID) {
+	public void deleteMaxPrice(int aucNum) {
 		// TODO Auto-generated method stub
-		
+		auctionMapper.deleteMaxPrice(aucNum);
+	}
+                                                                                                    
+	@Override
+	public String findAucUserID(int aucNum) {
+		// TODO Auto-generated method stub
+		return auctionMapper.findAucUserID(aucNum);
 	}
 
-	@Override
-	public void deleteMaxPrice(int acuNum, String userID) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String findAucUserID(int maxPrice, String userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void insertAucItem(Auction auction) {
@@ -67,7 +62,21 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 		return auctionMapper.auctionListSize();
 	}
 	
-	public List<Auction> getAuctionList() {
-		return auctionMapper.getAuctionList();
+	public List<Auction> getCurAuctionList() {
+		return auctionMapper.getCurAuctionList();
 	}
+	public List<Auction> getLastAuctionList() {
+		return auctionMapper.getLastAuctionList();
+	}
+	@Override
+	public Auction getAuctionDetail(int aucNum) {
+		// TODO Auto-generated method stub
+		return auctionMapper.getAucDetail(aucNum);
+	}
+	@Override
+	public void insertPrice(int aucNum, int inputPrice, String userID) {
+		// TODO Auto-generated method stub
+		auctionMapper.insertPrice(aucNum, inputPrice, userID);
+	}
+
 }

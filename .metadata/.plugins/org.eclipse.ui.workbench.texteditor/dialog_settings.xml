@@ -6,34 +6,39 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="logo" key="selection"/>
+		<item value="IMG" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="logo"/>
-			<item value="p2p"/>
-			<item value="insertpost"/>
-			<item value="create sequence"/>
-			<item value="create"/>
-			<item value="table"/>
-			<item value="msSqlServerInsertOrder"/>
-			<item value="koi"/>
-			<item value="container-menu-header"/>
-			<item value="container"/>
-			<item value="dao"/>
-			<item value="Dao"/>
 			<item value="img"/>
+			<item value="commons"/>
+			<item value="io"/>
+			<item value="commons.io"/>
+			<item value="MULTIPART"/>
+			<item value="//code.jquery.com/jquery-1.11.3.min.js"/>
+			<item value="c:url"/>
+			<item value="jackson"/>
+			<item value="SSD01_4."/>
+			<item value="delete"/>
+			<item value="update"/>
+			<item value="SSD01_4"/>
+			<item value="sequence"/>
+			<item value="auction"/>
+			<item value="”"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value=" "/>
+			<item value="auctionItemDao"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="920" key="DIALOG_X_ORIGIN"/>
-		<item value="45" key="DIALOG_Y_ORIGIN"/>
+		<item value="804" key="DIALOG_X_ORIGIN"/>
+		<item value="216" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

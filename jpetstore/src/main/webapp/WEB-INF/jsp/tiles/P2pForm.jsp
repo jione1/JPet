@@ -5,7 +5,6 @@
 <div class="container">
    <h2>ITEM POSTING</h2>
    <div class="p-t-22 p-b-50 bo3"></div>
-   <c:url var="post_url" value="/p2p/sendP2PPost.do" />
    <form:form commandName="P2PForm" method="post"
       enctype="multipart/form-data">
 
@@ -72,7 +71,8 @@
          <div class="form-group">
             <label for="file">PICTURE</label>
             <div></div>
-            <input type="file" id="file">
+            <input type="file" name="report" id = "report">
+            <div id="holder"></div>
          </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <div class="form-group">

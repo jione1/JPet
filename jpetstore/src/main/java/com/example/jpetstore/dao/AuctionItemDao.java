@@ -9,14 +9,23 @@ public interface AuctionItemDao {
 	void insertAucItem(Auction auction);
 	void updateAucStatus(int aucNum, boolean aucStatus);
 	void updateAucItem(Auction auction);
-	List<Auction> getAuctionList();
+	List<Auction> getCurAuctionList();
+
+	List<Auction> getLastAuctionList();
+	
 	void insertPrice(int aucNum, int inputPrice,  String userID);
 	
-	void deleteMaxPrice(int acuNum, String userID);
+	void deleteMaxPrice(int acuNum);
 	
-	String findAucUserID(int maxPrice, String userID);
+	String findAucUserID(int aucNum);
+	
 	void insertMaxPrice(int aucNum, double maxPrice);
+
 	void updateOrderStatus(int aucNum, boolean orderStatus);
+	
 	int auctionListSize();
+	
+	Auction getAuctionDetail(int aucNum);
+
 	
 }
