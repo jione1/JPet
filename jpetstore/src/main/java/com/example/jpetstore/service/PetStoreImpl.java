@@ -96,10 +96,11 @@ public class PetStoreImpl implements PetStoreFacade {
 	public void updateAccount(Account account) {
 		accountDao.updateAccount(account);
 	}
-
-	public void kakaoLogin(Account account) {
-		accountDao.kakaoLogin(account);
-	}
+//
+//	public void kakaoLogin(Account account) {
+//		System.out.println("tjqltm" + account.getUsername());
+//		accountDao.kakaoLogin(account);
+//	}
 	
 	public List<String> getUsernameList() {
 		return accountDao.getUsernameList();

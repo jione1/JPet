@@ -13,6 +13,7 @@ import org.springframework.web.util.WebUtils;
 import com.example.jpetstore.domain.Account;
 import com.example.jpetstore.domain.Category;
 import com.example.jpetstore.domain.Product;
+import com.example.jpetstore.service.KakaoLoginService;
 import com.example.jpetstore.service.PetStoreFacade;
 import com.example.jpetstore.service.PetStoreImpl;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,65 +29,69 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "http://localhost:8080/jpetstore/shop/index.do" , produces = "application/json", method = (RequestMethod.GET))
 public class KakaoLoginController {
 
-//	PetStoreImpl accountService;
-	 
+	KakaoLoginService kakaoLoginService;
+		 
 	@Autowired
 	private PetStoreFacade petStore;
 	public void setPetStore(PetStoreFacade petStore) {
 		this.petStore = petStore;
 	}
+//
+//	@ModelAttribute("categories")
+//	public List<Category> getCategoryList() {
+//		return petStore.getCategoryList();
+//	}
 
-	@ModelAttribute("categories")
-	public List<Category> getCategoryList() {
-		return petStore.getCategoryList();
-	}
-
-	public String KakaoLogin(@RequestParam("code") String code,
+	@ModelAttribute("userSession")
+	public AccountForm KakaoLogin(@RequestParam("code") String code,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@ModelAttribute("accountForm") AccountForm accountForm) 
 					throws Exception{
-		
-	Account account = new Account();
+		System.out.println("asdf");
+//	Account account = new Account();
 
 	  JsonNode token = KakaoLogin.getAccessToken(code);
 	
 	  JsonNode profile = KakaoLogin.getKakaoUserInfo(token.path("access_token").toString());
 
 	  Account properties = KakaoLogin.changeData(profile);
-	  
-	  String username = properties.getUsername();
-	  
-	  account.setUsername(username);
-	  account.setProfileImagePath(properties.getProfileImagePath());
-	  
-	  petStore.kakaoLogin(account);
+//	  
+//	  String username = properties.getUsername();
 
-	  session.setAttribute("login", account);
+//	  account.setUsername(username);
+//	  account.setProfileImagePath(properties.getProfileImagePath());
+	  
+	  kakaoLoginService.kakaoLogin(properties);
 
-	  System.out.println("카카오로그인" + username);
+	  session.setAttribute("login", properties);
 
+	  System.out.println("카카오로그인" + properties.getUsername());
+
+//	  UserSession userSession = new UserSession(properties);
+	  
 	  UserSession userSession = new UserSession(
 			petStore.getAccount(accountForm.getAccount().getUsername()));
-		PagedListHolder<Product> myList = new PagedListHolder<Product>(
-			petStore.getProductListByCategory(accountForm.getAccount().getFavouriteCategoryId()));
-		myList.setPageSize(4);
-		userSession.setMyList(myList);
+	  
+//		PagedListHolder<Product> myList = new PagedListHolder<Product>(
+//			petStore.getProductListByCategory(accountForm.getAccount().getFavouriteCategoryId()));
+//		myList.setPageSize(4);
+//		userSession.setMyList(myList);
 		session.setAttribute("userSession", userSession);
 
-	  return "index";
+	  return new AccountForm();
 	}
-
-	@ModelAttribute("userSession")
-	public AccountForm formBackingObject(HttpServletRequest request) 
-			throws Exception {
-		UserSession userSession = 
-			(UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		if (userSession != null) {	// edit an existing account
-			return new AccountForm(
-				petStore.getAccount(userSession.getAccount().getUsername()));
-		}
-		else {	// create a new account
-			return new AccountForm();
-		}
-	}
+	
+//	@ModelAttribute("userSession")
+//	public AccountForm formBackingObject(HttpServletRequest request) 
+//			throws Exception {
+//		UserSession userSession = 
+//			(UserSession) WebUtils.getSessionAttribute(request, "userSession");
+//		if (userSession != null) {	// edit an existing account
+//			return new AccountForm(
+//				petStore.getAccount(userSession.getAccount().getUsername()));
+//		}
+//		else {	// create a new account
+//			return new AccountForm();
+//		}
+//	}
 }

@@ -36,6 +36,8 @@ public class MybatisAccountDao implements AccountDao {
 	
 	public void kakaoLogin(Account account) throws DataAccessException {
 		accountMapper.kakaoLogin(account);
+		
+		System.out.println("zkzkdh" + account.getUsername());
 	}
 
 	public void updateAccount(Account account) throws DataAccessException {

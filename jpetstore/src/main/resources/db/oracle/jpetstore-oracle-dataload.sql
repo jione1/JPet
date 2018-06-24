@@ -10,6 +10,13 @@ INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (5000, 'JYY0325', '
 INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (7000, 'j2ee', '21');
 
 
+
+   INSERT INTO ACCOUNT
+      (EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY, PHONE, USERID, PROFILEIMAGEPATH)
+    VALUES
+      ('kakao', 'kakao', 'kakao', null, 'kakao', null, 'kakao', 'kakao', 'kakao', 'kakao', 'kakao', 'kakao@', null)
+
+
 SELECT MAX(USERID)
 KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
 AS USERID

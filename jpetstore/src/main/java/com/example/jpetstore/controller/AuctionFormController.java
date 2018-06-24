@@ -29,7 +29,6 @@ import com.example.jpetstore.service.OrderService;
 import com.example.jpetstore.service.P2PService;
 import com.example.jpetstore.service.PetStoreFacade;
 
-
 @Controller
 @SessionAttributes({"userSession", "sessionCart"})
 public class AuctionFormController {
@@ -51,8 +50,6 @@ public class AuctionFormController {
 
 	private Auction auction;
 	
-	
-
 	@ModelAttribute("sessionCart")
 	public Cart createCart() {
 		return new Cart();
@@ -110,7 +107,8 @@ public class AuctionFormController {
 	@RequestMapping("/auction/aucOk.do") //낙찰하기 
 	public void okAuction(
 			@RequestParam("auction_Num") int auction_Num,
-			HttpSession session) throws Exception {
+			HttpSession session,
+			@ModelAttribute("userSession") UserSession userSession) throws Exception {
 		
 		//maxPrice가 누군지 찾기 
 		String userId = auctionService.findAucUserID(auction_Num);
@@ -118,9 +116,11 @@ public class AuctionFormController {
 		//해당 옥션 가져오기 
 		Auction auction = auctionService.getAuctionDetail(auction_Num);
 		
+		if (userId == userSession.getAccount().getUsername()) {
 		//cart에 넣기 - session에 넣으면 알아서?
-		Cart cart = createCart();
-		handleRequest(auction.getItemId(), cart);
+			Cart cart = createCart();
+			handleRequest(auction.getItemId(), cart);
+		}
 	}	
 
 	public ModelAndView handleRequest(
@@ -141,13 +141,14 @@ public class AuctionFormController {
 	@RequestMapping("/auction/aucFail.do") //낙찰 포기 
 	public void failAuction(
 			@RequestParam("auction_Num") int auction_Num,
-			HttpSession session) throws Exception { 
+			HttpSession session,
+			@ModelAttribute("userSession") UserSession userSession) throws Exception { 
 		
 		//가장 큰 값 행 지우기
 		auctionService.deleteMaxPrice(auction_Num);
 		
 		// 그 다음 큰 값에 똑같이 진행 
-		okAuction(auction_Num, session);
+		okAuction(auction_Num, session, userSession);
 	
 	}	
 
