@@ -29,12 +29,13 @@ import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.P2P;
 import com.example.jpetstore.domain.Product;
 import com.example.jpetstore.service.AuctionService;
+import com.example.jpetstore.service.OrderService;
 import com.example.jpetstore.service.P2PService;
 import com.example.jpetstore.service.PetStoreFacade;
 
 
 @Controller
-@SessionAttributes("userSession")
+@SessionAttributes({"userSession", "sessionCart"})
 public class AuctionFormController {
 
 	private PetStoreFacade petStore;
@@ -54,18 +55,11 @@ public class AuctionFormController {
 	
 	private Auction auction;
 
-	@Autowired
-	private P2PService p2pService;
-
 	@ModelAttribute("sessionCart")
 	public Cart createCart() {
 		return new Cart();
 	}
 
-	@ModelAttribute("auctionForm")
-	public AuctionForm auctionForm() {
-		return new AuctionForm();
-	}
 	
 	@RequestMapping("/auction/newAuction.do") //옥션 model 에 담기 
 	public String nowAuction(
@@ -100,6 +94,7 @@ public class AuctionFormController {
 
 	}
 	
+
 	@RequestMapping("/auction/aucCurlist.do") //현 경매 
 	public String ActionCurList(
 			ModelMap model) throws Exception {
@@ -122,63 +117,10 @@ public class AuctionFormController {
 
 	}
 	
-	@RequestMapping("/auction/aucOk.do") //낙찰하기 
-	public void okAuction(
-			@RequestParam("auction_Num") int auction_Num,
-			HttpSession session) throws Exception {
-		
-		//maxPrice가 누군지 찾기 
-		String userId = auctionService.findAucUserID(auction_Num);
-		
-		//해당 옥션 가져오기 
-		Auction auction = auctionService.getAuctionDetail(auction_Num);
-		
-		//cart에 넣기 - session에 넣으면 알아서?
-		
-		Cart cart = createCart();
-		handleRequest(auction.getItemId(), cart);
-		
-//		session.setAttribute("sessionCart", auction);
-	}
-	
-	public ModelAndView handleRequest(
-			@RequestParam("workingItemId") String workingItemId,
-			@ModelAttribute("sessionCart") Cart cart 
-			) throws Exception {
-		if (cart.containsItemId(workingItemId)) {
-			cart.incrementQuantityByItemId(workingItemId);
-		}
-		else {
-			// isInStock is a "real-time" property that must be updated
-			// every time an item is added to the cart, even if other
-			// item details are cached.
-			boolean isInStock = this.petStore.isItemInStock(workingItemId);
-			Item item = this.petStore.getItem(workingItemId);
-			cart.addItem(item, isInStock);
-		}
-		return new ModelAndView("Cart", "cart", cart);
-	}
-	
-
-
-	@RequestMapping("/auction/aucFail.do") //낙찰 포기 
-	public void failAuction(
-			@RequestParam("auction_Num") int auction_Num,
-			HttpSession session) throws Exception { 
-		
-		//가장 큰 값 행 지우기
-		auctionService.deleteMaxPrice(auction_Num);
-		
-		// 그 다음 큰 값에 똑같이 진행 
-		okAuction(auction_Num, session);
-
-//		String userId = auctionService.findAucUserID(auction_Num);
-	
-	}	
-
 	@RequestMapping("/auction/sendAuctionPost.do")
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
+
 
 		int item_seq = sequenceDao.getNextId("itemnum");
 		int prd_seq = sequenceDao.getNextId("productnum");
@@ -187,12 +129,30 @@ public class AuctionFormController {
 		String pro_id = "AUC-PRO-" + prd_seq;
 		
 		System.out.println("itemId = " + id + " prod_id = " + pro_id );
+
+		
+		auction = new Auction();
+
+		auction.setItemId(id);
+		
+		auction.setAucEnd(request.getParameter("aucEnd"));
+		auction.setMaxPrice(auctionForm.getPrice());
+		auction.setAucStatus("0");
+		auction.setAucName(auctionForm.getTitle());
+		auction.setPrice(auctionForm.getPrice());
+		auction.setUserId(username);
+		auction.setAuction_num(auc_item_seq);
+		auction.setItemName(auctionForm.getItemName());
+		auction.setUserId(username);
+		auction.setDiscription(auctionForm.getDiscription());
+		auctionService.insertAucItem(auction);
+
 		Product pro = new Product();
 
 		pro.setProductId(pro_id);
 		pro.setCategoryId("AUCTIONS");
 		pro.setName(auctionForm.getItemName());
-		pro.setDescription(auctionForm.getAucDiscription());
+		pro.setDescription(auctionForm.getDiscription());
 
 		petStore.insertProduct(pro);	
 
@@ -209,19 +169,6 @@ public class AuctionFormController {
 		
 		auction = new Auction();
 
-		auction.setItemId(id);
-		
-		auction.setAucEnd(request.getParameter("aucEnd"));
-		auction.setMaxPrice(auctionForm.getPrice());
-		auction.setAucStatus("0");
-		auction.setAucName(auctionForm.getTitle());
-		auction.setPrice(auctionForm.getPrice());
-		auction.setUserId(username);
-		auction.setAuction_num(auc_item_seq);
-		auction.setItemName(auctionForm.getItemName());
-		auction.setUserId(username);
-		
-		auctionService.insertAucItem(auction);
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
 
@@ -231,28 +178,89 @@ public class AuctionFormController {
 		return "tiles/AuctionList";
 
 	}
+	
 	@RequestMapping("/auction/aucInputPrice.do") //가격 입력하기 
-	public String inputPriceAuction(
-			@RequestParam("auction_Num") int auction_Num,
-			@ModelAttribute("userSession") UserSession userSession,
-			@ModelAttribute("AuctionForm") AuctionForm auctionForm,
-			ModelMap model) throws Exception {
+	public String insertPrice(
+			@RequestParam("auction_Num") int auction_num,
+			@RequestParam("price") int inputPrice,
+			@ModelAttribute("userSession") UserSession userSession) throws Exception {
+		
 		//aucparti에 price값과 사용자 id를 넣는다.
+		String userID = userSession.getAccount().getUsername();
 		
-		String username = userSession.getAccount().getUsername();
+		Auction auction = auctionService.getAuctionDetail(auction_num);
 		
-//		Auction acution = new Auction();
-		auction.setInputPrice(auctionForm.getInputPrice());
+		auction.setInputPrice(inputPrice);
+		auction.setPartiId(userID);
+		auction.setAuction_num(auction_num);
+
+//		auctionService.insertPrice(auction);
 		
-		int inputPrice = auction.getInputPrice();
-		auction.setPartiId(username);
-		
-		auctionService.insertPrice(auction_Num, inputPrice, username);
-		
-		return "tiles/AuctionList";
+		return "redirect:" + "/auction/viewAuctionDetail.do?auction_Num= "+ auction_num;
 		
 		}
 
+	@RequestMapping("/auction/aucOk.do") //낙찰하기 
+	public void okAuction(
+			@RequestParam("auction_Num") int auction_Num,
+			HttpSession session,
+			@ModelAttribute("userSession") UserSession userSession) throws Exception {
+		
+		//maxPrice가 누군지 찾기 
+		String userId = auctionService.findAucUserID(auction_Num);
+		
+		//해당 옥션 가져오기 
+		Auction auction = auctionService.getAuctionDetail(auction_Num);
+		
+		if (userId == userSession.getAccount().getUsername()) {
+		//cart에 넣기 - session에 넣으면 알아서?
+			Cart cart = createCart();
+			handleRequest(auction.getItemId(), cart);
+		}
+	}	
+
+	public ModelAndView handleRequest(
+			@RequestParam("workingItemId") String workingItemId,
+			@ModelAttribute("sessionCart") Cart cart 
+			) throws Exception {
+		if (cart.containsItemId(workingItemId)) {
+			cart.incrementQuantityByItemId(workingItemId);
+		}
+		else {
+			boolean isInStock = this.petStore.isItemInStock(workingItemId);
+			Item item = this.petStore.getItem(workingItemId);
+			cart.addItem(item, isInStock);
+		}
+		return new ModelAndView("Cart", "cart", cart);
+	}
+	
+	@RequestMapping("/auction/aucFail.do") //낙찰 포기 
+	public void failAuction(
+			@RequestParam("auction_Num") int auction_Num,
+			HttpSession session,
+			@ModelAttribute("userSession") UserSession userSession) throws Exception { 
+		
+		//가장 큰 값 행 지우기
+		auctionService.deleteMaxPrice(auction_Num);
+		
+		// 그 다음 큰 값에 똑같이 진행 
+		okAuction(auction_Num, session, userSession);
+	
+	}	
+
+	@RequestMapping("/auction/viewAuctionDetail.do") //옥션 상세보기
+		public String hadleRequset (
+				@RequestParam("auction_Num") int auction_Num,
+				ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
+			
+			Auction auction = auctionService.getAuctionDetail(auction_Num);
+			
+			System.out.println("옥션" + auction.getAuctionCost());
+			
+			model.put("auction", auction);
+
+			return "tiles/AuctionDetail";
+	}
 	
 	
 }

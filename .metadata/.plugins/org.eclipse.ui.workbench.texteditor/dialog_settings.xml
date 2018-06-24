@@ -6,12 +6,18 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="IMG" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="delete"/>
+			<item value="insertPrice"/>
+			<item value="insert"/>
+			<item value="hidden"/>
+			<item value="auction"/>
+			<item value="divhidden"/>
 			<item value="img"/>
 			<item value="commons"/>
 			<item value="io"/>
@@ -21,12 +27,6 @@
 			<item value="c:url"/>
 			<item value="jackson"/>
 			<item value="SSD01_4."/>
-			<item value="delete"/>
-			<item value="update"/>
-			<item value="SSD01_4"/>
-			<item value="sequence"/>
-			<item value="auction"/>
-			<item value="”"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -38,7 +38,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="804" key="DIALOG_X_ORIGIN"/>
-		<item value="216" key="DIALOG_Y_ORIGIN"/>
+		<item value="1086" key="DIALOG_X_ORIGIN"/>
+		<item value="188" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

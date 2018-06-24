@@ -13,6 +13,13 @@ import com.example.jpetstore.domain.Auction;
 @Service
 public class AuctionServiceImpl implements AuctionService {
 
+	@Override
+	public List<Auction> getAuctionList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@Autowired
 	private AuctionItemDao auctionItemDao;
 
@@ -48,10 +55,11 @@ public class AuctionServiceImpl implements AuctionService {
 	
 // AuctionPartiDao
 	@Override
-	public void insertPrice(int aucNum, int inputPrice, String userID) {
+	public void insertPrice(Auction auction){
 		// TODO Auto-generated method stub
-		auctionItemDao.insertPrice(aucNum, inputPrice, userID);
+		auctionItemDao.insertPrice(auction);
 	}
+
 
 	@Override
 	public void deleteMaxPrice(int aucNum) {

@@ -15,9 +15,11 @@
    </div>
 
    <!-- Product Detail -->
+
    <form name="f" >
    <input type="hidden" name="item" value="<c:out value="${item.getItemId()}"/>"/>
    
+
    <div class="container bgwhite p-t-35 p-b-80">
       <div class="flex-w flex-sb">
          <div class="w-size13 p-t-30 respon5">
@@ -27,7 +29,9 @@
                <div class="slick3">
                   <div class="item-slick3" data-thumb="images/thumb-item-01.jpg">
                      <div class="wrap-pic-w">
+
                         <img src="${filename }" alt="IMG-PRODUCT">
+
                      </div>
                   </div>
 
@@ -51,7 +55,10 @@
 
             <span class="m-text17"> ₩ ${item.getListPrice()} </span>
 
+
             <div class="p-t-33 p-b-60">
+
+ 
                <div class="flex-m flex-w">
                   <div class="s-text15 w-size15 t-center">성별</div>
 
@@ -130,11 +137,14 @@
                </div>
                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14" id = "hiddenBtn">
                <button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn" style="display:none">
+
                      삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn" value = "modify" style="display:none" onClick="btnSubmit(this.value)">수정 </button>
+
                </div>
          </div>
       </div>
    </div>
+
    </form>
 
 
@@ -469,6 +479,7 @@
       }
    );
    </script>
+
    
    <script type="text/javascript">
    function btnSubmit(s) {

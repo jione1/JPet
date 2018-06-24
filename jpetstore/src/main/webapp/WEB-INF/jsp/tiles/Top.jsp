@@ -27,6 +27,7 @@
                             <li>
                                 <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
                             </li>
+
                             <li>
                                 <a href="<c:url value="/auction/aucTemplist.do"/>">Auction</a>
                             </li>

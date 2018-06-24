@@ -1,5 +1,6 @@
 package com.example.jpetstore.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.jpetstore.domain.Auction;
@@ -17,20 +18,23 @@ public interface AuctionService {
 	
 	void insertAucItem(Auction auction);
 	
-	void updateAucItem(Auction auction);
-	
+	void deleteMaxPrice(int aucNum);
+
 	int auctionListSize();
 	
+
 	List<Auction> getCurAuctionList();
 	
 	List<Auction> getLastAuctionList();
 	
-	Auction getAuctionDetail(int aucNum);
-	
-	void deleteMaxPrice(int aucNum);
-	
-	void insertPrice(int aucNum, int inputPrice, String userID);
-	
+	void insertPrice(Auction auction);
 	String findAucUserID(int auction_Num);
+
+	
+	void updateAucItem(Auction auction);
+	List<Auction> getAuctionList();
+
+	Auction getAuctionDetail(int auction_Num);
+
 
 }

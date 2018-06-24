@@ -22,7 +22,7 @@
 						<img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href='<c:url value="/auction/aucDetail.do?auction_Num=${item.getAuction_num()}"/>'
+							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
 					</div>

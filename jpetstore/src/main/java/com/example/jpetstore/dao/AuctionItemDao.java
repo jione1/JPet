@@ -13,7 +13,7 @@ public interface AuctionItemDao {
 
 	List<Auction> getLastAuctionList();
 	
-	void insertPrice(int aucNum, int inputPrice,  String userID);
+	void insertPrice(Auction auction);
 	
 	void deleteMaxPrice(int acuNum);
 	
@@ -21,10 +21,13 @@ public interface AuctionItemDao {
 	
 	void insertMaxPrice(int aucNum, double maxPrice);
 
+
+
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	
 	int auctionListSize();
 	
+
 	Auction getAuctionDetail(int aucNum);
 
 	

@@ -77,7 +77,7 @@
 			<label for="discription">DISCRIPTION</label>
 			<div></div>
 			<form:textarea path="discription"
-				value="${P2PForm.getDiscription() }" />
+				value="${P2PForm.getDiscription() }" rows="4" cols="150" />
 		</div>
 		<div class="p-t-22 p-b-30 bo3"></div>
 		<form:hidden path="supplier" value="2" />
