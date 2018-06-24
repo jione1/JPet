@@ -57,7 +57,7 @@ public class OrderController {
 			// Re-read account from DB at team's request.
 			Account account = petStore.getAccount(userSession.getAccount().getUsername());
 			orderForm.getOrder().initOrder(account, cart);
-			return "NewOrderForm";	
+			return "tiles/NewOrderForm";	
 		}
 		else {
 			ModelAndView modelAndView = new ModelAndView("Error");
@@ -74,20 +74,20 @@ public class OrderController {
 			// from NewOrderForm
 			orderValidator.validateCreditCard(orderForm.getOrder(), result);
 			orderValidator.validateBillingAddress(orderForm.getOrder(), result);
-			if (result.hasErrors()) return "NewOrderForm";
+			if (result.hasErrors()) return "tiles/NewOrderForm";
 			
 			if (orderForm.isShippingAddressRequired() == true) {
 				orderForm.setShippingAddressProvided(true);
-				return "ShippingForm";
+				return "tiles/ShippingForm";
 			}
 			else {			
-				return "ConfirmOrder";
+				return "tiles/ConfirmOrder";
 			}
 		}
 		else {		// from ShippingForm
 			orderValidator.validateShippingAddress(orderForm.getOrder(), result);
 			if (result.hasErrors()) return "ShippingForm";
-			return "ConfirmOrder";
+			return "tiles/ConfirmOrder";
 		}
 	}
 	

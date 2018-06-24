@@ -24,6 +24,6 @@ public class RemoveItemFromCartController {
 			@ModelAttribute("sessionCart") Cart cart
 		) throws Exception {
 		cart.removeItemById(workingItemId);
-		return new ModelAndView("Cart", "cart", cart);
+		return new ModelAndView("tiles/Cart", "cart", cart);
 	}
 }

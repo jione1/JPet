@@ -93,7 +93,10 @@
                         <!-- Button -->
                         <button
                            class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                           Add to Cart</button>
+                           <a href='<c:url value="/shop/addItemToCart.do">
+            <c:param name="workingItemId" value="${item.getItemId()}"/></c:url>'>
+         
+                           Add to Cart</button> </a>
                      </div>
                   </div>
                </div>

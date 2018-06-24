@@ -44,10 +44,12 @@ public class AddItemToCartController {
 			// isInStock is a "real-time" property that must be updated
 			// every time an item is added to the cart, even if other
 			// item details are cached.
+			System.out.println("카트 아이템 아이디: "+ workingItemId);
 			boolean isInStock = this.petStore.isItemInStock(workingItemId);
 			Item item = this.petStore.getItem(workingItemId);
+			System.out.println(item.getItemId() + isInStock);
 			cart.addItem(item, isInStock);
 		}
-		return new ModelAndView("Cart", "cart", cart);
+		return new ModelAndView("tiles/Cart", "cart", cart);
 	}
 }

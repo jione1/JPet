@@ -39,7 +39,7 @@
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href='<c:url value="/shop/viewCategory.do?categoryId=FISH"/>'
+							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href='<c:url value="/shop/viewCategory.do?categoryId=FISH"/>'
+							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
 					</div>

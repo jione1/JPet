@@ -194,7 +194,7 @@ public class AuctionFormController {
 		auction.setPartiId(userID);
 		auction.setAuction_num(auction_num);
 
-//		auctionService.insertPrice(auction);
+		auctionService.insertPrice(auction);
 		
 		return "redirect:" + "/auction/viewAuctionDetail.do?auction_Num= "+ auction_num;
 		
@@ -254,8 +254,6 @@ public class AuctionFormController {
 				ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
 			
 			Auction auction = auctionService.getAuctionDetail(auction_Num);
-			
-			System.out.println("옥션" + auction.getAuctionCost());
 			
 			model.put("auction", auction);
 
