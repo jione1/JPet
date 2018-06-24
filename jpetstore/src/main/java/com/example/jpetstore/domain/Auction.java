@@ -13,22 +13,6 @@ public class Auction implements Serializable {
 	private Product product;
 	private Item item;
 	
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public void setItem(Item item) {
-		this.item = item;
-	}
-
 	//aucparti
 	 private int inputPrice; //구매자들이 올리는 가격 저장
 	 private String userId;
@@ -49,8 +33,25 @@ public class Auction implements Serializable {
 	 private String itemName; //경매에 올려지는 item의 이름 
 	 private String partiId; //참가하는 구매자들의 id
 	 private Date aucEnd;
-	 
+	
 	 private int auctionCost;
+	 
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
 	 
 	 public Boolean isSold(int itemId) {
 		return aucStatus;

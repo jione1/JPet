@@ -45,6 +45,13 @@
 		WHERE AUCTION_NUM = #{aucNum}
 	</select>
 	
+	<!-- 현재 최고가   -->
+	<select id="findMaxPrice" resultType="int">
+		SELECT MAX(INPUTPRICE)
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
+	
 	<!-- 낙찰 포기 시 큰 값 제거  -->
 	<delete id="deleteMaxPrice">
 		DELETE FROM AUCPARTI

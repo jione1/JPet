@@ -52,7 +52,9 @@
 			<div class="w-size14 p-t-30 respon5">
 				<h3 class="product-detail-name m-text16 p-b-13">${auction.getItemName()}</h3>
 
-				<span class="m-text17">경매 시작가 :  ₩ ${auction.getAuctionCost()} </span>
+				<span class="m-text17">경매 시작가 :  ₩ ${auction.getAuctionCost()} </span><br>
+				<span class="m-text17">현재 최고가 :  ₩ ${auction.getMaxPrice()} </span>
+				
 
 				<div class="p-t-33 p-b-60">
 					<div class="flex-m flex-w">

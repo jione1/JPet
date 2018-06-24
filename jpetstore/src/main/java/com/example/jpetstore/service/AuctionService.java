@@ -37,6 +37,8 @@ public interface AuctionService {
 
 	Auction getAuctionDetail(int auction_Num);
 
+	int findMaxPrice(int auctNum);
+
 	//void insertAucItem(String userId, String itemName, String string, int maxPrice, int auction_num, Date endtime);
 
 }

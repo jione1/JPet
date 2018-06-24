@@ -100,8 +100,7 @@ public class AuctionFormController {
 
 		auctionService.insertPrice(auction);
 		
-		return "redirect:" + "/auction/aucTemplist.do";
-		
+		return "redirect:" + "/auction/viewAuctionDetail.do?auction_Num= "+ auction_num;
 		}
 
 	@RequestMapping("/auction/aucOk.do") //낙찰하기 
@@ -158,6 +157,10 @@ public class AuctionFormController {
 				ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
 			
 			Auction auction = auctionService.getAuctionDetail(auction_Num);
+			
+			int maxPrice = auctionService.findMaxPrice(auction_Num);
+			
+			auction.setMaxPrice(maxPrice);
 			
 			System.out.println("옥션" + auction.getAuctionCost());
 			

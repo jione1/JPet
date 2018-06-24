@@ -12,15 +12,15 @@ public interface AuctionMapper {
 	void updateAucItem(Auction auction);
 	List<Auction> getAuctionList();
 
-	void insertPrice(Auction auction);
-//	void insertPrice(int auction_Num, int inputPrice, String userID);
+	Auction getAuctionDetail(int aucNum);
 	
+	void insertPrice(Auction auction);
+
 	void deleteMaxPrice(int aucNum);
 	
 	String findAucUserID(int aucNum);
 	
 	int auctionListSize();
 	
-	Auction getAuctionDetail(int aucNum);
-
+	int findMaxPrice(int aucNum);
 }
