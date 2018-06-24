@@ -27,8 +27,7 @@ import javax.servlet.http.HttpSession;
 @SessionAttributes("userSession")
 @RequestMapping(value = "http://localhost:8080/jpetstore/shop/index.do" , produces = "application/json", method = (RequestMethod.GET))
 public class KakaoLoginController {
-	
-	Account acc;
+
 //	PetStoreImpl accountService;
 	 
 	@Autowired
@@ -46,20 +45,25 @@ public class KakaoLoginController {
 			HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@ModelAttribute("accountForm") AccountForm accountForm) 
 					throws Exception{
+		
+	Account account = new Account();
 
 	  JsonNode token = KakaoLogin.getAccessToken(code);
 	
 	  JsonNode profile = KakaoLogin.getKakaoUserInfo(token.path("access_token").toString());
-	  System.out.println(profile);
-	  acc =  KakaoLogin.changeData(profile);
 
-	  acc.setUsername("k" + acc.getUsername());
-	  session.setAttribute("login", acc);
+	  Account properties = KakaoLogin.changeData(profile);
 	  
-	  String username = acc.getUsername();
+	  String username = properties.getUsername();
+	  
+	  account.setUsername(username);
+	  account.setProfileImagePath(properties.getProfileImagePath());
+	  
+	  petStore.kakaoLogin(account);
 
-	  petStore.kakaoLogin(username);
-//	  UserSession userSession = new UserSession(acc);
+	  session.setAttribute("login", account);
+
+	  System.out.println("카카오로그인" + username);
 
 	  UserSession userSession = new UserSession(
 			petStore.getAccount(accountForm.getAccount().getUsername()));
@@ -68,11 +72,7 @@ public class KakaoLoginController {
 		myList.setPageSize(4);
 		userSession.setMyList(myList);
 		session.setAttribute("userSession", userSession);
-		
 
-		System.out.println("카카오로그인" + username);
-		
-//		System.out.println("세션? : " + userSession.getAccount().getUsername());
 	  return "index";
 	}
 

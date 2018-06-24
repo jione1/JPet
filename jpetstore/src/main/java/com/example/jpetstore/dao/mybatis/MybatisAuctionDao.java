@@ -16,10 +16,16 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	private AuctionMapper auctionMapper;
 	
 	@Override
-	public void insertPrice(int aucNum, int inputPrice, String userID) {
-		// TODO Auto-generated method stub
-		auctionMapper.insertPrice(aucNum, inputPrice, userID);
+	public void insertPrice(Auction auction) {
+		auctionMapper.insertPrice(auction);
 	}
+	
+//	@Override
+//	public void insertPrice(int auction_Num, int inputPrice, String userID) {
+//		// TODO Auto-generated method stub
+//		System.out.println("맵퍼 : 가격 입력하기, 사용자 : " + userID + ", 가격 : " + inputPrice  + ", 넘버 : " + auction_Num);
+//		auctionMapper.insertPrice(auction_Num, inputPrice, userID);
+//	}
 
 	@Override
 	public void deleteMaxPrice(int aucNum) {

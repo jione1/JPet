@@ -44,6 +44,6 @@ public interface AccountMapper {
 
   void updateSignon(Account account);
 
-  void kakaoLogin(String username);
+  void kakaoLogin(Account account);
 
 }

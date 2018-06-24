@@ -34,8 +34,8 @@ public class MybatisAccountDao implements AccountDao {
 		accountMapper.insertSignon(account);
 	}
 	
-	public void kakaoLogin(String username) throws DataAccessException {
-		accountMapper.kakaoLogin(username);
+	public void kakaoLogin(Account account) throws DataAccessException {
+		accountMapper.kakaoLogin(account);
 	}
 
 	public void updateAccount(Account account) throws DataAccessException {

@@ -31,9 +31,9 @@
 	</select>
 	
 	<!-- 경매 참여하기 ( 가격 작성 ) -->
-	<insert id="inputPrice" parameterType="Auction">
-		INSERT INTO AUCPARTI (INPUTPRICE, USERID, AUCTION_NUM)
-		VALUES(#{inputPrice}, #{userId}, #{aucNum})
+	<insert id="insertPrice" parameterType="Auction">
+		INSERT INTO AUCPARTI (AUCTION_NUM, INPUTPRICE, USERID)
+		VALUES(#{auction_num}, #{inputPrice}, #{partiId})
 	</insert>
 	
 	<!-- 최고값 작성한 사람 id 불러오기  -->

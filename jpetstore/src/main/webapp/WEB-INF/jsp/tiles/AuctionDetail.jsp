@@ -64,15 +64,14 @@
 
 						<div class="flex-r-m flex-w p-t-10">
 							<div class="w-size16 flex-m flex-w">
-
+								<form action="aucInputPrice.do" method="post">
 								<div class="form-group">
 									<label for="price">Input Price : </label> <input type="text"
-										name="price" placeholder="가격을 입력해주세요">
+										name="price" placeholder="가격을 입력해주세요"/>
 								</div>
-
-								<button
-									class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
-									onClick="buttonSubmit()">가격 입력하기</button>
+								<input type="hidden" name="auction_Num" value="${auction.getAuction_num()}"/>
+								<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">가격 등록</button>
+								</form>
 							</div>
 						</div>
 					</div>

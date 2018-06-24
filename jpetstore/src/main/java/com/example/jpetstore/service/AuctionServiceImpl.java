@@ -55,10 +55,16 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 	
 // AuctionPartiDao
+//	@Override
+//	public void insertPrice(int auction_Num, int inputPrice, String userID){
+//		// TODO Auto-generated method stub
+//		auctionItemDao.insertPrice(auction_Num, inputPrice, userID);
+//	}
+	
 	@Override
-	public void insertPrice(int aucNum, int inputPrice, String userID) {
+	public void insertPrice(Auction auction){
 		// TODO Auto-generated method stub
-		auctionItemDao.insertPrice(aucNum, inputPrice, userID);
+		auctionItemDao.insertPrice(auction);
 	}
 
 	@Override

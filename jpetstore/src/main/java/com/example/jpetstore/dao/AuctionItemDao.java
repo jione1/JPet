@@ -10,7 +10,9 @@ public interface AuctionItemDao {
 	void updateAucStatus(int aucNum, boolean aucStatus);
 	void updateAucItem(Auction auction);
 	List<Auction> getAuctionList();
-	void insertPrice(int aucNum, int inputPrice,  String userID);
+	
+	void insertPrice(Auction auction);
+//	void insertPrice(int auction_Num, int inputPrice, String userID);
 
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	int auctionListSize();

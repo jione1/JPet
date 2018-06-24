@@ -16,6 +16,6 @@ public interface AccountDao {
 
   List<String> getUsernameList() throws DataAccessException;
 
-  void kakaoLogin(String username);
+  void kakaoLogin(Account account) throws DataAccessException;
 
 }

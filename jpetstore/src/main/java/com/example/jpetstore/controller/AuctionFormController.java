@@ -51,6 +51,7 @@ public class AuctionFormController {
 
 	private Auction auction;
 	
+	
 
 	@ModelAttribute("sessionCart")
 	public Cart createCart() {
@@ -86,22 +87,23 @@ public class AuctionFormController {
 	}
 	
 	@RequestMapping("/auction/aucInputPrice.do") //가격 입력하기 
-	public String inputPriceAuction(
-			@RequestParam("auction_Num") int auction_Num,
-			@RequestParam("price") int price,
+	public String insertPrice(
+			@RequestParam("auction_Num") int auction_num,
+			@RequestParam("price") int inputPrice,
 			@ModelAttribute("userSession") UserSession userSession) throws Exception {
 		
 		//aucparti에 price값과 사용자 id를 넣는다.
-		String username = userSession.getAccount().getUsername();
+		String userID = userSession.getAccount().getUsername();
 		
-		auction.setInputPrice(price);
+		Auction auction = auctionService.getAuctionDetail(auction_num);
 		
-		int inputPrice = auction.getInputPrice();
-		auction.setPartiId(username);
+		auction.setInputPrice(inputPrice);
+		auction.setPartiId(userID);
+		auction.setAuction_num(auction_num);
+
+		auctionService.insertPrice(auction);
 		
-		auctionService.insertPrice(auction_Num, inputPrice, username);
-		
-		return "tiles/AuctionDetail";
+		return "redirect:" + "/auction/aucTemplist.do";
 		
 		}
 
