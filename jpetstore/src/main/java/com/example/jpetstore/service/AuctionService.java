@@ -28,7 +28,7 @@ public interface AuctionService {
 	List<Auction> getLastAuctionList();
 	
 	void insertPrice(Auction auction);
-	String findAucUserID(int auction_Num);
+	String findAucUserID(int auction_num);
 
 	
 	void updateAucItem(Auction auction);

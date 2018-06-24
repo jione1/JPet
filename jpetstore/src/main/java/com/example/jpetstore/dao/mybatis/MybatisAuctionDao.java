@@ -30,9 +30,9 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	}
 
 	@Override
-	public String findAucUserID(int aucNum) {
+	public String findAucUserID(int auction_num) {
 		// TODO Auto-generated method stub
-		return auctionMapper.findAucUserID(aucNum);
+		return auctionMapper.findAucUserID(auction_num);
 	}
 
 

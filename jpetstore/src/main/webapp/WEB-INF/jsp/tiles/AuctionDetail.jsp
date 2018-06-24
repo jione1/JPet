@@ -97,7 +97,7 @@
 
 					<div class="p-t-33 p-b-60" id="auctionExpired">
 						<div class="flex-m flex-w">경매에 참여하려면 입찰 가격을 입력해주세요!</div>
-
+						
 						<div class="flex-r-m flex-w p-t-10">
 							<div class="w-size16 flex-m flex-w">
 								<form action="aucInputPrice.do" method="post">
@@ -115,19 +115,63 @@
 						</div>
 					</div>
 					
+					<div class="p-t-33 p-b-60" id="endAuction">
+					
+							<input type="hidden" name="item"
+			value='<c:out value="${item.getItemId()}"/>' /> <input type="hidden"
+			name="category" value='<c:out value="${product.getCategoryId() }"/>' />
+					
+						<a href="<c:url value="/auction/aucOk.do"><c:param name="auction_Num" value="${auction.getAuction_num()}"/></c:url>">
+						낙찰자 확인하기</a>
+					</div>
+					
+					<div class="p-t-33 p-b-60" id="addCart">
+
+						<a href="<c:url value="/shop/addItemToCart.do"/>">낙찰하기</a>	
+			
+					</div>
 					<script>
 	$(document).ready(function() {
 		var aucstatus = '<c:out value="${auction.getAucStatus()}"/>';
-		
+		var sessionId = '<c:out value = "${userSession.getAccount().getUsername()}"/>';
+		var userId = '<c:out value = "${maxUser}"/>';
+	
 		if(aucstatus=="0"){
 			document.getElementById('auctionExpired').style.display="";
+			document.getElementById('endAuction').style.display="none";
 		}else{
 			document.getElementById('auctionExpired').style.display="none";
+			document.getElementById('endAuction').style.display="";
+		}
+		
+		if(userId == sessionId){
+			document.getElementById('addCart').style.display="";
+		}
+		else{
+			document.getElementById('addCart').style.display="none";
 		}
 		
 	});  
 	</script>
-
+	<script type="text/javascript">
+   function btnSubmit(s) {
+      if (s == "modify") {
+         <c:url var="post_url" value="/shop/updatePost.do" />
+         document.forms[0].action = '<c:out value="${post_url}"/>';
+         
+      }else if (s == "addToCart") {
+    	 	<c:url var="post_url" value="/shop/addItemToCart.do"/>
+    	 	document.forms[0].action = '<c:out value="${post_url}"/>';     
+              
+      }else {
+    	 	alert("정말로 삭제하시겠습니까? ");
+    	  	<c:url var="post_url" value="/shop/deletePost.do" />
+    	    document.forms[0].action = '<c:out value="${post_url}"/>';
+    	         
+      }
+      document.forms[0].submit(); 
+   }
+</script>
 					<div class="p-b-45">
 						<span class="s-text8 m-r-35">SKU:
 							AUC-${auction.getAuction_num()}</span> <span class="s-text8">Categories:

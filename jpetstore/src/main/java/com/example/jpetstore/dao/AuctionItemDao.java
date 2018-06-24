@@ -18,7 +18,7 @@ public interface AuctionItemDao {
 	
 	void deleteMaxPrice(int acuNum);
 	
-	String findAucUserID(int aucNum);
+	String findAucUserID(int auction_num);
 	
 	void insertMaxPrice(int aucNum, double maxPrice);
 

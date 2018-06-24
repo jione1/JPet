@@ -68,9 +68,11 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	public String findAucUserID(int aucNum) {
+	public String findAucUserID(int auction_num) {
 		// TODO Auto-generated method stub
-		return auctionItemDao.findAucUserID(aucNum);
+		
+		System.out.println(auction_num);
+		return auctionItemDao.findAucUserID(auction_num);
 		
 	}
 

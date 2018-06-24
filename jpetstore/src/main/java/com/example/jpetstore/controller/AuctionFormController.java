@@ -168,7 +168,7 @@ public class AuctionFormController {
 		
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 01:00");
-		petStore.testScheduler(endTime);
+		petStore.testScheduler(endTime, auc_item_seq);
 		
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
@@ -201,38 +201,42 @@ public class AuctionFormController {
 	}
 
 	@RequestMapping("/auction/aucOk.do") //낙찰하기 
-	public void okAuction(
-			@RequestParam("auction_Num") int auction_Num,
-			HttpSession session,
-			@ModelAttribute("userSession") UserSession userSession) throws Exception {
+	public String okAuction(@RequestParam("auction_Num") int auction_num, Model model) throws Exception {
 		
+		System.out.println("hereherehere" + auction_num);
+		
+		model.addAttribute("maxUser", auctionService.findAucUserID(auction_num));
 		//maxPrice가 누군지 찾기 
-		String userId = auctionService.findAucUserID(auction_Num);
+//		userId = auctionService.findAucUserID(auction_num);
+//		System.out.println(userId);
 		
+		return "redirect:/auction/viewAuctionDetail.do?auction_Num=" + auction_num;
 		//해당 옥션 가져오기 
-		Auction auction = auctionService.getAuctionDetail(auction_Num);
-		
-		if (userId == userSession.getAccount().getUsername()) {
-		//cart에 넣기 - session에 넣으면 알아서?
-			Cart cart = createCart();
-			handleRequest(auction.getItemId(), cart);
-		}
+//		Auction auction = auctionService.getAuctionDetail(auction_num);
+//		
+//		if (userId == userSession.getAccount().getUsername()) {
+//		//cart에 넣기 - session에 넣으면 알아서?
+//			Cart cart = createCart();
+//			handleRequest(auction.getItemId(), cart);
+//		}
 	}
 	
-	public ModelAndView handleRequest(
-			@RequestParam("workingItemId") String workingItemId,
-			@ModelAttribute("sessionCart") Cart cart 
-			) throws Exception {
-		if (cart.containsItemId(workingItemId)) {
-			cart.incrementQuantityByItemId(workingItemId);
-		}
-		else {
-			boolean isInStock = this.petStore.isItemInStock(workingItemId);
-			Item item = this.petStore.getItem(workingItemId);
-			cart.addItem(item, isInStock);
-		}
-		return new ModelAndView("Cart", "cart", cart);
-	}
+//	public ModelAndView handleRequest(
+//			@RequestParam("workingItemId") String workingItemId,
+//			@ModelAttribute("sessionCart") Cart cart 
+//			) throws Exception {
+//		
+//		System.out.println("여기여기");
+//		if (cart.containsItemId(workingItemId)) {
+//			cart.incrementQuantityByItemId(workingItemId);
+//		}
+//		else {
+//			boolean isInStock = this.petStore.isItemInStock(workingItemId);
+//			Item item = this.petStore.getItem(workingItemId);
+//			cart.addItem(item, isInStock);
+//		}
+//		return new ModelAndView("Cart", "cart", cart);
+//	}
 	
 	@RequestMapping("/auction/aucFail.do") //낙찰 포기 
 	public void failAuction(
@@ -244,13 +248,13 @@ public class AuctionFormController {
 		auctionService.deleteMaxPrice(auction_Num);
 		
 		// 그 다음 큰 값에 똑같이 진행 
-		okAuction(auction_Num, session, userSession);
+		//okAuction(auction_Num, session, userSession);
 	}	
 
 	@RequestMapping("/auction/viewAuctionDetail.do") //옥션 상세보기
 	public String hadleRequset (
 			@RequestParam("auction_Num") int auction_Num,
-			ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
+			ModelMap model, @ModelAttribute("userSession") UserSession userSession, @ModelAttribute("maxUser") String maxUser) throws Exception {
 		
 		Auction auction = auctionService.getAuctionDetail(auction_Num);
 		
@@ -266,9 +270,9 @@ public class AuctionFormController {
 		auction.setMaxPrice(maxPrice);
 
 		model.put("auction", auction);
+		if(maxUser != null)
+			model.put("maxUser", maxUser);
 
 		return "tiles/AuctionDetail";
-}
-	
-	
+	}
 }

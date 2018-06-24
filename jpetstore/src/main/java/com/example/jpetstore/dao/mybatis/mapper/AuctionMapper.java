@@ -18,7 +18,7 @@ public interface AuctionMapper {
 	int auctionListSize();
 	Auction getAucDetail(int aucNum);
 	void deleteMaxPrice(int aucNum);
-	String findAucUserID(int aucNum);
+	String findAucUserID(int auction_num);
 
 	Auction getAuctionDetail(int aucNum);
 	

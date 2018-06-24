@@ -96,10 +96,12 @@ public class OrderController {
 			@ModelAttribute("orderForm") OrderForm orderForm, 
 			SessionStatus status) {
 		petStore.insertOrder(orderForm.getOrder());
-		ModelAndView mav = new ModelAndView("ViewOrder");
+		ModelAndView mav = new ModelAndView("tiles/ViewOrder");
 		mav.addObject("order", orderForm.getOrder());
 		mav.addObject("message", "Thank you, your order has been submitted.");
 		status.setComplete();  // remove sessionCart and orderForm from session
 		return mav;
 	}
+
+
 }

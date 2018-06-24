@@ -45,12 +45,12 @@
 	</select>
 	
 	<!-- 최고값 작성한 사람 id 불러오기  -->
-	<select id="findAucUserID" parameterType="Auction">
+	<select id="findAucUserID" parameterType="int" resultType="string">
 		SELECT MAX(USERID)
 		KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
 		AS USERID
 		FROM AUCPARTI
-		WHERE AUCTION_NUM = #{aucNum}
+		WHERE AUCTION_NUM = #{auction_num}
 	</select>
 
 	

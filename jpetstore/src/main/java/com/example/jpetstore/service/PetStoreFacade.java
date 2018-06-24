@@ -67,5 +67,5 @@ public interface PetStoreFacade {
 	void updateProduct(Product product);
 	void updateQuantity(Item item);
 	
-	void testScheduler(Date endTime);
+	void testScheduler(Date endTime, int auc_item_seq);
 }

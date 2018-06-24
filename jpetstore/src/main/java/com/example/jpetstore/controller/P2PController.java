@@ -175,7 +175,7 @@ public class P2PController implements ApplicationContextAware {
 	
 		}
 	
-	@RequestMapping("/p2p/updatePost.do") //�Ǹű� �������� �����ֱ� 
+	@RequestMapping("/p2p/updatePost.do") //?Ǹű? ???????? ?????ֱ? 
 	public String UpdateP2PPost(
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
@@ -183,7 +183,7 @@ public class P2PController implements ApplicationContextAware {
 			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
 			BindingResult bindingResult
 			) throws Exception {
-		//�ۼ��� form �� item �� �������� ���� 
+		//?ۼ??? form ?? item ?? ???????? ???? 
 //		p2pFormvalidator.validate(p2pForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {

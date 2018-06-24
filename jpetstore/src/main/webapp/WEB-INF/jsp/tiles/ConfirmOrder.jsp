@@ -1,5 +1,6 @@
-<%@ include file="IncludeTop.jsp"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <table id="main-menu">
   <tr><td>
     <a href='<c:url value="/shop/index.do"/>'>
@@ -99,5 +100,3 @@
       <img border="0" src="../images/button_continue.gif" alt="" /></a>
   </p>
 </div>
-
-<%@ include file="IncludeBottom.jsp"%>
