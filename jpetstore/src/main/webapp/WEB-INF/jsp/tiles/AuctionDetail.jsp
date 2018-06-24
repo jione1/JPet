@@ -116,19 +116,15 @@
 					</div>
 					
 					<div class="p-t-33 p-b-60" id="endAuction">
-					
-							<input type="hidden" name="item"
-			value='<c:out value="${item.getItemId()}"/>' /> <input type="hidden"
-			name="category" value='<c:out value="${product.getCategoryId() }"/>' />
-					
+						<input type="hidden" value="${item.getItenId()}"/>
+						<input type="hidden" value="${product.getCategoryId()}"/>
 						<a href="<c:url value="/auction/aucOk.do"><c:param name="auction_Num" value="${auction.getAuction_num()}"/></c:url>">
 						낙찰자 확인하기</a>
 					</div>
 					
-					<div class="p-t-33 p-b-60" id="addCart">
-
-						<a href="<c:url value="/shop/addItemToCart.do"/>">낙찰하기</a>	
-			
+					<div class="p-t-33 p-b-60" id="addCart">	
+						<a href="<c:url var="post_url" value="/shop/addItemToCart.do"/>">
+						낙찰하기</a>	
 					</div>
 					<script>
 	$(document).ready(function() {

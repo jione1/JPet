@@ -34,15 +34,21 @@ public class MybatisSequenceDao implements SequenceDao {
 //	    return sequence.getNextId();
 //	}
 
-@Override
-public int getSequence(String name) throws DataAccessException {
-	// TODO Auto-generated method stub
-	return 0;
-}
-
-@Override
-public void updateSequence(String name) throws DataAccessException {
-	// TODO Auto-generated method stub
+	@Override
+	public int getSequence(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
-}
+	@Override
+	public void updateSequence(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		
+	}
+//	
+	@Override
+	public int getNextId(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
