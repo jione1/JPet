@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.jpetstore.domain.Auction;
 
 public interface AuctionMapper {
-	void insertMaxPrice(int aucNum, double maxPrice);
+
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	void insertAucItem(Auction auction);
 	void updateAucStatus(int aucNum, boolean aucStatus);
@@ -13,10 +13,12 @@ public interface AuctionMapper {
 	List<Auction> getAuctionList();
 	void insertPrice(int aucNum, int inputPrice,  String userID);
 	
-	void deleteMaxPrice(int acuNum, String userID);
+	void deleteMaxPrice(int aucNum);
 	
-	String findAucUserID(int maxPrice, String userID);
+	String findAucUserID(int aucNum);
 	
 	int auctionListSize();
 	
+	Auction getAuctionDetail(int aucNum);
+
 }

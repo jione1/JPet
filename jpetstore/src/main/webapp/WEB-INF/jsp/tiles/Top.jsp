@@ -29,12 +29,8 @@
                             <li>
                                 <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
                             </li>
-                            <li>
-<<<<<<< HEAD
-                                <a href="<c:url value="/auction/auclist.do"/>">Auction</a>
-=======
+                            <li>                          
                                 <a href="<c:url value="/auction/aucTemplist.do"/>">Auction</a>
->>>>>>> origin/shinee
                             </li>
                         </ul>
                     </nav>

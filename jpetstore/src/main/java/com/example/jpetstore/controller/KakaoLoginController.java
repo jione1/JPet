@@ -14,6 +14,7 @@ import com.example.jpetstore.domain.Account;
 import com.example.jpetstore.domain.Category;
 import com.example.jpetstore.domain.Product;
 import com.example.jpetstore.service.PetStoreFacade;
+import com.example.jpetstore.service.PetStoreImpl;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.List;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpSession;
 public class KakaoLoginController {
 	
 	Account acc;
+//	PetStoreImpl accountService;
 	 
 	@Autowired
 	private PetStoreFacade petStore;
@@ -53,10 +55,12 @@ public class KakaoLoginController {
 
 	  acc.setUsername("k" + acc.getUsername());
 	  session.setAttribute("login", acc);
-
-	  petStore.kakaoLogin(acc);
-	  //UserSession userSession = new UserSession(acc);
 	  
+	  String username = acc.getUsername();
+
+	  petStore.kakaoLogin(username);
+//	  UserSession userSession = new UserSession(acc);
+
 	  UserSession userSession = new UserSession(
 			petStore.getAccount(accountForm.getAccount().getUsername()));
 		PagedListHolder<Product> myList = new PagedListHolder<Product>(
@@ -64,8 +68,11 @@ public class KakaoLoginController {
 		myList.setPageSize(4);
 		userSession.setMyList(myList);
 		session.setAttribute("userSession", userSession);
-	  
-		//System.out.println("세션? : " + userSession.getAccount().getUsername());
+		
+
+		System.out.println("카카오로그인" + username);
+		
+//		System.out.println("세션? : " + userSession.getAccount().getUsername());
 	  return "index";
 	}
 

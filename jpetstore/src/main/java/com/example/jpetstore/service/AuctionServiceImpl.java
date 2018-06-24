@@ -9,24 +9,32 @@ import com.example.jpetstore.dao.AuctionDao;
 import com.example.jpetstore.dao.AuctionItemDao;
 import com.example.jpetstore.dao.AuctionPartiDao;
 import com.example.jpetstore.domain.Auction;
+import com.example.jpetstore.domain.P2P;
 
 @Service
 public class AuctionServiceImpl implements AuctionService {
 
 	@Autowired
 	private AuctionItemDao auctionItemDao;
+	
+//	@Autowired
+//	private AuctionPartiDao auctionPartiDao;
+//	
+//	@Autowired 
+//	private AuctionDao auctionDao;
 
 
 //	AuctionDao
 	@Override
-	public void insertMaxPrice(int aucNum, double maxPrice) {
-		auctionItemDao.insertMaxPrice(aucNum, maxPrice);
-	}
-	
-	@Override
 	public void updateOrderStatus(int aucNum, boolean orderStatus) {
 		// TODO Auto-generated method stub
 		auctionItemDao.updateOrderStatus(aucNum, orderStatus);
+	}
+	
+	@Override
+	public Auction getAuctionDetail(int aucNum) {
+		// TODO Auto-generated method stub
+		return auctionItemDao.getAuctionDetail(aucNum);
 	}
 
 //  AuctionItemDao
@@ -54,17 +62,16 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 
 	@Override
-	public void deleteMaxInputPrice(int aucNum, String userID) {
+	public void deleteMaxPrice(int aucNum) {
 		// TODO Auto-generated method stub
-		auctionItemDao.deleteMaxPrice(aucNum, userID);
+		auctionItemDao.deleteMaxPrice(aucNum);
 	}
 
 	@Override
-	public String findAucUserID(int maxPrice, String userID) {
+	public String findAucUserID(int aucNum) {
 		// TODO Auto-generated method stub
-		auctionItemDao.findAucUserID(maxPrice, userID);
+		return auctionItemDao.findAucUserID(aucNum);
 		
-		return userID;
 	}
 
 	@Override
@@ -78,6 +85,7 @@ public class AuctionServiceImpl implements AuctionService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 	@Override
 	public int auctionListSize() {

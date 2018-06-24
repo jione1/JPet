@@ -11,7 +11,6 @@ import com.example.jpetstore.dao.ItemDao;
 import com.example.jpetstore.dao.OrderDao;
 import com.example.jpetstore.dao.ProductDao;
 import com.example.jpetstore.dao.SequenceDao;
-import com.example.jpetstore.dao.mybatis.OracleSequenceDao;
 import com.example.jpetstore.domain.Account;
 import com.example.jpetstore.domain.Category;
 import com.example.jpetstore.domain.Item;
@@ -98,8 +97,8 @@ public class PetStoreImpl implements PetStoreFacade {
 		accountDao.updateAccount(account);
 	}
 
-	public void kakaoLogin(Account account) {
-		accountDao.kakaoLogin(account);
+	public void kakaoLogin(String username) {
+		accountDao.kakaoLogin(username);
 	}
 	
 	public List<String> getUsernameList() {

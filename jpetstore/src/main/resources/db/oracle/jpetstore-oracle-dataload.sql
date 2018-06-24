@@ -1,10 +1,38 @@
 INSERT INTO sequence VALUES ('ordernum', 1000);
 INSERT INTO sequence VALUES ('linenum', 1000);
 
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (1000, 'j2ee', '12');
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (1200, 'jione', '12');
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (500, 'JYY0325', '12');
+
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (9000, 'jione', '21');
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (5000, 'JYY0325', '21');
+INSERT INTO AUCPARTI(inputprice, userid, auction_num) VALUES (7000, 'j2ee', '21');
+
+
+SELECT MAX(USERID)
+KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
+AS USERID
+FROM AUCPARTI
+where auction_num = '21'
+
+DELETE FROM AUCPARTI
+WHERE INPUTPRICE = (
+			select max(INPUTPRICE) 
+			from AUCPARTI 
+			where auction_num = '12');
+			
+
+SELECT *
+FROM AUCTIONITEM
+WHERE AUCTION_NUM = '12';
+			
+			
 
 INSERT INTO signon VALUES ('j2ee','j2ee');
 INSERT INTO signon VALUES ('ACID','ACID');
 
+INSERT INTO account VALUES ('jyy', 'jyy0325@naver.com','xxx' , 'XYXX', 'OK', '901 San Antonio', 'MS UCUP02', 'Palo', 'AC', '960325', 'KOR',  '111-111-1111', null);
 INSERT INTO account VALUES ('j2ee','yourname@yourdomain.com','ABC', 'XYX', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA',  '555-555-5555');
 INSERT INTO account VALUES ('ACID','acid@yourdomain.com','ABC', 'XYX', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA',  '555-555-5555');
 

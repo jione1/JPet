@@ -93,7 +93,7 @@ public class KakaoPayTest {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		  
-	    // 서버로 요청할 Body
+	    // 서버로 요청할 Bod y
 	    MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 	    params.add("cid", "TC0ONETIME");
 	    params.add("partner_order_id", "1001");

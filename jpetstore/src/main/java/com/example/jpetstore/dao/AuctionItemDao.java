@@ -11,12 +11,13 @@ public interface AuctionItemDao {
 	void updateAucItem(Auction auction);
 	List<Auction> getAuctionList();
 	void insertPrice(int aucNum, int inputPrice,  String userID);
-	
-	void deleteMaxPrice(int acuNum, String userID);
-	
-	String findAucUserID(int maxPrice, String userID);
-	void insertMaxPrice(int aucNum, double maxPrice);
+
 	void updateOrderStatus(int aucNum, boolean orderStatus);
 	int auctionListSize();
+	
+	String findAucUserID(int aucNum);
+	void deleteMaxPrice(int acuNum);
+	
+	Auction getAuctionDetail(int aucNum);
 	
 }

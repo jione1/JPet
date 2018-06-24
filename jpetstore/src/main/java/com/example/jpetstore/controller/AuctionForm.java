@@ -9,6 +9,36 @@ import com.example.jpetstore.domain.Auction;
 @SuppressWarnings("serial")
 public class AuctionForm implements Serializable {
 	private Auction auction;
+
+	//aucparti
+	private int inputPrice; //구매자들이 올리는 가격 저장
+	private String userId;
+	private int auction_num;
+
+	//auction
+	private int itemId; //주문을 위해 itemID를 부여
+	private Data endtime;
+	private boolean orderStatus;
+	private int maxPrice; //경매를 통해 부여되는 최고가격
+
+	//autItem
+	private boolean aucStatus; //낙찰 유무
+	private String aucImage;
+	private String aucDiscription; //경매에 올려지는 item의 설명
+	private String aucName;
+	private int price; //판매자가 올리는 최조 가격 (최저가격)
+	private int auctionCost;
+	private String itemName; //경매에 올려지는 item의 이름 
+	private int partiId; //참가하는 구
+
+	private String category;
+
+	private String title;
+
+	private String productId;
+	
+	private boolean auctionStatus;
+	
 	
 	public int getInputPrice() {
 		return inputPrice;
@@ -105,6 +135,7 @@ public class AuctionForm implements Serializable {
 	public void setPrice(int auctionCost) {
 		this.price = auctionCost;
 	}
+	
 
 	public String getItemName() {
 		return itemName;
@@ -121,34 +152,6 @@ public class AuctionForm implements Serializable {
 	public void setPartiId(int partiId) {
 		this.partiId = partiId;
 	}
-
-	//aucparti
-	private int inputPrice; //구매자들이 올리는 가격 저장
-	private String userId;
-	private int auction_num;
-
-	//auction
-	private int itemId; //주문을 위해 itemID를 부여
-	private Data endtime;
-	private boolean orderStatus;
-	private int maxPrice; //경매를 통해 부여되는 최고가격
-
-	//autItem
-	private boolean aucStatus; //낙찰 유무
-	private String aucImage;
-	private String aucDiscription; //경매에 올려지는 item의 설명
-	private String aucName;
-	private int price; //판매자가 올리는 최조 가격 (최저가격)
-	private String itemName; //경매에 올려지는 item의 이름 
-	private int partiId; //참가하는 구
-
-	private String category;
-
-	private String title;
-
-	private String productId;
-	
-	private boolean auctionStatus;
 
 	public boolean isAuctionStatus() {
 		return auctionStatus;
@@ -203,5 +206,13 @@ public class AuctionForm implements Serializable {
 
 	public boolean autionStatus() {
 		return auctionStatus;
+	}
+
+	public void setAuctionCost(int auctionCost) {
+		this.auctionCost = auctionCost;
+	}
+	
+	public int getAuctionCost(int auctionCost) {
+		return auctionCost;
 	}
 }

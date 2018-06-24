@@ -24,7 +24,7 @@ public interface PetStoreFacade {
 
 	void updateAccount(Account account);
 	
-	void kakaoLogin(Account account);
+	void kakaoLogin(String username);
 
 	List<String> getUsernameList();
 
@@ -32,7 +32,6 @@ public interface PetStoreFacade {
 
 	Category getCategory(String categoryId);
 	
-
 	List<Product> getProductListByCategory(String categoryId);
 
 	List<Product> searchProductList(String keywords);

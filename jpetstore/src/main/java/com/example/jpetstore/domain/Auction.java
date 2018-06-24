@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.xml.crypto.Data;
 
+import org.hsqldb.Database;
+
 @SuppressWarnings("serial")
 public class Auction implements Serializable {
 	//경매 item을 정의
@@ -15,16 +17,13 @@ public class Auction implements Serializable {
 		return product;
 	}
 
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
 
-
 	public Item getItem() {
 		return item;
 	}
-
 
 	public void setItem(Item item) {
 		this.item = item;
@@ -48,14 +47,21 @@ public class Auction implements Serializable {
 	 private String aucName;//title
 	 private int price; //판매자가 올리는 최조 가격 (최저가격)
 	 private String itemName; //경매에 올려지는 item의 이름 
-	 private int partiId; //참가하는 구매자들의 id
+	 private String partiId; //참가하는 구매자들의 id
+	 private Date aucEnd;
 	 
-	 
+	 private int auctionCost;
 	 
 	 public Boolean isSold(int itemId) {
 		return aucStatus;
 	 }
-
+	 
+	 public void setAucEnd(Date aucEnd) {
+		 this.aucEnd = aucEnd;
+	 }
+	 public Date getAucEnd() {
+		 return aucEnd;
+	 }
 
 	public int getInputPrice() {
 		return inputPrice;
@@ -92,7 +98,6 @@ public class Auction implements Serializable {
 	public boolean isAucStatus() {
 		return aucStatus;
 	}
-
 
 	public void setAucStatus(boolean aucStatus) {
 		this.aucStatus = aucStatus;
@@ -155,11 +160,11 @@ public class Auction implements Serializable {
 		this.itemId = itemId;
 	}
 
-	public int getPartiId() {
+	public String getPartiId() {
 		return partiId;
 	}
 
-	public void setPartiId(int partiId) {
+	public void setPartiId(String partiId) {
 		this.partiId = partiId;
 	}
 
@@ -169,5 +174,14 @@ public class Auction implements Serializable {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	public int getAuctionCost() {
+		// TODO Auto-generated method stub
+		return auctionCost;
 	}	 
+	
+	public void setAuctionCost(int auctionCost) {
+		this.auctionCost = auctionCost;
+	}
 }
