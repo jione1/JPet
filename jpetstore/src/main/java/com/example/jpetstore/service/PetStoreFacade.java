@@ -64,8 +64,8 @@ public interface PetStoreFacade {
 	void deletePost(String itemId);
 	
 	void updatePost(Item item);
+	void updateProduct(Product product);
+	void updateQuantity(Item item);
 	
-	//jione-scheduler
 	void testScheduler(Date endTime);
-	
 }

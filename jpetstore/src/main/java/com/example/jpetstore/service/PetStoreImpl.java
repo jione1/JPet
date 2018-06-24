@@ -1,7 +1,6 @@
 package com.example.jpetstore.service;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -61,6 +60,8 @@ import com.example.jpetstore.domain.Product;
 @Service
 @Transactional
 public class PetStoreImpl implements PetStoreFacade { 
+	
+
 	@Autowired	// @Qualifier("mybatisAccountDao")
 	private AccountDao accountDao;
 	
@@ -79,12 +80,13 @@ public class PetStoreImpl implements PetStoreFacade {
 	
 	@Autowired	// @Qualifier("mybatisOrderDao")
 	private OrderDao orderDao;
+
+	@Autowired
+	private SequenceDao oracleSequenceDao;
 	
 	@Autowired
 	private AuctionItemDao aucItemDao;
 
-	@Autowired
-	private SequenceDao oracleSequenceDao;
 	//-------------------------------------------------------------------------
 	// Operation methods, implementing the PetStoreFacade interface
 	//-------------------------------------------------------------------------
@@ -185,7 +187,18 @@ public class PetStoreImpl implements PetStoreFacade {
 		itemDao.updatePost(item);
 	}
 	
-	//jione - scheduler
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		productDao.updateProduct(product);
+	}
+
+	@Override
+	public void updateQuantity(Item item) {
+		// TODO Auto-generated method stub
+		itemDao.updateQuantity(item);
+	}
+	
 	@Autowired
 	private ThreadPoolTaskScheduler scheduler;
 	
@@ -209,5 +222,5 @@ public class PetStoreImpl implements PetStoreFacade {
 		System.out.println("======================================");
 		System.out.println("endTime" + endTime);
 	}
-	
+
 }

@@ -13,6 +13,13 @@ import com.example.jpetstore.domain.Auction;
 @Service
 public class AuctionServiceImpl implements AuctionService {
 
+	@Override
+	public List<Auction> getAuctionList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@Autowired
 	private AuctionItemDao auctionItemDao;
 
@@ -48,24 +55,25 @@ public class AuctionServiceImpl implements AuctionService {
 	
 // AuctionPartiDao
 	@Override
-	public void insertPrice(int aucNum, int inputPrice, String userID) {
+	public void insertPrice(Auction auction){
 		// TODO Auto-generated method stub
-		auctionItemDao.insertPrice(aucNum, inputPrice, userID);
+		auctionItemDao.insertPrice(auction);
+	}
+
+
+	@Override
+	public void deleteMaxPrice(int aucNum) {
+		// TODO Auto-generated method stub
+		auctionItemDao.deleteMaxPrice(aucNum);
 	}
 
 	@Override
-	public void deleteMaxInputPrice(int aucNum, String userID) {
+	public String findAucUserID(int aucNum) {
 		// TODO Auto-generated method stub
-		auctionItemDao.deleteMaxPrice(aucNum, userID);
-	}
-
-	@Override
-	public String findAucUserID(int maxPrice, String userID) {
-		// TODO Auto-generated method stub
-		auctionItemDao.findAucUserID(maxPrice, userID);
+		return auctionItemDao.findAucUserID(aucNum);
 		
-		return userID;
 	}
+
 
 	@Override
 	public void partiAuc(int aucNum, int inputPrice, String userID) {
@@ -85,7 +93,19 @@ public class AuctionServiceImpl implements AuctionService {
 	}
 	
 	@Override
-	public List<Auction> getAuctionList() {
-		return auctionItemDao.getAuctionList();
+	public List<Auction> getLastAuctionList() {
+		return auctionItemDao.getLastAuctionList();
 	}
+	@Override
+	public List<Auction> getCurAuctionList() {
+		return auctionItemDao.getCurAuctionList();
+	}
+
+
+	@Override
+	public Auction getAuctionDetail(int aucNum) {
+		// TODO Auto-generated method stub
+		return auctionItemDao.getAuctionDetail(aucNum);
+	}
+	
 }

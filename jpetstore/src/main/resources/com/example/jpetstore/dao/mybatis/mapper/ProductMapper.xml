@@ -48,5 +48,15 @@
       VALUES
       (#{productId,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
+  <insert id="updateProduct" parameterType="Product">
+  	
+    UPDATE PRODUCT
+    SET
+    CATEGORY=#{categoryId},
+    NAME=#{name},
+    DESCN=#{description}
+    WHERE PRODUCTID=#{productId}
+  </insert>
+  
   
 </mapper>

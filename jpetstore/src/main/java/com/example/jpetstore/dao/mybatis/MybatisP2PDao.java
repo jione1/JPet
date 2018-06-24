@@ -30,9 +30,9 @@ public class MybatisP2PDao implements P2PDao{
 	
 
 	@Override
-	public void updatePost(P2P p2p) {
+	public void updateP2P(P2P p2p) {
 		// TODO Auto-generated method stub
-		
+		p2pMapper.updateP2P(p2p);
 	}
 
 	@Override

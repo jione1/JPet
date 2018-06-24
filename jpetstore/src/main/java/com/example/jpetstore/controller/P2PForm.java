@@ -2,16 +2,33 @@ package com.example.jpetstore.controller;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
 @SuppressWarnings("serial")
 public class P2PForm implements Serializable{
 	//product�� name���� �з��ؾ���. 
+	
+	@NotEmpty
 	private String itemName; //product-name ���� �־���Ѵ�.
+	
 	private String sort; // auction / p2p 
 	private String category;//������ product -categoryId 
+	
+	@Min(1)
 	private int quantity; //�ǸŰ��ɷ� (item-quantity ->db �߰�)
+	
+	@Min(100)
 	private int price; //�ǸŰ��� (item - listprice)
-	private String file; //item ���� (item-itemImage)
+	
+	private MultipartFile report; //item ���� (item-itemImage)
 	private String discription; //�Խñ� �󼼳��� (item attr1)
+	
+	@NotEmpty
 	private String title; //p2p �Խñ� ���� 
 	private int supplier; //������=1 / �Ϲ��Ǹ���=2 
 	private String itemId;
@@ -47,11 +64,12 @@ public class P2PForm implements Serializable{
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getFile() {
-		return file;
+	
+	public MultipartFile getReport() {
+		return report;
 	}
-	public void setFile(String file) {
-		this.file = file;
+	public void setReport(MultipartFile report) {
+		this.report = report;
 	}
 	public String getDiscription() {
 		return discription;
@@ -83,7 +101,4 @@ public class P2PForm implements Serializable{
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-	
-
-	
 }

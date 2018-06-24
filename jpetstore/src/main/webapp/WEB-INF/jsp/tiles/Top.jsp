@@ -20,15 +20,14 @@
                             <li>
                                 <a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>">Shop</a>
                             </li>
-                            <li>
-                                <a href="<c:url value="/shop/viewCart.do"/>">Cart</a>
-                            </li>
+                         
                             <li>
                                 <a href="<c:url value="/p2p/writeP2PPost.do"/>">New Post</a>
                             </li>
                             <li>
                                 <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
                             </li>
+
                             <li>
                                 <a href="<c:url value="/auction/aucTemplist.do"/>">Auction</a>
                             </li>
@@ -45,12 +44,9 @@
                     <span class="linedivide1"></span>
 
                     <div class="header-wrapicon2">
-                        <img src="../images-theme/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                        <a href="<c:url value="/shop/viewCart.do"/>"><img src="../images-theme/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON"></a>
                     </div>
                 </div>
             </div>
         </div>
 </header>
-
-
-

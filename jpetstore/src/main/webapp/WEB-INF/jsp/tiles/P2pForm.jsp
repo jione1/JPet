@@ -5,7 +5,6 @@
 <div class="container">
    <h2>ITEM POSTING</h2>
    <div class="p-t-22 p-b-50 bo3"></div>
-   <c:url var="post_url" value="/p2p/sendP2PPost.do" />
    <form:form commandName="P2PForm" method="post"
       enctype="multipart/form-data">
 
@@ -66,23 +65,28 @@
          <div class="form-group">
             <label for="price">PRICE</label>
             <form:input path="price" placeholder="가격을 입력해주세요" />
+
             <form:errors path="price" />
+
          </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <div class="form-group">
             <label for="file">PICTURE</label>
             <div></div>
-            <input type="file" id="file">
+
+            <input type="file" name="report" id = "report">
+            <div id="holder"></div>
+
          </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <div class="form-group">
             <label for="discription">DISCRIPTION</label>
-            <div class="p-t-22 p-b-30 bo3">
-            	<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " rows="4" cols="150"/>
-            </div>
+            <div></div>
+           <form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " rows="4" cols="150"/>
          </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <form:hidden path="supplier" value="2" />
+
          <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
             onClick="buttonSubmit()">등록</button>
       </div>

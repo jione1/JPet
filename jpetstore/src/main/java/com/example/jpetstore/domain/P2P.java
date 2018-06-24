@@ -10,8 +10,8 @@ public class P2P implements Serializable {
 	private String title;
 	private String id;
 	private String url;
-	private Item item;
-	private Product product;
+	Item item;
+	Product product;
 	
 	public String getItemId() {
 		return itemId;

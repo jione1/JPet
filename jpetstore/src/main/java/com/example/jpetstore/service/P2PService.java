@@ -29,4 +29,5 @@ public interface P2PService {
 	P2P getP2PDetail(String itemId);
 	
 	P2P getP2PSeller(String itemId);
+	
 }

@@ -78,4 +78,7 @@ public class MybatisItemDao implements ItemDao {
 	public void updatePost(Item item) {
 		itemMapper.updatePost(item);
 	}
+	public void updateQuantity(Item item) {
+		itemMapper.updateQuantity(item);
+	}
 }
