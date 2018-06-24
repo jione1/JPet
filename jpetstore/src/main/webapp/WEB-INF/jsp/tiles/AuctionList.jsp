@@ -53,7 +53,7 @@
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="<c:url value="/shop/viewCategory.do?categoryId=FISH"/>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
+                            <a href="<c:url value="/auction/viewActionDetail.do?auction_Num="/>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
                         </div>
                     </div>
                     </c:forEach>

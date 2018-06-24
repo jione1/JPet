@@ -77,8 +77,9 @@
          <div class="p-t-22 p-b-30 bo3"></div>
          <div class="form-group">
             <label for="discription">DISCRIPTION</label>
-            <div></div>
-            <form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " />
+            <div class="p-t-22 p-b-30 bo3">
+            	<form:textarea path="discription" placeholder="동물의 매력을 뽐내주세요 " rows="4" cols="150"/>
+            </div>
          </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <form:hidden path="supplier" value="2" />

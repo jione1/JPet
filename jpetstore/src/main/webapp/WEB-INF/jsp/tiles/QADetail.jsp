@@ -28,10 +28,18 @@
 					<th style="width: 200px; border: 1px solid gray; text-align:center;">ID</th>
 					<td style="border: 1px solid gray; padding: 10px;">${QADetail.userId}</td>
 				</tr>
+				<c:choose>
+					<c:when test="${QADetail.isAnswered != null}">
+						<tr>
+							<th style="width: 200px; border: 1px solid gray; text-align:center;">답변</th>
+							<td style="border: 1px solid gray; padding: 10px;">${QADetail.isAnswered}</td>
+						</tr>
+					</c:when>
+				</c:choose>
 				
-				<tr id="deletQA" style="display:none">
-					<td style="border: 1px solid gray; padding: 10px;" collspan="2"><button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn" style="display:none">
-							삭제 </td>
+				
+				<tr id="deleteQA">
+					<td style="border: 1px solid gray; padding: 10px;" colspan="2"><a href="<c:url value="/qa/qaDelete.do"><c:param name="qnum" value="${QADetail.qnum}"/></c:url>">삭제</a> </td>
 				<tr>
 				
 			</table>
@@ -53,12 +61,16 @@
 		if (sellerId == sessionId || sessionId == "admin") {
 			document.getElementById('replyBtn').style.display = "";
 		} else {
-			document.getElementById('replyBtn').style.display = "none";
+			document.getElementById('replyBtn').style.display = "none";2
 		}
 		
-	});
-	
-    
+		if(userId == sessionId){
+			document.getElementById('deleteQA').style.display="";
+		}else{
+			document.getElementById('deleteQA').style.display="none";
+		}
+		
+	});  
 	</script>
 	
 </body>

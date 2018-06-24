@@ -76,8 +76,8 @@ public class QAController{
 		return qaListView;
 	}
 	
-	@RequestMapping("/qawrite.do")
-	public String sendQAPost(HttpServletRequest request, @ModelAttribute("QAForm") QAForm qaForm,
+	@RequestMapping(value = "/qawrite.do", method = RequestMethod.POST)
+	public String sendQAPost(HttpServletRequest request, @ModelAttribute("qaForm") QAForm qaForm,
 			ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
 		String username = userSession.getAccount().getUsername();
 		System.out.println("Session ID" + username);
@@ -113,8 +113,29 @@ public class QAController{
 		return qaDetail;
 	}
 	
+	@RequestMapping("/qaDelete.do")
+	public String deleteQA(@RequestParam("qnum") int qnum) throws Exception{
+		qaService.deleteQAPost(qnum);
+		return "redirect:" + "/qa/qalist.do";
+	}
+	
+	
 	@RequestMapping("/qaReply.do")
-	public String ReplyQA(@RequestParam("qnum") int qnum, @ModelAttribute("QAReplyForm") QAForm qaForm) throws Exception{
+	public String ReplyQA(@RequestParam("qnum") int qnum, @ModelAttribute("qaReplyForm") QAForm qaForm) throws Exception{
+		qaForm.setQaType(qnum);
 		return qaReplyFormView;
 	}
+	
+	@RequestMapping("/qaReplyWrite.do")
+	public String sendQAReplyPost(@ModelAttribute("qaReplyForm") QAForm qaForm) throws Exception {
+		
+		QA qa = new QA();
+		qa.setQnum(qaForm.getQaType());
+		qa.setIsAnswered(qaForm.getAnswer());
+
+		qaService.insertQAReply(qa);
+		
+		return "redirect:" + "/qa/qalist.do";
+	}
+	
 }

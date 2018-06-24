@@ -7,20 +7,10 @@
             <div class="row">
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
-                    <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
-
-                        <div class="block1-wrapbtn w-size2">
-                            <!-- Button -->
-                            <a href="<c:url value="/shop/viewCategory.do?categoryId=FISH"/>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                FISHES
-                            </a>
-                        </div>
-                    </div>
 
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+                        <img src="../images/dog_main.jpg" alt="IMG-BENNER" width=350 height=320>
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -29,12 +19,23 @@
                             </a>
                         </div>
                     </div>
+                    
+                    <div class="block1 hov-img-zoom pos-relative m-b-30">
+                        <img src="../images/fish_main.jpg" alt="IMG-BENNER" width=350 height=320>
+
+                        <div class="block1-wrapbtn w-size2">
+                            <!-- Button -->
+                            <a href="<c:url value="/shop/viewCategory.do?categoryId=FISH"/>" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                FISHES
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+                        <img src="../images/cat_main.jpg" alt="IMG-BENNER" width=350 height=320>
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -45,7 +46,7 @@
                     </div>
 
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+                        <img src="../images/reptile_main.png" alt="IMG-BENNER" width=350 height=320>
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -58,7 +59,7 @@
 
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+                        <img src="../images/bird_main.jpg" alt="IMG-BENNER" width=350 height=320>
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
@@ -74,7 +75,7 @@
 
                         <div class="block2-content sizefull ab-t-l flex-col-c-m">
                             <h4 class="m-text4 t-center w-size3 p-b-8">
-                                경향 분석하기
+                               성향 분석하기
                             </h4>
 
                             <p class="t-center w-size4">

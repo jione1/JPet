@@ -114,6 +114,7 @@ public class AuctionFormController {
 		return "AuctionService";
 
 	}	
+	
 	@RequestMapping("/auction/sendAuctionPost.do")
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
@@ -138,7 +139,6 @@ public class AuctionFormController {
 		item.setListPrice(auctionForm.getPrice());
 		item.setUnitCost(auctionForm.getPrice());
 		item.setStatus("P");
-		//		item.setAttribute1(file);
 		item.setQuantity(1);
 
 		petStore.insertItem(item);
@@ -158,8 +158,7 @@ public class AuctionFormController {
 		auction.setUserId(username);
 		
 		auctionService.insertAucItem(auction);
-		
-		//jione
+
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 16:05");
 		petStore.testScheduler(endTime);

@@ -5,6 +5,8 @@
 
 <section class="bgwhite p-t-66 p-b-60">
 <div class="container">
+	<h1>성향 분석</h1>
+	<hr>
 	<c:set var="targetUrl"><c:url value="/tendency/sendResult.do" /></c:set>
 	<form:form commandName="testTendency" action="${targetUrl}" method="post">
 		<table cellpading="5px" style="border: 1px solid gray">
