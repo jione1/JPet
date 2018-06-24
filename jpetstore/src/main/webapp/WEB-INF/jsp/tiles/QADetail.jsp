@@ -28,12 +28,6 @@
 					<th style="width: 200px; border: 1px solid gray; text-align:center;">ID</th>
 					<td style="border: 1px solid gray; padding: 10px;">${QADetail.userId}</td>
 				</tr>
-				
-				<tr id="deletQA" style="display:none">
-					<td style="border: 1px solid gray; padding: 10px;" collspan="2"><button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn" style="display:none">
-							ªË¡¶ </td>
-				<tr>
-				
 			</table>
 		</div>
 		<p>&nbsp;</p>
@@ -48,14 +42,12 @@
 	$(document).ready(function() {
 		var sellerId =  '<c:out value = "${QADetail.sellerId}"/>';
 		var sessionId = '<c:out value = "${userSession.getAccount().getUsername()}"/>';
-		var userId = '<c:out value = "${QADetail.userId}"/>';
 		
 		if (sellerId == sessionId || sessionId == "admin") {
 			document.getElementById('replyBtn').style.display = "";
 		} else {
 			document.getElementById('replyBtn').style.display = "none";
 		}
-		
 	});
 	
     

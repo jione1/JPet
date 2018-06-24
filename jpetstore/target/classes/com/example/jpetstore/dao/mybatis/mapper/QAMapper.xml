@@ -5,14 +5,14 @@
 	<cache />
 	
 	<insert id="insertQAPost" parameterType="QA">
-		INSERT INTO SSD01_4.Q_A
+		INSERT INTO Q_A
 			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE)
 		VALUES
 			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype})
 	</insert>
 	
 	<insert id="insertQASellerPost" parameterType="QA">
-		INSERT INTO SSD01_4.Q_A
+		INSERT INTO Q_A
 			(QNUM, USERID, QTITLE, QDICRIPTION, QTYPE, ITEMID, SELLERID)
 		VALUES
 			(#{qnum}, #{userId}, #{title}, #{content}, #{qtype}, #{itemid}, #{sellerId})
@@ -31,12 +31,12 @@
 
 	<select id="getQAList" resultType="com.example.jpetstore.domain.QA">
 		SELECT QNUM, USERID, QTITLE as title, QDICRIPTION as content, QANSWER as isAnswered, QTYPE, ATIME, ITEMID, SELLERID, ADID
-		FROM SSD01_4.Q_A
+		FROM Q_A
 	</select>
 
 	<select id="getQA" resultType="QA">
 		SELECT QNUM, USERID, QTITLE as title, QDICRIPTION as content, QANSWER as isAnswered, QTYPE, ATIME, ITEMID, SELLERID, ADID
-		FROM SSD01_4.Q_A
+		FROM Q_A
 		WHERE QNUM = #{qaNum}
 	</select>
  </mapper>

@@ -22,6 +22,8 @@ INSERT INTO category VALUES ('DOGS','Dogs','<image src="../images/dogs_icon.gif"
 INSERT INTO category VALUES ('REPTILES','Reptiles','<image src="../images/reptiles_icon.gif"><font size="5" color="blue"> Reptiles</font>');
 INSERT INTO category VALUES ('CATS','Cats','<image src="../images/cats_icon.gif"><font size="5" color="blue"> Cats</font>');
 INSERT INTO category VALUES ('BIRDS','Birds','<image src="../images/birds_icon.gif"><font size="5" color="blue"> Birds</font>');
+INSERT INTO category VALUES ('AUCTIONS');
+
 
 INSERT INTO product VALUES ('FI-SW-01','FISH','Angelfish','<image src="../images/fish1.jpg">Salt Water fish from Australia');
 INSERT INTO product VALUES ('FI-SW-02','FISH','Tiger Shark','<image src="../images/fish4.gif">Salt Water fish from Australia');
@@ -101,6 +103,34 @@ INSERT INTO inventory (itemid, qty ) VALUES ('EST-26',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-27',10000);
 INSERT INTO inventory (itemid, qty ) VALUES ('EST-28',10000);
 
+select * from user_sequences;
+drop sequence itemnum ;
+drop sequence AUCTION_NUM ;
+drop sequence productnum ;
 
-SELECT * 
-FROM USER_SEQUENCES;
+delete from Q_A where ITEMID like 'P2P-%'
+delete from P2P where ITEMID like 'P2P-%';
+delete from AUCPARTI;
+delete from AUCTIONITEM where ITEMNAME in (select NAME from PRODUCT where PRODUCTID like 'AUC-%' ) ;
+
+delete from ITEM where ITEMID like 'P2P-%';
+delete from ITEM where ITEMID like 'AUC-%';
+delete from INVENTORY where ITEMID like 'P2P-%';
+delete from PRODUCT where PRODUCTID like 'P2P-%';
+delete from PRODUCT where PRODUCTID like 'AUC-%';
+
+
+alter table item modify productid varchar2(30);
+delete from AUCTIONITEM where AUCTION_NUM =10;
+
+create sequence productnum
+START WITH       1
+increment by 1
+
+maxvalue 9999999999
+
+nocache
+
+nocycle;
+
+     

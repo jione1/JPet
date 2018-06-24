@@ -31,6 +31,7 @@ public class UpdateCartQuantitiesController {
 			String itemId = cartItem.getItem().getItemId();
 			try {
 				int quantity = Integer.parseInt(request.getParameter(itemId));
+				System.out.println(quantity);
 				cart.setQuantityByItemId(itemId, quantity);
 				if (quantity < 1) {
 					cartItems.remove();
@@ -39,8 +40,9 @@ public class UpdateCartQuantitiesController {
 			catch (NumberFormatException ex) {
 				// ignore on purpose
 			}
+			
 		}
-		return new ModelAndView("Cart", "cart", cart);
+		return new ModelAndView("tiles/Cart", "cart", cart);
 	}
 
 }

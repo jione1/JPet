@@ -77,6 +77,17 @@
   <update id ="updatePost" parameterType="Item">
     UPDATE ITEM 
     SET 
+    LISTPRICE=#{listPrice},
+    UNITCOST=#{unitCost},
+    STATUS=#{status}
     WHERE ITEMID = #{itemId}
   </update>
+  <insert id="updateQuantity" parameterType="Item">
+	
+    UPDATE INVENTORY
+    SET
+    QTY=#{quantity}
+    where ITEMID = #{itemId}
+  </insert>
+  
 </mapper>

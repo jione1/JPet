@@ -30,4 +30,5 @@ public interface ItemDao {
   
   void deletePost(String itemId);
   void updatePost(Item item);
+  void updateQuantity(Item item);
 }

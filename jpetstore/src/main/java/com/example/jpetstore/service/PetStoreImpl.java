@@ -1,15 +1,11 @@
 package com.example.jpetstore.service;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.example.jpetstore.dao.AccountDao;
-import com.example.jpetstore.dao.AuctionItemDao;
 import com.example.jpetstore.dao.CategoryDao;
 import com.example.jpetstore.dao.ItemDao;
 import com.example.jpetstore.dao.OrderDao;
@@ -61,6 +57,8 @@ import com.example.jpetstore.domain.Product;
 @Service
 @Transactional
 public class PetStoreImpl implements PetStoreFacade { 
+	
+
 	@Autowired	// @Qualifier("mybatisAccountDao")
 	private AccountDao accountDao;
 	
@@ -79,9 +77,6 @@ public class PetStoreImpl implements PetStoreFacade {
 	
 	@Autowired	// @Qualifier("mybatisOrderDao")
 	private OrderDao orderDao;
-	
-	@Autowired
-	private AuctionItemDao aucItemDao;
 
 	@Autowired
 	private SequenceDao oracleSequenceDao;
@@ -185,29 +180,15 @@ public class PetStoreImpl implements PetStoreFacade {
 		itemDao.updatePost(item);
 	}
 	
-	//jione - scheduler
-	@Autowired
-	private ThreadPoolTaskScheduler scheduler;
-	
-	public void testScheduler(Date endTime) {
-		Runnable updateStatus = new Runnable() {
-			@Override
-			public void run() {
-				Date curTime = new Date();
-				aucItemDao.closeAuction(curTime);
-				System.out.println("====================================");
-				System.out.println("curTime " + curTime);
-			}
-		};
-//		HashMap<String, Date> hashMap = new HashMap<String, Date>();
-//		hashMap.put("curTime", new Date());
-//		hashMap.put("endTime", endTime);
-		
-		scheduler.schedule(updateStatus, endTime);
-		
-		
-		System.out.println("======================================");
-		System.out.println("endTime" + endTime);
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		productDao.updateProduct(product);
 	}
-	
+
+	@Override
+	public void updateQuantity(Item item) {
+		// TODO Auto-generated method stub
+		itemDao.updateQuantity(item);
+	}
 }

@@ -2,36 +2,97 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.jpetstore.dao.mybatis.mapper.AuctionMapper">
+
 	<cache />
 
 	<insert id="insertAucItem" parameterType="Auction">
 		INSERT INTO AUCTIONITEM
-		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME,AUCTIONCOST,AUCTION_NUM, AUCEND)
-		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{price},#{auction_num}, #{aucEnd})
+
+		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME, AUCDISCRIPTION, AUCTIONCOST,AUCTION_NUM,AUCEND)
+
+		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{discription}, #{price},#{auction_num}, #{aucEnd, jdbcType=DATE})
 	</insert>
 
 	<select id="auctionListSize" resultType="int">
 		SELECT count(*) FROM AUCTIONITEM
 	</select>
 	
-	<select id="getAuctionList" resultType="Auction">
+	<select id="getCurAuctionList" resultType="Auction">
 		SELECT 
 			SELLERID AS userId,
 			ITEMNAME AS itemName,
 			AUCSTATUS AS aucStatus,
-			P.DESCN AS aucDiscription,
+			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
-			AUCTION_NUM AS auction_num
-			
-		FROM AUCTIONITEM A, PRODUCT P, ITEM I
-		WHERE P.PRODUCTID = I.PRODUCTID 
+			AUCTION_NUM AS auction_num,
+			P.DESCN AS "product.description"
+		FROM AUCTIONITEM A, PRODUCT P
+		WHERE  A.AUCSTATUS = '0'
+		AND P.NAME = A.ITEMNAME
+		
+		
+	</select>
+	<select id="getLastAuctionList" resultType="Auction">
+		SELECT 
+			SELLERID AS userId,
+			ITEMNAME AS itemName,
+			AUCSTATUS AS aucStatus,
+			AUCDISCRIPTION AS aucDiscription,
+			AUCNAME AS aucName,
+			AUCTIONCOST AS price,
+			AUCTION_NUM AS auction_num,
+			P.DESCN AS "product.description"
+		FROM AUCTIONITEM A, PRODUCT P
+		WHERE  A.AUCSTATUS = '1'
 		AND P.NAME = A.ITEMNAME
 	</select>
 	
-	<update id="closeAuction" parameterType="java.util.Date">
-		<![CDATA[UPDATE AUCTIONITEM
-		SET AUCSTATUS = '1'
-		WHERE AUCEND <= #{curTime}]]>
-	</update>
+	<!-- 최고값 작성한 사람 id 불러오기  -->
+	<select id="findAucUserID" parameterType="Auction">
+		SELECT MAX(USERID)
+		KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
+		AS USERID
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
+
+	
+	<!-- 낙찰 포기 시 큰 값 제거  -->
+	<delete id="deleteMaxPrice">
+		DELETE FROM AUCPARTI
+		WHERE INPUTPRICE = (
+			SELECT MAX(INPUTPRICE) 
+			FROM AUCPARTI
+			WHERE AUCTION_NUM = #{aucNum})
+	</delete>
+	
+	
+	<!-- 경매 참여하기 ( 가격 작성 ) -->
+	<insert id="insertPrice" parameterType="Auction">
+		INSERT INTO AUCPARTI (AUCTION_NUM, INPUTPRICE, USERID)
+		VALUES(#{auction_num}, #{inputPrice}, #{partiId})
+	</insert>
+	
+	
+	<!-- cart에 넣기 위해서 해당 auctionItem 가져오기  -->
+	<select id="getAuctionDetail" parameterType="int" resultType="Auction">
+		SELECT 
+		AUCTION_NUM AS auction_num,
+		AUCTIONCOST AS auctionCost,
+		AUCNAME AS aucName,
+		AUCDISCRIPTION AS discription,
+		AUCIMAGE AS  aucImage,
+		AUCSTATUS AS aucStatus,
+		PARTIID AS partiId,
+		ITEMNAME AS itemName,
+		SELLERID AS userId,
+		AUCEND AS aucEnd,
+		P.DESCN AS "product.description"
+		FROM AUCTIONITEM A , PRODUCT P
+		WHERE AUCTION_NUM = #{aucNum}
+		AND P.NAME = A.ITEMNAME
+	</select>
+	
+
 </mapper>

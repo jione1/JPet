@@ -36,6 +36,8 @@ public class OracleSequenceDao extends MybatisSequenceDao {
 		Sequence sequence = new Sequence();
 		sequence.setName(name);
 		sequence = sequenceMapper.getOracleSequence(sequence);
+		sequenceMapper.updateSequence(sequence);
 		return sequence.getNextId();
+		
 	}
 }

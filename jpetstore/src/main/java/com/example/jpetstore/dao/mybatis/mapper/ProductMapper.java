@@ -33,5 +33,6 @@ public interface ProductMapper {
   List<Product> searchProductList(String keywords);
   
   void insertProduct(Product product);
-
+  
+  void updateProduct(Product product);
 }

@@ -21,18 +21,18 @@ public class MybatisSequenceDao implements SequenceDao {
    * @param name the name of the sequence
    * @return the next ID
    */
-	public int getNextId(String name) throws DataAccessException {
-		Sequence sequence = new Sequence(name, -1);
-	    sequence = (Sequence) sequenceMapper.getSequence(sequence);
-	    if (sequence == null) {
-	    	throw new DataRetrievalFailureException(
-	    		"Error: A null sequence was returned from the database "
-	    		+ "(could not get next " + name + " sequence).");
-	    }
-	    Sequence parameterObject = new Sequence(name, sequence.getNextId()+1);
-	    sequenceMapper.updateSequence(parameterObject);
-	    return sequence.getNextId();
-	}
+//	public int getNextId(String name) throws DataAccessException {
+//		Sequence sequence = new Sequence(name, -1);
+//	    sequence = (Sequence) sequenceMapper.getSequence(sequence);
+//	    if (sequence == null) {
+//	    	throw new DataRetrievalFailureException(
+//	    		"Error: A null sequence was returned from the database "
+//	    		+ "(could not get next " + name + " sequence).");
+//	    }
+//	    Sequence parameterObject = new Sequence(name, sequence.getNextId()+1);
+//	    sequenceMapper.updateSequence(parameterObject);
+//	    return sequence.getNextId();
+//	}
 
 @Override
 public int getSequence(String name) throws DataAccessException {
