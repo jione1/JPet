@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -86,7 +88,7 @@
     </tr>
   </table>
   <p>
-    <button class="flex-c-m  bg1 bo-rad-23 hov1 s-text1 trans-0-4"  onclick="btnSubmit()">SUBMIT</button>
+    <button class="flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4"  onclick="btnSubmit()">SUBMIT</button>
   </p>
 </form:form>
 </div>

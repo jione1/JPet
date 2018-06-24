@@ -4,13 +4,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<c:set var="targetUrl"><c:url value="/shop/newOrderSubmitted.do" /></c:set>
 
 <div align="center">
-<form:form commandName="orderForm" action="${targetUrl}" method="post">
+<form:form commandName="orderForm" method="post">
   <form:errors cssClass="error" /><br><br>
 
-  <table class="n13">
+  <table>
     <tr>
       <td colspan="2">
         <font color="GREEN" size="4"><b>Shipping Address</b></font></td>
@@ -57,7 +56,14 @@
     </tr>
   </table>
   <p>
-    <input type="image" src="../images/button_submit.gif">
+    <button class="flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4"  onclick="btnSubmit()">SUBMIT</button>
   </p>
 </form:form>
 </div>
+<script>
+function btnSubmit() {
+	<c:url var="targetUrl" value="/shop/newOrderSubmitted.do"/>
+	document.forms[0].action='<c:out value="${targetUrl}"/>';
+	document.forms[0].submit(); 
+}
+</script>

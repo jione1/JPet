@@ -1,6 +1,8 @@
-<%@ include file="IncludeTop.jsp"%>
 
-<table id="main-menu">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<table >
   <tr>
     <td><a href='<c:url value="/shop/index.do"/>'>
       <b><font color="black" size="2">&lt;&lt; Main Menu</font></b></a>
@@ -14,7 +16,7 @@
   </c:if>
   
   <p></p>
-  <table class="n13">
+  <table >
     <tr>
       <td align="center" colspan="2"><font size="4">
         <b>Order #<c:out value="${order.orderId}" /></b></font> <br />
@@ -157,5 +159,3 @@
     </tr>
   </table>
 </div>
-
-<%@ include file="IncludeBottom.jsp"%>

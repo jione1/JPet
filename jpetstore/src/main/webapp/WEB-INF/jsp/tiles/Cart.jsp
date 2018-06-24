@@ -18,7 +18,7 @@
 						<th class="column-5"></th>
 					</tr>
 					<c:if test="${cart.numberOfItems == 0}">
-						<tr bgcolor="#FFFF88">
+						<tr bgcolor="white">
 							<td colspan="8"><b>Your cart is empty.</b></td>
 						</tr>
 					</c:if>
@@ -32,7 +32,8 @@
 							</td>
 							<td class="column-2">
 							<a href="<c:url value="/shop/viewItem.do"><c:param name="itemId" value="${cartItem.item.itemId}"/></c:url>">
-									<c:out value="${cartItem.item.itemId}" /></a>
+									<c:out value="${cartItem.item.itemId}" /></a><p>
+									
 							</td>
 							<td class="column-3"><fmt:formatNumber
 									value="${cartItem.item.getListPrice()}" pattern="$#,##0.00" /></td>

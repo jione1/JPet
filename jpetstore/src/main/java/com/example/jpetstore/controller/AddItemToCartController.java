@@ -1,5 +1,7 @@
 package com.example.jpetstore.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,7 +36,8 @@ public class AddItemToCartController {
 	
 	@RequestMapping("/shop/addItemToCart.do")
 	public ModelAndView handleRequest(
-			@RequestParam("workingItemId") String workingItemId,
+			HttpServletRequest request,
+			@RequestParam("item") String workingItemId,
 			@ModelAttribute("sessionCart") Cart cart 
 			) throws Exception {
 		if (cart.containsItemId(workingItemId)) {
@@ -44,11 +47,11 @@ public class AddItemToCartController {
 			// isInStock is a "real-time" property that must be updated
 			// every time an item is added to the cart, even if other
 			// item details are cached.
-			System.out.println("카트 아이템 아이디: "+ workingItemId);
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
 			boolean isInStock = this.petStore.isItemInStock(workingItemId);
 			Item item = this.petStore.getItem(workingItemId);
 			System.out.println(item.getItemId() + isInStock);
-			cart.addItem(item, isInStock);
+			cart.addItem(item, isInStock, quantity);
 		}
 		return new ModelAndView("tiles/Cart", "cart", cart);
 	}

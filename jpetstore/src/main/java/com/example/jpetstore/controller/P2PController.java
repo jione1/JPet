@@ -48,8 +48,10 @@ public class P2PController implements ApplicationContextAware {
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		// TODO Auto-generated method stub
-		context = (WebApplicationContext) applicationContext;
-		uploadDir= context.getServletContext().getRealPath("/WEB-INF/");
+//		context = (WebApplicationContext) applicationContext;
+//		uploadDir= context.getServletContext().getRealPath("/");
+
+
 	}
 
 	@Autowired
@@ -95,6 +97,7 @@ public class P2PController implements ApplicationContextAware {
 	//����ϱ⸦ ������ �� ����� ���ε� 
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
 	public String sendP2PPost(
+			HttpServletRequest request,
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
 			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
@@ -111,12 +114,12 @@ public class P2PController implements ApplicationContextAware {
 		
 		
 		try {
-
-			File file= new File(uploadDir, report.getOriginalFilename()); 
+			String rootPath = request.getSession().getServletContext().getContext("/upload").getRealPath("") ;
+			File file= new File(rootPath, report.getOriginalFilename()); 
 //			FileCopyUtils.copy(report.getBytes(), file);
 			report.transferTo(file);
 			System.out.println(file);
-			System.out.println(report.getOriginalFilename());
+			System.out.println(rootPath);
 		} 
 		catch (Exception e) {
 			e.getStackTrace();

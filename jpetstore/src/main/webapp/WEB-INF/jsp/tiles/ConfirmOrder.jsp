@@ -2,19 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<table id="main-menu">
-  <tr><td>
-    <a href='<c:url value="/shop/index.do"/>'>
-      <b><font color="black" size="2">&lt;&lt; Main Menu</font></b></a>
-  </td></tr>
-</table>
+
 
 <div align="center">
   <p>
     <b>Please confirm the information below and then press continue...</b>
   </p>
   <p></p>
-  <table class="n13">
+  <table >
     <tr>
       <td align="center" colspan="2">
         <font size="4"><b>Order</b></font><br />
@@ -98,7 +93,7 @@
   </table>
   <p>
     <a href='<c:url value="/shop/confirmOrder.do"/>'>
-      <img border="0" src="../images/button_continue.gif" alt="" /></a>
+      <button class="flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4" >CONTINUE</button>
   </p>
 </div>
 

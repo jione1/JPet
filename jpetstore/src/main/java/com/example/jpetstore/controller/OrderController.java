@@ -31,6 +31,7 @@ public class OrderController {
 	@Autowired
 	private PetStoreFacade petStore;
 	
+	@Autowired
 	private OrderValidator orderValidator;
 	
 	@ModelAttribute("orderForm")
@@ -70,6 +71,7 @@ public class OrderController {
 	public String bindAndValidateOrder(HttpServletRequest request,
 			@ModelAttribute("orderForm") OrderForm orderForm, 
 			BindingResult result) {
+		
 		if (orderForm.didShippingAddressProvided() == false) {	
 			// from NewOrderForm
 			orderValidator.validateCreditCard(orderForm.getOrder(), result);
@@ -78,6 +80,7 @@ public class OrderController {
 			
 			if (orderForm.isShippingAddressRequired() == true) {
 				orderForm.setShippingAddressProvided(true);
+				
 				return "tiles/ShippingForm";
 			}
 			else {			
@@ -96,7 +99,7 @@ public class OrderController {
 			@ModelAttribute("orderForm") OrderForm orderForm, 
 			SessionStatus status) {
 		petStore.insertOrder(orderForm.getOrder());
-		ModelAndView mav = new ModelAndView("ViewOrder");
+		ModelAndView mav = new ModelAndView("tiles/ViewOrder");
 		mav.addObject("order", orderForm.getOrder());
 		mav.addObject("message", "Thank you, your order has been submitted.");
 		status.setComplete();  // remove sessionCart and orderForm from session

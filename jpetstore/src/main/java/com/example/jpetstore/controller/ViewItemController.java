@@ -64,13 +64,13 @@ public class ViewItemController {
 	}
 	
 	@RequestMapping("/shop/deletePost.do")
-	public String deletePost(HttpServletRequest request, @RequestParam("itemId") String itemId, ModelMap model) throws Exception {
+	public String deletePost(HttpServletRequest request, @RequestParam("item") String itemId, ModelMap model) throws Exception {
 //		String old_url = request.getHeader("referer");
 //		System.out.println(" 글 삭제 ======> "+old_url);
 		System.out.println(itemId + "삭제중...");
 		this.petStore.deletePost(itemId);
-		
-		return "tiles/index";
+		String category = request.getParameter("category");
+		return "redirect:" + "/shop/viewCategory.do?categoryId=" + category;
 	}
 	
 	@RequestMapping(value = "/shop/updatePost.do", method = RequestMethod.POST)
