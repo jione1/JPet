@@ -10,8 +10,6 @@
 <body>
 	<section class="bgwhite p-t-66 p-b-60">
 		<div class="container">
-		
-		
 			<table cellpading="5px" style="border: 1px solid gray">
 				<tr>
 					<th style="width: 800px; border: 1px solid gray; text-align:center;">±Û Á¦¸ñ</th>

@@ -161,7 +161,7 @@ public class AuctionFormController {
 		
 		//jione
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 11:05");
+		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 16:05");
 		petStore.testScheduler(endTime);
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getAuctionList();
