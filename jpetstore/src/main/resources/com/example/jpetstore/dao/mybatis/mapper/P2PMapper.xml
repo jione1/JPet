@@ -26,10 +26,10 @@
 		Pr.NAME AS "product.name",
 		Pr.DESCN AS "product.description",
 		Pr.CATEGORY AS "product.categoryId",
-		QTY AS quantity
+		QTY AS "item.quantity"
 		
 	FROM ITEM I, P2P P, Product Pr, INVENTORY V
-	WHERE P.SELLERID=#{id}
+	WHERE I.ITEMID=#{id}
 	AND I.ITEMID=P.ITEMID 
 	AND Pr.PRODUCTID = I.PRODUCTID 
 	AND P.ITEMID = V.ITEMID
@@ -61,9 +61,10 @@
   </insert>
   
   
-  <update id ="updatePost" parameterType="P2P">
+  <update id ="updateP2P" parameterType="P2P">
     UPDATE P2P 
-    SET P2PTITLE = #{title}
+    SET 
+    P2PTITLE = #{title}
     WHERE ITEMID = #{itemId}
   </update>
   

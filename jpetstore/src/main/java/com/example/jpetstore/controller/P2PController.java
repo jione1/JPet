@@ -90,7 +90,7 @@ public class P2PController implements ApplicationContextAware {
 		model.addAttribute("quantity", 1);
 		return "tiles/P2pForm";
 		
-		}
+	}
 	
 	//����ϱ⸦ ������ �� ����� ���ε� 
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
@@ -169,6 +169,76 @@ public class P2PController implements ApplicationContextAware {
 		petStore.insertItem(item);
 		petStore.insertInventoryQuantity(item);
 		p2pService.insertP2P(p2p);
+		
+		model.addAttribute("filename", report.getOriginalFilename());
+		model.addAttribute("p2p", p2p);
+		model.addAttribute("product", pro);
+		model.addAttribute("item", item);
+		model.addAttribute("userId", username);
+		return "tiles/Item";
+	
+		}
+	
+	@RequestMapping("/p2p/updatePost.do") //�Ǹű� �������� �����ֱ� 
+	public String UpdateP2PPost(
+			ModelMap model,
+			@ModelAttribute("userSession") UserSession userSession,
+			@RequestParam("itemId") String itemId,
+			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
+			BindingResult bindingResult
+			) throws Exception {
+		//�ۼ��� form �� item �� �������� ���� 
+//		p2pFormvalidator.validate(p2pForm, bindingResult);
+		
+		if (bindingResult.hasErrors()) {
+			return "tiles/P2pForm_update";
+		}
+		
+		String username = userSession.getAccount().getUsername();
+		
+		
+		MultipartFile report = p2pForm.getReport();
+		
+		try {
+
+			File file= new File(uploadDir, report.getOriginalFilename()); 
+//			FileCopyUtils.copy(report.getBytes(), file);
+			report.transferTo(file);
+			System.out.println(file);
+			System.out.println(report.getOriginalFilename());
+		} 
+		catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		System.out.println(itemId);
+		P2P p2pDetail = p2pService.getP2PDetail(itemId);
+		
+		Product pro = new Product();
+		
+		pro.setProductId(p2pDetail.getItem().getProductId());
+		pro.setCategoryId(p2pForm.getCategory());
+		pro.setName(p2pForm.getItemName());
+		pro.setDescription(p2pForm.getDiscription());
+				
+		P2P p2p = new P2P();
+		p2p.setItemId(p2pDetail.getItemId());
+		p2p.setPrice(p2pForm.getPrice());
+		p2p.setTitle(p2pForm.getTitle());
+		
+		Item item = new Item();
+		item.setItemId(p2pDetail.getItemId());
+		item.setProductId(p2pDetail.getItem().getProductId());
+		item.setListPrice(p2p.getPrice());
+		item.setUnitCost(p2p.getPrice());
+		item.setStatus("P");
+//		item.setAttribute1(file);
+		item.setQuantity(p2pForm.getQuantity());
+
+		petStore.updateProduct(pro);	
+		petStore.updatePost(item);
+		petStore.updateQuantity(item);
+		p2pService.updateP2P(p2p);
 		
 		model.addAttribute("filename", report.getOriginalFilename());
 		model.addAttribute("p2p", p2p);

@@ -56,6 +56,8 @@ public class MybatisProductDao implements ProductDao {
 		
 		productMapper.insertProduct(product);
 	}
-	
+	public void updateProduct(Product product) {
+		productMapper.updateProduct(product);
+	}
 	
 }

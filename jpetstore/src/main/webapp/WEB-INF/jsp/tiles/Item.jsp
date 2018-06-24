@@ -15,6 +15,9 @@
    </div>
 
    <!-- Product Detail -->
+   <form name="f" >
+   <input type="hidden" name="item" value="<c:out value="${item.getItemId()}"/>"/>
+   
    <div class="container bgwhite p-t-35 p-b-80">
       <div class="flex-w flex-sb">
          <div class="w-size13 p-t-30 respon5">
@@ -24,7 +27,7 @@
                <div class="slick3">
                   <div class="item-slick3" data-thumb="images/thumb-item-01.jpg">
                      <div class="wrap-pic-w">
-                        <img src="${pageContext.request.contextPath}/${filename }" alt="IMG-PRODUCT">
+                        <img src="${filename }" alt="IMG-PRODUCT">
                      </div>
                   </div>
 
@@ -48,28 +51,7 @@
 
             <span class="m-text17"> ₩ ${item.getListPrice()} </span>
 
-            <!-- <p class="s-text8 p-t-10">Nulla eget sem vitae eros pharetra
-               viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
-            </p> -->
-
-            <!--  -->
             <div class="p-t-33 p-b-60">
-               <!-- <div class="flex-m flex-w p-b-10">
-                  <div class="s-text15 w-size15 t-center">
-                     Size
-                  </div>
-
-                  <div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-                     <select class="selection-2" name="size">
-                        <option>Choose an option</option>
-                        <option>Size S</option>
-                        <option>Size M</option>
-                        <option>Size L</option>
-                        <option>Size XL</option>
-                     </select>
-                  </div>
-               </div> -->
-
                <div class="flex-m flex-w">
                   <div class="s-text15 w-size15 t-center">성별</div>
 
@@ -148,11 +130,12 @@
                </div>
                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14" id = "hiddenBtn">
                <button class="size9 bg4 bo-rad-23 hov1 s-text1" id="deleteBtn" style="display:none">
-                     삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn" style="display:none">수정 </button>
+                     삭제 </button>&nbsp;&nbsp;<button class="size9 bg4 bo-rad-23 hov1 s-text1"  id="updateBtn" value = "modify" style="display:none" onClick="btnSubmit(this.value)">수정 </button>
                </div>
          </div>
       </div>
    </div>
+   </form>
 
 
    <!-- Relate Product -->
@@ -486,28 +469,20 @@
       }
    );
    </script>
-   <script>
-   $(function(){
-       $('#updateBtn').click(function(){
-             var itemId = '<c:out value="${item.getItemId()}"/>';
-             alert("수정페이지로 이동합니다~");
-         $.ajax({
-              url : "/jpetstore/shop/updatePost.do",
-              async : true,
-              type: "POST",
-              data:  { "itemId": itemId },
-              success:function(response) {
-                 alert(response);
-                 windows.location.href="http://localhost:8081/jpetstore/shop/updatePost.do";
-                 
-              },
-              fail:function() {
-                 alert("실패 !!");
-              }
-           });    
-       });
-   });
    
+   <script type="text/javascript">
+   function btnSubmit(s) {
+      if (s == "modify") {
+         <c:url var="post_url" value="/shop/updatePost.do" />
+         document.forms[0].action = '<c:out value="${post_url}"/>';
+         
+      }
+      document.forms[0].submit(); 
+   }
+</script>
+
+<script>
+
    $(function(){
        $('#deleteBtn').click(function(){
              var itemId = '<c:out value="${item.getItemId()}"/>'; 

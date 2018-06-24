@@ -10,5 +10,5 @@ public interface P2PMapper {
 	P2P getP2PDetail(String itemId);
 	List<P2P> getP2PList();
 	P2P getP2PSeller(String itemId);
-
+	void updateP2P(P2P p2p);
 }

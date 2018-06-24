@@ -57,6 +57,8 @@ import com.example.jpetstore.domain.Product;
 @Service
 @Transactional
 public class PetStoreImpl implements PetStoreFacade { 
+	
+
 	@Autowired	// @Qualifier("mybatisAccountDao")
 	private AccountDao accountDao;
 	
@@ -176,5 +178,17 @@ public class PetStoreImpl implements PetStoreFacade {
 	@Override
 	public void updatePost(Item item) {
 		itemDao.updatePost(item);
+	}
+	
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		productDao.updateProduct(product);
+	}
+
+	@Override
+	public void updateQuantity(Item item) {
+		// TODO Auto-generated method stub
+		itemDao.updateQuantity(item);
 	}
 }
