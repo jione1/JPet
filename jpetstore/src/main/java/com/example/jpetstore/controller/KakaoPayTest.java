@@ -30,22 +30,6 @@ import com.example.jpetstore.domain.KakaoPayResponse;
 
 public class KakaoPayTest {
     private static final String HOST = "https://kapi.kakao.com";
-
-//		HttpClient httpClient = new DefaultHttpClient();
-//		String url = "https://kapi.kakao.com/v1/payment/ready";
-//		HttpPost httpPost = new HttpPost(url);
-//		httpPost.setHeader("Accept", "application/json");
-//		httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-//		httpPost.setHeader("Authorization", "KakaoAK eb8c19bbcb9d4176ff28f3a8a2f55174");
-//		
-//		HttpEntity httpEntity = new ByteArrayEntity(sendObject.toString().getBytes("utf-8"));
-//		httpPost.setEntity(httpEntity);
-//		HttpResponse httpResponse = httpClient.execute(httpPost);
-//		
-//    	public static void main(String[] args) throws RestClientException, URISyntaxException {
-//    	    paymentReady(KakaoPayRequest kakaoPayRequest);
-//        }
-//    	
     	private static void paymentReady(KakaoPayRequest kakaoPayRequest) throws RestClientException, URISyntaxException {
 
     	    RestTemplate restTemplate = new RestTemplate();

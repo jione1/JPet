@@ -86,7 +86,7 @@
    INSERT INTO ACCOUNT
       (EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY, PHONE, USERID, PROFILEIMAGEPATH)
     VALUES
-      ('kakao', 'kakao', 'kakao', null, 'kakao', null, 'kakao', 'kakao', 'kakao', 'kakao', 'kakao', #{username}, null)
+      ('kakao', 'kakao', 'kakao', 'OK', 'kakao', 'kakao', 'kakao', 'kakao', 'kakao', 'kakao', 'kakao', #{username}, null)
   </insert>
   
 
