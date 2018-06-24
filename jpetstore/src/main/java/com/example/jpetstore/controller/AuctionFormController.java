@@ -121,7 +121,6 @@ public class AuctionFormController {
 	public String sendAuctionPost(HttpServletRequest request, @ModelAttribute("auctionForm") AuctionForm auctionForm, Model model, @ModelAttribute("userSession") UserSession userSession) throws ParseException {
 		String username = userSession.getAccount().getUsername();
 
-
 		int item_seq = sequenceDao.getNextId("itemnum");
 		int prd_seq = sequenceDao.getNextId("productnum");
 		int auc_item_seq= sequenceDao.getNextId("auction_num");
@@ -130,11 +129,9 @@ public class AuctionFormController {
 		
 		System.out.println("itemId = " + id + " prod_id = " + pro_id );
 
-		
 		auction = new Auction();
 
 		auction.setItemId(id);
-		
 		auction.setAucEnd(request.getParameter("aucEnd"));
 		auction.setMaxPrice(auctionForm.getPrice());
 		auction.setAucStatus("0");
@@ -146,7 +143,7 @@ public class AuctionFormController {
 		auction.setUserId(username);
 		auction.setDiscription(auctionForm.getDiscription());
 		auctionService.insertAucItem(auction);
-
+		
 		Product pro = new Product();
 
 		pro.setProductId(pro_id);
@@ -170,7 +167,7 @@ public class AuctionFormController {
 		auction = new Auction();
 		
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 16:05");
+		Date endTime = transFormat.parse(request.getParameter("aucEnd") + " 01:00");
 		petStore.testScheduler(endTime);
 
 		ArrayList<Auction> auctionList = (ArrayList<Auction>) this.auctionService.getCurAuctionList();
@@ -200,8 +197,7 @@ public class AuctionFormController {
 		auctionService.insertPrice(auction);
 		
 		return "redirect:" + "/auction/viewAuctionDetail.do?auction_Num= "+ auction_num;
-		
-		}
+	}
 
 	@RequestMapping("/auction/aucOk.do") //낙찰하기 
 	public void okAuction(
@@ -220,8 +216,8 @@ public class AuctionFormController {
 			Cart cart = createCart();
 			handleRequest(auction.getItemId(), cart);
 		}
-	}	
-
+	}
+	
 	public ModelAndView handleRequest(
 			@RequestParam("workingItemId") String workingItemId,
 			@ModelAttribute("sessionCart") Cart cart 
@@ -252,18 +248,25 @@ public class AuctionFormController {
 	}	
 
 	@RequestMapping("/auction/viewAuctionDetail.do") //옥션 상세보기
-		public String hadleRequset (
-				@RequestParam("auction_Num") int auction_Num,
-				ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
-			
-			Auction auction = auctionService.getAuctionDetail(auction_Num);
-			
-			System.out.println("옥션" + auction.getAuctionCost());
-			
-			model.put("auction", auction);
+	public String hadleRequset (
+			@RequestParam("auction_Num") int auction_Num,
+			ModelMap model, @ModelAttribute("userSession") UserSession userSession) throws Exception {
+//		System.out.println("여기");
+		Auction auction = auctionService.getAuctionDetail(auction_Num);
+//		System.out.println("here");
+		int maxPrice = auctionService.findMaxPrice(auction_Num);
+//		System.out.println("maxPrice" + maxPrice);
+		if(maxPrice <= auction.getInputPrice())
+			maxPrice = auction.getInputPrice();
+		
+		auction.setMaxPrice(maxPrice);
+		
+		System.out.println("옥션" + auction.getAuctionCost());
+		
+		model.put("auction", auction);
 
-			return "tiles/AuctionDetail";
-	}
+		return "tiles/AuctionDetail";
+}
 	
 	
 }

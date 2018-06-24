@@ -3,8 +3,6 @@ package com.example.jpetstore.controller;
 import java.io.Serializable;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -101,4 +99,7 @@ public class P2PForm implements Serializable{
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
+	
+
+	
 }

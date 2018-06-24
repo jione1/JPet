@@ -15,21 +15,21 @@
                     <nav class="menu">
                         <ul class="main_menu">
                             <li>
-                                <a a href="<c:url value="/shop/index.do"/>">Home</a>
+                                <a a href="<c:url value="/shop/index.do"/>" style="font-size: 20px">Home</a>
                             </li>
                             <li>
-                                <a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>">Shop</a>
+                                <a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="DOGS"/></c:url>" style="font-size: 20px">Shop</a>
                             </li>
                          
                             <li>
-                                <a href="<c:url value="/p2p/writeP2PPost.do"/>">New Post</a>
+                                <a href="<c:url value="/p2p/writeP2PPost.do"/>" style="font-size: 20px">New Post</a>
                             </li>
                             <li>
-                                <a href="<c:url value="/qa/qalist.do"/>">Contact</a>
+                                <a href="<c:url value="/qa/qalist.do"/>" style="font-size: 20px">Contact</a>
                             </li>
 
                             <li>
-                                <a href="<c:url value="/auction/aucTemplist.do"/>">Auction</a>
+                                <a href="<c:url value="/auction/aucTemplist.do"/>" style="font-size: 20px">Auction</a>
                             </li>
                         </ul>
                     </nav>

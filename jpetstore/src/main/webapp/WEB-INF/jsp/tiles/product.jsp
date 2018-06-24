@@ -18,7 +18,7 @@
 					<h4 class="m-text14 p-b-7">Categories</h4>
 
 					<ul class="p-b-54">
-						<li class="p-t-4"><a href="#" class="s-text13 active1">
+						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>"class="s-text13 active1">
 								FISH </a></li>
 
 						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="DOGS"/></c:url>" class="s-text13"> DOGS </a></li>
@@ -55,8 +55,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -80,6 +80,8 @@
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
 											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
 									</span>
 								</div>
 							</div>
@@ -93,8 +95,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -118,6 +120,8 @@
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
 											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
 									</span>
 								</div>
 							</div>
@@ -129,8 +133,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -154,17 +158,13 @@
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
 											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
 									</span>
 								</div>
 							</div>
 						</c:forEach>
 					</div>
-				</div>
-				<!-- Pagination -->
-				<div class="pagination flex-m flex-w p-t-26">
-					<a href="#"
-						class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-					<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
 				</div>
 			</div>
 		</div>

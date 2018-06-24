@@ -17,11 +17,11 @@
 			</div>
 			<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
 				<c:set var="count" value="${listnum div 3}" />
-				<c:forEach var="item" items="${itemList}" begin="0" end="${first}">
+				<c:forEach var="item" items="${itemList}" begin="0" end="${count}">
 					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+						<img src="../images/auction.jpg" alt="IMG-BENNER">
 						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
+							<!— Button —>
 							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
@@ -35,11 +35,11 @@
 				<c:forEach var="item" items="${itemList}" begin="${count+1}"
 					end="${total}">
 					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+						<img src="../images/auction.jpg" alt="IMG-BENNER">
 
 						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href='<c:url value="/shop/viewCategory.do?categoryId=FISH"/>'
+							<!— Button —>
+							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
 					</div>
@@ -51,11 +51,11 @@
 				<c:forEach var="item" items="${itemList}" begin="${total+1}"
 					end="${listnum}">
 					<div class="block1 hov-img-zoom pos-relative m-b-30">
-						<img src="../images-theme/banner-03.jpg" alt="IMG-BENNER">
+						<img src="../images/auction.jpg" alt="IMG-BENNER">
 
 						<div class="block1-wrapbtn w-size2">
-							<!-- Button -->
-							<a href='<c:url value="/shop/viewCategory.do?categoryId=FISH"/>'
+							<!— Button —>
+							<a href='<c:url value="/auction/viewAuctionDetail.do?auction_Num=${item.getAuction_num()}"/>'
 								class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">자세히 보기</a>
 						</div>
 					</div>
@@ -70,6 +70,7 @@
 
 <script type="text/javascript">
    function buttonSubmit(s) {
+
       if (s == "curAuction") {
          
          <c:url var="post_url" value="/auction/aucCurlist.do" />
@@ -84,47 +85,3 @@
       document.forms[0].submit(); 
    }
 </script>
-
-<!-- <script type="text/javascript">
-    $(function(){
-        $('#curr').click(function(){
-          $.ajax({
-               url : "/jpetstore/auction/aucCurlist.do",
-               async : true,
-               type: "GET",
-               dataType:"json",
-               success:function(response) {
-            	   	/* var obj = JSON.parse(JSON.stringify(response));
-            	   
-            	   	for (var i=0;i<obj.length;++i){
-            	   		document.getElementById('divhidden').innerHTML = obj[i].itemName ;
-                	} */
-                	windows.location.href=""
-               },
-               fail:function() {
-                  alert("실패 !!");
-               }
-            });    
-        });
-    });
-    $(function(){
-        $('#last').click(function(){
-          $.ajax({
-               url : "/jpetstore/auction/auclist.do",
-               async : true,
-               type: "GET",
-               dataType:"json",
-               success:function(response) {
-            	   		var obj = JSON.parse(JSON.stringify(response));
-	           	   	for (var i=0;i<obj.length;++i){
-	                  document.getElementById('divhidden').innerHTML = obj[i].itemName ;
-	               	}
-	            	   
-               },
-               fail:function() {
-                  alert("실패 !!");
-               }
-            });    
-        });
-    });
-</script> -->

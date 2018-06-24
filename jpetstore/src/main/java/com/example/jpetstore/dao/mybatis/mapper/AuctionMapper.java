@@ -20,8 +20,9 @@ public interface AuctionMapper {
 	void deleteMaxPrice(int aucNum);
 	String findAucUserID(int aucNum);
 
-	
 	Auction getAuctionDetail(int aucNum);
+	
+	int findMaxPrice(int aucNum);
 
 	void closeAuction(Date curTime);
 }

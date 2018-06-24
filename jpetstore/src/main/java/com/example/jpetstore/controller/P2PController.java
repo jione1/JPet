@@ -62,12 +62,7 @@ public class P2PController implements ApplicationContextAware {
 	@Autowired
 	private P2PServiceImpl p2pService;
 	
-	@Autowired
-	private P2PFormValidator p2pFormvalidator;
-	public void setValidator(P2PFormValidator validator) {
-		this.p2pFormvalidator = validator;
-	}
-	
+
 	@Autowired
 	public void setPetStore(PetStoreFacade petStore) {
 		this.petStore = petStore;
@@ -92,7 +87,6 @@ public class P2PController implements ApplicationContextAware {
 		
 	}
 	
-	//����ϱ⸦ ������ �� ����� ���ε� 
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
 	public String sendP2PPost(
 			ModelMap model,
@@ -104,6 +98,8 @@ public class P2PController implements ApplicationContextAware {
 //		p2pFormvalidator.validate(p2pForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
+			System.out.println("오류의 수" + bindingResult.getErrorCount());
+			System.out.println("field" + bindingResult.getFieldError());
 			return "tiles/P2pForm";
 		}
 		
@@ -170,7 +166,7 @@ public class P2PController implements ApplicationContextAware {
 		petStore.insertInventoryQuantity(item);
 		p2pService.insertP2P(p2p);
 		
-		model.addAttribute("filename", report.getOriginalFilename());
+		//model.addAttribute("filename", report.getOriginalFilename());
 		model.addAttribute("p2p", p2p);
 		model.addAttribute("product", pro);
 		model.addAttribute("item", item);

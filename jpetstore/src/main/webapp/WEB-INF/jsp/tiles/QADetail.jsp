@@ -61,7 +61,7 @@
 		if (sellerId == sessionId || sessionId == "admin") {
 			document.getElementById('replyBtn').style.display = "";
 		} else {
-			document.getElementById('replyBtn').style.display = "none";2
+			document.getElementById('replyBtn').style.display = "none";
 		}
 		
 		if(userId == sessionId){

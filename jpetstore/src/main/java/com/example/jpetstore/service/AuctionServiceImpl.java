@@ -108,4 +108,8 @@ public class AuctionServiceImpl implements AuctionService {
 		return auctionItemDao.getAuctionDetail(aucNum);
 	}
 	
+	@Override
+	public int findMaxPrice(int aucNum) {
+		return auctionItemDao.findMaxPrice(aucNum);
+	}
 }

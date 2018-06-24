@@ -1,9 +1,11 @@
+<%@ page contentType="text/html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
   <!-- Footer -->
     <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45" style="margin-top: 30px;">
         <div class="flex-w p-b-90">
             <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
                 <h4 class="s-text12 p-b-30">
-                    <a href="contact.html">GET IN TOUCH</a>
+                    <a href="<c:url value="/qa/qalist.do"/>">GET IN TOUCH</a>
                 </h4>
             </div>
             <!-- <div class="t-center s-text8 p-t-20">
@@ -13,7 +15,7 @@
                 
         <div class="t-center p-l-15 p-r-15">
             <div class="t-center s-text8 p-t-20">
-                Copyright � 2018 All rights reserved. 
+                Copyright MY && YY & JO 
             </div>
         </div>
     </footer>

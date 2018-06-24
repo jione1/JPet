@@ -82,6 +82,15 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	}
 
 	@Override
+	public int findMaxPrice(int aucNum) {
+		// TODO Auto-generated method stub
+		Integer max = auctionMapper.findMaxPrice(aucNum);
+		if(max == null)
+			return 0;
+		return auctionMapper.findMaxPrice(aucNum);
+	}
+	
+	@Override
 	public void closeAuction(Date curTime) {
 		auctionMapper.closeAuction(curTime);
 	}

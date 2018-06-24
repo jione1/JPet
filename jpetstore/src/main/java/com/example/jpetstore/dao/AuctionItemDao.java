@@ -31,6 +31,8 @@ public interface AuctionItemDao {
 
 	Auction getAuctionDetail(int aucNum);
 	
+	int findMaxPrice(int aucNum);
+	
 	void closeAuction(Date curTime);
 
 	

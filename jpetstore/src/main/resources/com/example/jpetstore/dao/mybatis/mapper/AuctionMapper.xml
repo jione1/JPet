@@ -8,9 +8,9 @@
 	<insert id="insertAucItem" parameterType="Auction">
 		INSERT INTO AUCTIONITEM
 
-		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME, AUCDISCRIPTION, AUCTIONCOST,AUCTION_NUM,AUCEND)
+		(SELLERID,ITEMNAME,AUCSTATUS, AUCDISCRIPTION,AUCNAME ,AUCTIONCOST,AUCTION_NUM,AUCEND)
 
-		VALUES(#{userId},#{itemName,jdbcType=VARCHAR},#{aucStatus},#{discription,jdbcType=VARCHAR}, #{aucName,jdbcType=VARCHAR},#{price},#{auction_num}, #{aucEnd, jdbcType=DATE})
+		VALUES(#{userId},#{itemName},#{aucStatus},#{discription}, #{aucName},#{price},#{auction_num}, #{aucEnd, jdbcType=DATE})
 	</insert>
 
 	<select id="auctionListSize" resultType="int">
@@ -36,7 +36,7 @@
 			SELLERID AS userId,
 			ITEMNAME AS itemName,
 			AUCSTATUS AS aucStatus,
-			AUCDISCRIPTION AS discription,
+			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
 			AUCTION_NUM AS auction_num
@@ -73,8 +73,26 @@
 	
 	<!-- cart에 넣기 위해서 해당 auctionItem 가져오기  -->
 	<select id="getAuctionDetail" parameterType="int" resultType="Auction">
-		SELECT * 
+		SELECT 
+		AUCTION_NUM AS auction_num,
+		AUCTIONCOST AS auctionCost,
+		AUCNAME AS aucName,
+		AUCDISCRIPTION AS discription,
+		AUCIMAGE AS  aucImage,
+		AUCSTATUS AS aucStatus,
+		PARTIID AS partiId,
+		ITEMNAME AS itemName,
+		SELLERID AS userId,
+		AUCEND AS aucEnd
+		
 		FROM AUCTIONITEM
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
+	
+<!-- 현재 최고가   -->
+	<select id="findMaxPrice" resultType="int">
+		SELECT MAX(INPUTPRICE)
+		FROM AUCPARTI
 		WHERE AUCTION_NUM = #{aucNum}
 	</select>
 	
