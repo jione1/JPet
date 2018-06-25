@@ -83,4 +83,8 @@ public class Cart implements Serializable {
 		return subTotal;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

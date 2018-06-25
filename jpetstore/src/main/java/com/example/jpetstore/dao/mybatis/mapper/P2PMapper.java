@@ -11,4 +11,8 @@ public interface P2PMapper {
 	List<P2P> getP2PList();
 	P2P getP2PSeller(String itemId);
 	void updateP2P(P2P p2p);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

@@ -26,9 +26,9 @@ public class QAServiceImpl implements QAService {
 	}
 	
 	@Override
-	public void deletQA(int qaNum, Account SessionAccount) {
+	public void deleteQAPost(int qnum) {
 		// TODO Auto-generated method stub
-		qaDao.deletQAPost(qaNum, SessionAccount);
+		qaDao.deleteQAPost(qnum);
 	}
 
 	@Override
@@ -48,4 +48,8 @@ public class QAServiceImpl implements QAService {
 		return qaDao.getQA(qaNum);
 	}
 
+	@Override
+	public void insertQAReply(QA qa) {
+		qaDao.insertQAReply(qa);
+	}
 }

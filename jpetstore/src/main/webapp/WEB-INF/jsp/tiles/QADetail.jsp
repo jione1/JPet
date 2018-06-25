@@ -28,6 +28,22 @@
 					<th style="width: 200px; border: 1px solid gray; text-align:center;">ID</th>
 					<td style="border: 1px solid gray; padding: 10px;">${QADetail.userId}</td>
 				</tr>
+
+				<c:choose>
+					<c:when test="${QADetail.isAnswered != null}">
+						<tr>
+							<th style="width: 200px; border: 1px solid gray; text-align:center;">답변</th>
+							<td style="border: 1px solid gray; padding: 10px;">${QADetail.isAnswered}</td>
+						</tr>
+					</c:when>
+				</c:choose>
+				
+				
+				<tr id="deleteQA">
+					<td style="border: 1px solid gray; padding: 10px;" colspan="2"><a href="<c:url value="/qa/qaDelete.do"><c:param name="qnum" value="${QADetail.qnum}"/></c:url>">삭제</a> </td>
+				<tr>
+				
+
 			</table>
 		</div>
 		<p>&nbsp;</p>
@@ -48,9 +64,10 @@
 		} else {
 			document.getElementById('replyBtn').style.display = "none";
 		}
+
 	});
 	
-    
+
 	</script>
 	
 </body>

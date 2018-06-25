@@ -64,4 +64,8 @@ public class P2PServiceImpl implements P2PService {
 		return p2pDao.getP2PSeller(itemId);
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

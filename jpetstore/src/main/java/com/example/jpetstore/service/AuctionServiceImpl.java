@@ -67,11 +67,14 @@ public class AuctionServiceImpl implements AuctionService {
 		auctionItemDao.deleteMaxPrice(aucNum);
 	}
 
-	@Override
-	public String findAucUserID(int aucNum) {
+
+	public String findAucUserID(int auction_num) {
 		// TODO Auto-generated method stub
-		return auctionItemDao.findAucUserID(aucNum);
 		
+		System.out.println(auction_num);
+		return auctionItemDao.findAucUserID(auction_num);
+		
+
 	}
 
 
@@ -99,6 +102,7 @@ public class AuctionServiceImpl implements AuctionService {
 	@Override
 	public List<Auction> getCurAuctionList() {
 		return auctionItemDao.getCurAuctionList();
+
 	}
 
 
@@ -108,4 +112,15 @@ public class AuctionServiceImpl implements AuctionService {
 		return auctionItemDao.getAuctionDetail(aucNum);
 	}
 	
+	@Override
+	public int findMaxPrice(int aucNum) {
+		return auctionItemDao.findMaxPrice(aucNum);
+	}
+	
+	@Override
+	public int countInput(int auction_Num) {
+		// TODO Auto-generated method stub
+		return auctionItemDao.countInput(auction_Num);
+	}
 }
+

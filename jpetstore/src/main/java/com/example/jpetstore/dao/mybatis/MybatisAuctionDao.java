@@ -1,5 +1,6 @@
 package com.example.jpetstore.dao.mybatis;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.example.jpetstore.dao.mybatis.mapper.AuctionMapper;
 import com.example.jpetstore.domain.Auction;
 @Repository
 public class MybatisAuctionDao implements  AuctionItemDao{
+
 	@Autowired
 	private AuctionMapper auctionMapper;
 	
@@ -29,9 +31,11 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	}
 
 	@Override
-	public String findAucUserID(int aucNum) {
+
+	public String findAucUserID(int auction_num) {
 		// TODO Auto-generated method stub
-		return auctionMapper.findAucUserID(aucNum);
+		return auctionMapper.findAucUserID(auction_num);
+
 	}
 
 
@@ -65,6 +69,7 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 	
 	public List<Auction> getCurAuctionList() {
 		return auctionMapper.getCurAuctionList();
+
 	}
 	public List<Auction> getLastAuctionList() {
 		return auctionMapper.getLastAuctionList();
@@ -80,5 +85,23 @@ public class MybatisAuctionDao implements  AuctionItemDao{
 		auctionMapper.insertPrice(auction);
 	}
 
+	@Override
+	public int findMaxPrice(int aucNum) {
+		// TODO Auto-generated method stub
+		Integer max = auctionMapper.findMaxPrice(aucNum);
+		if(max == null)
+			return 0;
+		return auctionMapper.findMaxPrice(aucNum);
+	}
+	
+	@Override
+	public void closeAuction(Date curTime) {
+		auctionMapper.closeAuction(curTime);
+	}
 
+	@Override
+	public int countInput(int auction_Num) {
+		return auctionMapper.countInput(auction_Num);
+	}
 }
+

@@ -1,5 +1,9 @@
 package com.example.jpetstore.service;
 
+<<<<<<< HEAD
+=======
+import java.util.Date;
+>>>>>>> origin/auctionOk
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,6 +17,8 @@ import com.example.jpetstore.dao.ProductDao;
 import com.example.jpetstore.dao.SequenceDao;
 import com.example.jpetstore.dao.mybatis.OracleSequenceDao;
 import com.example.jpetstore.domain.Account;
+import com.example.jpetstore.domain.Auction;
+import com.example.jpetstore.domain.Cart;
 import com.example.jpetstore.domain.Category;
 import com.example.jpetstore.domain.Item;
 import com.example.jpetstore.domain.Order;
@@ -77,9 +83,19 @@ public class PetStoreImpl implements PetStoreFacade {
 	
 	@Autowired	// @Qualifier("mybatisOrderDao")
 	private OrderDao orderDao;
+<<<<<<< HEAD
+=======
 
 	@Autowired
 	private SequenceDao oracleSequenceDao;
+	
+	@Autowired
+	private AuctionItemDao aucItemDao;
+>>>>>>> origin/auctionOk
+
+	@Autowired
+	private AuctionService auctionService;
+	
 	//-------------------------------------------------------------------------
 	// Operation methods, implementing the PetStoreFacade interface
 	//-------------------------------------------------------------------------
@@ -190,5 +206,30 @@ public class PetStoreImpl implements PetStoreFacade {
 	public void updateQuantity(Item item) {
 		// TODO Auto-generated method stub
 		itemDao.updateQuantity(item);
+<<<<<<< HEAD
 	}
+=======
+	}
+	
+	@Autowired
+	private ThreadPoolTaskScheduler scheduler;
+	
+	public void testScheduler(Date endTime, int auc_item_seq) {
+		Runnable updateStatus = new Runnable() {
+			@Override
+			public void run() {
+				Date curTime = new Date();
+				aucItemDao.closeAuction(curTime);
+				System.out.println("====================================");
+				System.out.println("curTime " + curTime);
+			}
+		};
+		
+		scheduler.schedule(updateStatus, endTime);
+		
+		System.out.println("======================================");
+		System.out.println("endTime" + endTime);
+	}
+
+>>>>>>> origin/auctionOk
 }

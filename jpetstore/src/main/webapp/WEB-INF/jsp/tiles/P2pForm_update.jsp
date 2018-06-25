@@ -19,7 +19,6 @@
 	<div class="p-t-22 p-b-50 bo3"></div>
 	<form:form commandName="P2PForm" method="post"
 		enctype="multipart/form-data">
-		"${itemId}"
 	<input type="hidden" name="itemId" value="<c:out value="${itemId }"/>"/>
 		<div class="form-group">
 			<label for="title">TITLE</label>
@@ -65,6 +64,7 @@
 			<label for="price">PRICE</label>
 			<form:input path="price" value="${P2PForm.getPrice() }" />
 			<%-- <form:errors path="price" /> --%>
+
 		</div>
 		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
@@ -74,6 +74,8 @@
 		</div>
 		<div class="p-t-22 p-b-30 bo3"></div>
 		<div class="form-group">
+
+		</div>
 			<label for="discription">DISCRIPTION</label>
 			<div></div>
 			<form:textarea path="discription"

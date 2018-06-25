@@ -35,4 +35,8 @@ public interface ProductMapper {
   void insertProduct(Product product);
   
   void updateProduct(Product product);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

@@ -48,9 +48,6 @@ public class P2PController implements ApplicationContextAware {
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		// TODO Auto-generated method stub
-//		context = (WebApplicationContext) applicationContext;
-//		uploadDir= context.getServletContext().getRealPath("/");
-
 
 	}
 
@@ -64,12 +61,7 @@ public class P2PController implements ApplicationContextAware {
 	@Autowired
 	private P2PServiceImpl p2pService;
 	
-	@Autowired
-	private P2PFormValidator p2pFormvalidator;
-	public void setValidator(P2PFormValidator validator) {
-		this.p2pFormvalidator = validator;
-	}
-	
+
 	@Autowired
 	public void setPetStore(PetStoreFacade petStore) {
 		this.petStore = petStore;
@@ -94,7 +86,6 @@ public class P2PController implements ApplicationContextAware {
 		
 	}
 	
-	//����ϱ⸦ ������ �� ����� ���ε� 
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
 	public String sendP2PPost(
 			HttpServletRequest request,
@@ -107,10 +98,13 @@ public class P2PController implements ApplicationContextAware {
 //		p2pFormvalidator.validate(p2pForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {
+			System.out.println("오류의 수" + bindingResult.getErrorCount());
+			System.out.println("field" + bindingResult.getFieldError());
 			return "tiles/P2pForm";
 		}
 		
 		MultipartFile report = p2pForm.getReport();
+
 		String rootPath = request.getSession().getServletContext().getRealPath("");
 		String savePath = rootPath + "upload/" ;
 		String path = request.getSession().getServletContext().getRealPath("/images/");
@@ -176,7 +170,6 @@ public class P2PController implements ApplicationContextAware {
 		petStore.insertInventoryQuantity(item);
 		p2pService.insertP2P(p2p);
 		
-		model.addAttribute("filename", report.getOriginalFilename());
 		model.addAttribute("p2p", p2p);
 		model.addAttribute("product", pro);
 		model.addAttribute("item", item);
@@ -185,7 +178,8 @@ public class P2PController implements ApplicationContextAware {
 	
 		}
 	
-	@RequestMapping("/p2p/updatePost.do") //�Ǹű� �������� �����ֱ� 
+
+	@RequestMapping("/p2p/updatePost.do") //?Ǹű? ???????? ?????ֱ? 
 	public String UpdateP2PPost(
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
@@ -193,7 +187,7 @@ public class P2PController implements ApplicationContextAware {
 			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
 			BindingResult bindingResult
 			) throws Exception {
-		//�ۼ��� form �� item �� �������� ���� 
+
 //		p2pFormvalidator.validate(p2pForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {

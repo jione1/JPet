@@ -60,4 +60,8 @@ public class MybatisProductDao implements ProductDao {
 		productMapper.updateProduct(product);
 	}
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

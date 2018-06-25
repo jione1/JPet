@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col-md-12 p-b-30">
 				<c:url var="qa_url" value="qawrite.do"/>
-					<form:form commandName="qaForm" cssClass="leave-comment" method="post" action="${qa_url}" enctype="multipart/form-data">
+					<form:form commandName="qaForm" cssClass="leave-comment" method="post" action="${qa_url}">
 						<h4 class="m-text26 p-b-36 p-t-15">
 							문의 게시판
 						</h4>

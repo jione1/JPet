@@ -55,4 +55,5 @@ public class AddItemToCartController {
 		}
 		return new ModelAndView("tiles/Cart", "cart", cart);
 	}
+
 }

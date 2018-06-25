@@ -26,9 +26,9 @@ public class MybatisQADao implements QADao {
 	}
 
 	@Override
-	public void deletQAPost(int qaNum, Account SessionAccount) {
+	public void deleteQAPost(int qnum) {
 		// TODO Auto-generated method stub
-
+		qaMapper.deleteQAPost(qnum);
 	}
 
 	@Override
@@ -47,6 +47,11 @@ public class MybatisQADao implements QADao {
 	public QA getQA(int qaNum) {
 		// TODO Auto-generated method stub
 		return qaMapper.getQA(qaNum);
+	}
+	
+	@Override
+	public void insertQAReply(QA qa) {
+		qaMapper.insertQAReply(qa);
 	}
 
 }

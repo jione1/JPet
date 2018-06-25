@@ -13,7 +13,7 @@ public interface QADao {
 	void insertQASellerPost(QA qa);
 	
 	//작성한 QA글 삭제
-	void deletQAPost(int qaNum, Account SessionAccount);
+	void deleteQAPost(int qnum);
 		
 	//작성한 QA글 수정
 	void updateQAPost(QA qa);
@@ -23,5 +23,7 @@ public interface QADao {
 		
 	//QA글 자세하게 보기
 	QA getQA(int qaNum);
+	
+	void insertQAReply(QA qa);
 
 }

@@ -18,7 +18,8 @@
 					<h4 class="m-text14 p-b-7">Categories</h4>
 
 					<ul class="p-b-54">
-						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>" class="s-text13 active1">
+
+						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>"class="s-text13 active1">
 								FISH </a></li>
 
 						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="DOGS"/></c:url>" class="s-text13"> DOGS </a></li>
@@ -58,6 +59,7 @@
 									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 									<img src="/jpetstore/images/${item.getProduct().getDescription()}" alt="IMG-PRODUCT">
 
+
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
 											class="block2-btn-addwishlist hov-pointer trans-0-4"> <i
@@ -80,6 +82,8 @@
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
 											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
 									</span>
 								</div>
 							</div>
@@ -95,6 +99,7 @@
 								<div
 									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 									<img src="/jpetstore/images/${item.getProduct().getDescription()}" alt="IMG-PRODUCT">
+
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -117,7 +122,12 @@
 										class="block2-name dis-block s-text3 p-b-5"> <c:out
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
-											value="${item.getListPrice()}" /></span>
+
+											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
+									</span>
+
 								</div>
 							</div>
 						</c:forEach>
@@ -153,17 +163,13 @@
 											value="${item.getTitle()}" />
 									</a> <span class="block2-price m-text6 p-r-5"> ₩ <c:out
 											value="${item.getListPrice()}" />
+											<br>&nbsp;</br>
+											<br>&nbsp;</br>
 									</span>
 								</div>
 							</div>
 						</c:forEach>
 					</div>
-				</div>
-				<!-- Pagination -->
-				<div class="pagination flex-m flex-w p-t-26">
-					<a href="#"
-						class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-					<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
 				</div>
 			</div>
 		</div>

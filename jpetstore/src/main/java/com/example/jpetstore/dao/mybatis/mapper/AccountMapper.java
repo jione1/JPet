@@ -44,8 +44,14 @@ public interface AccountMapper {
 
   void updateSignon(Account account);
 
+<<<<<<< HEAD
 
   void kakaoLogin(Account account);
 
 
 }
+=======
+
+  void kakaoLogin(Account account);
+}
+>>>>>>> origin/auctionOk

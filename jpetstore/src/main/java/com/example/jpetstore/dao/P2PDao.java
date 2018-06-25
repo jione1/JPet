@@ -12,4 +12,8 @@ public interface P2PDao {
 	List<P2P> getP2PList();
 	P2P getP2PSeller(String itemId);
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

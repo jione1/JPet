@@ -66,4 +66,8 @@ public interface PetStoreFacade {
 	void updateProduct(Product product);
 	void updateQuantity(Item item);
 	
+<<<<<<< HEAD
+=======
+	void testScheduler(Date endTime, int auc_item_seq);
+>>>>>>> origin/auctionOk
 }

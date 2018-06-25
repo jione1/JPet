@@ -12,29 +12,34 @@
     </c:if>
     <table>
       <tr>
-        <td colspan="2">Please enter your username and password. <br />&nbsp;
-        </td>
+        <td colspan="2">Please enter your username and password. <br />&nbsp;</td>
       </tr>
-      <tr>
+      <tr style="height:80px">
         <td>Username:</td>
-        <td><input type="text" name="username" size="20" value="j2ee" /></td>
+        <td><input type="text" name="username" size="20" placeholder="Input Username"/></td>
       </tr>
-      <tr>
+      <tr style="height:80px">
         <td>Password:</td>
-        <td><input type="password" name="password" size="20" value="j2ee" /></td>
+        <td><input type="password" name="password" size="20" placeholder="Input Password"/></td>
       </tr>
-      <tr>
+      <tr style="height:30px">
         <td>&nbsp;</td>
-        <td><input name="update" type="image" src="../images/button_submit.gif" /></td>
+        <td><input name="update" type="image" src="../images/signin.PNG" width="120" height="50"/></td>
       </tr>
     </table>
   </form>
+  <br>
   <a href='<c:url value="/shop/newAccount.do"/>'> 
-    <img border="0" src="../images/button_register_now.gif" alt="" />
+    <img border="0" src="../images/signup.PNG" alt="" width="120" height="50"/>
   </a>
-
-  <a href='https://kauth.kakao.com/oauth/authorize?client_id=1472597e6ed7e4b9234dd8d12f932b68&redirect_uri=http://localhost:8080/jpetstore/shop/index.do&response_type=code'>
-    <img border="0" src="../images/kakaologin.png" alt="" width="120" height="30"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='https://kauth.kakao.com/oauth/authorize?client_id=1472597e6ed7e4b9234dd8d12f932b68&redirect_uri=http://localhost:8080/jpetstore/kakaologin.do&response_type=code'>
+    <img border="0" src="../images/kakao.PNG" alt="" width="120" height="50"/>
   </a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
  
 </div>

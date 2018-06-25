@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -103,5 +102,3 @@
     <td style="text-align: right; vertical-align: top; width: 20%">&nbsp;</td>
   </tr>
 </table>
-
-

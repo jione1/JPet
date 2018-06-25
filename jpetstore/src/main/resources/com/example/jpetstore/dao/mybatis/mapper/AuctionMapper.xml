@@ -7,10 +7,10 @@
 
 	<insert id="insertAucItem" parameterType="Auction">
 		INSERT INTO AUCTIONITEM
-
 		(SELLERID,ITEMNAME,AUCSTATUS,AUCNAME, AUCDISCRIPTION, AUCTIONCOST,AUCTION_NUM,AUCEND)
 
 		VALUES(#{userId},#{itemName},#{aucStatus},#{aucName},#{discription}, #{price},#{auction_num}, #{aucEnd, jdbcType=DATE})
+
 	</insert>
 
 	<select id="auctionListSize" resultType="int">
@@ -18,6 +18,7 @@
 	</select>
 	
 	<select id="getCurAuctionList" resultType="Auction">
+
 		SELECT 
 			SELLERID AS userId,
 			ITEMNAME AS itemName,
@@ -34,6 +35,7 @@
 		
 	</select>
 	<select id="getLastAuctionList" resultType="Auction">
+
 		SELECT 
 			SELLERID AS userId,
 			ITEMNAME AS itemName,
@@ -41,6 +43,7 @@
 			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
+
 			AUCTION_NUM AS auction_num,
 			P.DESCN AS "product.description"
 		FROM AUCTIONITEM A, PRODUCT P
@@ -48,13 +51,18 @@
 		AND P.NAME = A.ITEMNAME
 	</select>
 	
+
+	
 	<!-- 최고값 작성한 사람 id 불러오기  -->
-	<select id="findAucUserID" parameterType="Auction">
+	<select id="findAucUserID" parameterType="int" resultType="string">
+
 		SELECT MAX(USERID)
 		KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
 		AS USERID
 		FROM AUCPARTI
-		WHERE AUCTION_NUM = #{aucNum}
+
+		WHERE AUCTION_NUM = #{auction_num}
+
 	</select>
 
 	
@@ -94,5 +102,24 @@
 		AND P.NAME = A.ITEMNAME
 	</select>
 	
+	
+<!-- 현재 최고가   -->
+	<select id="findMaxPrice" resultType="int">
+		SELECT MAX(INPUTPRICE)
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
+	
+	<update id="closeAuction" parameterType="java.util.Date">
+		<![CDATA[UPDATE AUCTIONITEM
+		SET AUCSTATUS = '1'
+		WHERE AUCEND <= #{curTime}]]>
+	</update>
+
+	<select id="countInput" resultType="int">
+		SELECT COUNT(INPUTPRICE)
+		FROM AUCPARTI
+		WHERE AUCTION_NUM = #{aucNum}
+	</select>
 
 </mapper>

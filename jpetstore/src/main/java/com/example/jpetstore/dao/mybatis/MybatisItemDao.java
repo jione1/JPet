@@ -81,4 +81,8 @@ public class MybatisItemDao implements ItemDao {
 	public void updateQuantity(Item item) {
 		itemMapper.updateQuantity(item);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

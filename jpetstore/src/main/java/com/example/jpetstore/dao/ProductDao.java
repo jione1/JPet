@@ -16,4 +16,8 @@ public interface ProductDao {
 	
 	void insertProduct(Product product);
 	void updateProduct(Product product);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

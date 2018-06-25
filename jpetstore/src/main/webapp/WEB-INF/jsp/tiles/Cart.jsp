@@ -18,7 +18,9 @@
 						<th class="column-5"></th>
 					</tr>
 					<c:if test="${cart.numberOfItems == 0}">
+
 						<tr bgcolor="white">
+
 							<td colspan="8"><b>Your cart is empty.</b></td>
 						</tr>
 					</c:if>
@@ -32,8 +34,8 @@
 							</td>
 							<td class="column-2">
 							<a href="<c:url value="/shop/viewItem.do"><c:param name="itemId" value="${cartItem.item.itemId}"/></c:url>">
-									<c:out value="${cartItem.item.itemId}" /></a><p>
-									
+
+									<c:out value="${cartItem.item.itemId}" /></a>
 							</td>
 							<td class="column-3"><fmt:formatNumber
 									value="${cartItem.item.getListPrice()}" pattern="$#,##0.00" /></td>
@@ -82,6 +84,7 @@
 				</div>
 			</div>
 
+
 			<div class="size10 trans-0-4 m-t-10 m-b-10">
 				<!-- Button -->
 				<c:if test="${!cart.cartItemList.firstPage}">
@@ -125,5 +128,6 @@ function btnSubmit() {
 	document.forms[0].action='<c:out value="${post_url}"/>';
 	document.forms[0].submit(); 
 }
+
 </script>
 

@@ -20,6 +20,7 @@ public class P2PFormValidator implements Validator {
 	@Override
 	public void validate(Object obj, Errors errors) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 
 		P2PForm p2pForm = (P2PForm)obj;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "itemName", "ITEM_NAME_REQUIRED", "아이템 이름은 필수값입니다. ");
@@ -33,6 +34,8 @@ public class P2PFormValidator implements Validator {
 		}
 
 
+=======
+>>>>>>> origin/auctionOk
 
 
 	}

@@ -1,5 +1,6 @@
 package com.example.jpetstore.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.example.jpetstore.domain.Auction;
@@ -17,18 +18,28 @@ public interface AuctionItemDao {
 	
 	void deleteMaxPrice(int acuNum);
 	
+
 	String findAucUserID(int aucNum);
+
 	
 	void insertMaxPrice(int aucNum, double maxPrice);
 
 
 
 	void updateOrderStatus(int aucNum, boolean orderStatus);
+
+	
 	
 	int auctionListSize();
 	
 
 	Auction getAuctionDetail(int aucNum);
+	
+	int findMaxPrice(int aucNum);
+	
+	void closeAuction(Date curTime);
 
+	int countInput(int auction_Num);
 	
 }
+

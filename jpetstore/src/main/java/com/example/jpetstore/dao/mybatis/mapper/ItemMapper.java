@@ -45,4 +45,8 @@ public interface ItemMapper {
   
   void updatePost(Item item);
   void updateQuantity(Item item);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

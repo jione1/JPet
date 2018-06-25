@@ -30,4 +30,8 @@ public interface P2PService {
 	
 	P2P getP2PSeller(String itemId);
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk

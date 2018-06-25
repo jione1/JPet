@@ -2,6 +2,7 @@ package com.example.jpetstore.controller;
 
 import java.io.Serializable;
 
+
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -33,6 +34,7 @@ public class AuctionForm implements Serializable {
 	
 	
 
+
 	public MultipartFile getReport() {
 		return report;
 	}
@@ -41,6 +43,7 @@ public class AuctionForm implements Serializable {
 	public void setReport(MultipartFile report) {
 		this.report = report;
 	}
+
 
 
 	private String title;

@@ -12,7 +12,7 @@ public interface QAService {
 		void insertQASeller(QA qa);
 		
 		//작성한 QA글 삭제
-		void deletQA(int qaNum, Account SessionAccount);
+		void deleteQAPost(int qnum);
 		
 		//작성한 QA글 수정
 		void updateQA(QA qa);
@@ -22,4 +22,6 @@ public interface QAService {
 		
 		//QA글 자세히 보기
 		QA getQA(int qaNum);
+		
+		void insertQAReply(QA qa);
 }

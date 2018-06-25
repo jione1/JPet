@@ -6,4 +6,8 @@ public interface AuctionPartiDao {
 	void deleteMaxPrice(int acuNum);
 	
 	String findAucUserID(int aucNum);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/auctionOk
