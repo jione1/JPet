@@ -37,4 +37,7 @@ public interface AuctionItemDao {
 
 	int countInput(int auction_Num);
 	
+	
+
+	
 }

@@ -18,7 +18,7 @@
 					<h4 class="m-text14 p-b-7">Categories</h4>
 
 					<ul class="p-b-54">
-						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>"class="s-text13 active1">
+						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="FISH"/></c:url>" class="s-text13 active1">
 								FISH </a></li>
 
 						<li class="p-t-4"><a href="<c:url value="/shop/viewCategory.do"><c:param name="categoryId" value="DOGS"/></c:url>" class="s-text13"> DOGS </a></li>
@@ -55,8 +55,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+									<img src="/jpetstore/images/${item.getProduct().getDescription()}" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -95,8 +95,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+									<img src="/jpetstore/images/${item.getProduct().getDescription()}" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -123,6 +123,7 @@
 											<br>&nbsp;</br>
 											<br>&nbsp;</br>
 									</span>
+											value="${item.getListPrice()}" /></span>
 								</div>
 							</div>
 						</c:forEach>
@@ -133,8 +134,8 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div
-									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="width:255; height:400">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+									<img src="/jpetstore/images/${item.getProduct().getDescription()}" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#"
@@ -173,16 +174,16 @@
 	<!-- Container Selection -->
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript"
 		src="vendor/animsition/js/animsition.min.js"></script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
 	<script type="text/javascript"
 		src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
 	<script type="text/javascript">
 		$(".selection-1").select2({
@@ -195,15 +196,15 @@
 			dropdownParent : $('#dropDownSelect2')
 		});
 	</script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript"
 		src="vendor/daterangepicker/moment.min.js"></script>
 	<script type="text/javascript"
 		src="vendor/daterangepicker/daterangepicker.js"></script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
 	<script type="text/javascript" src="js/slick-custom.js"></script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript"
 		src="vendor/sweetalert/sweetalert.min.js"></script>
 	<script type="text/javascript">
@@ -226,7 +227,7 @@
 				});
 	</script>
 
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
 	<script type="text/javascript">
 		/*[ No ui ]
@@ -249,7 +250,7 @@
 			skipValues[handle].innerHTML = Math.round(values[handle]);
 		});
 	</script>
-	<!—===============================================================================================—>
+	<!--===============================================================================================-->
 	<script src="js/main.js" type="text/javascript"></script>
 
 

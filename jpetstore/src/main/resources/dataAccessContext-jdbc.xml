@@ -47,12 +47,6 @@
 	<!-- JdbcDaoSupport 클래스를 상속받은 구현 예 -->	
 	<!-- JdbcCategoryDao는  dataSource를 직접 포함하지 않고 JdbcDaoSupport로부터 상속받기 때문에
 		 아래의 DAO bean은  component-scan에 의해 자동 생성 및 dataSource DI 불가  -->  
-
-	<bean id="jdbcDaoSupportCategoryDao"
-		class="com.example.jpetstore.dao.jdbc.JdbcDaoSupportCategoryDao">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-		
 	<!-- pure JDBC API를 이용한 예제 -->
 	<!-- 아래의 DAO bean은  component-scan에 의해 자동 생성됨  -->
 	<!-- 

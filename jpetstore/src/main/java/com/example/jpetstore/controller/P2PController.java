@@ -43,15 +43,7 @@ import com.example.jpetstore.domain.Sequence;
 public class P2PController implements ApplicationContextAware {
 	
 	private String uploadDir;
-	private WebApplicationContext context = null;
 	
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		// TODO Auto-generated method stub
-		context = (WebApplicationContext) applicationContext;
-		uploadDir= context.getServletContext().getRealPath("/WEB-INF/");
-	}
-
 	@Autowired
 	private PetStoreFacade petStore;
 	private Item item;
@@ -89,6 +81,7 @@ public class P2PController implements ApplicationContextAware {
 	
 	@RequestMapping("/p2p/sendP2PPost.do") //�Ǹű� �������� �����ֱ� 
 	public String sendP2PPost(
+			HttpServletRequest request,
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
 			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
@@ -104,15 +97,17 @@ public class P2PController implements ApplicationContextAware {
 		}
 		
 		MultipartFile report = p2pForm.getReport();
-		
-		
+		String rootPath = request.getSession().getServletContext().getRealPath("");
+		String savePath = rootPath + "upload/" ;
+		String path = request.getSession().getServletContext().getRealPath("/images/");
+
 		try {
 
-			File file= new File(uploadDir, report.getOriginalFilename()); 
+			File file= new File(path, report.getOriginalFilename()); 
 //			FileCopyUtils.copy(report.getBytes(), file);
 			report.transferTo(file);
 			System.out.println(file);
-			System.out.println(report.getOriginalFilename());
+			
 		} 
 		catch (Exception e) {
 			e.getStackTrace();
@@ -144,13 +139,14 @@ public class P2PController implements ApplicationContextAware {
 		pro.setProductId(pro_id);
 		pro.setCategoryId(p2pForm.getCategory());
 		pro.setName(p2pForm.getItemName());
-		pro.setDescription(p2pForm.getDiscription());
+		pro.setDescription(report.getOriginalFilename());
 				
 		P2P p2p = new P2P();
 		p2p.setItemId(id);
 		p2p.setPrice(p2pForm.getPrice());
 		p2p.setTitle(p2pForm.getTitle());
 		p2p.setId(username);
+//		p2p.setUrl(report.getOriginalFilename());
 		
 		Item item = new Item();
 		item.setItemId(id);
@@ -158,7 +154,7 @@ public class P2PController implements ApplicationContextAware {
 		item.setListPrice(p2p.getPrice());
 		item.setUnitCost(p2p.getPrice());
 		item.setStatus("P");
-//		item.setAttribute1(file);
+//		item.setAttribute1(report.getOriginalFilename());
 		item.setQuantity(p2pForm.getQuantity());
 
 		petStore.insertProduct(pro);	
@@ -166,7 +162,6 @@ public class P2PController implements ApplicationContextAware {
 		petStore.insertInventoryQuantity(item);
 		p2pService.insertP2P(p2p);
 		
-		//model.addAttribute("filename", report.getOriginalFilename());
 		model.addAttribute("p2p", p2p);
 		model.addAttribute("product", pro);
 		model.addAttribute("item", item);
@@ -174,8 +169,7 @@ public class P2PController implements ApplicationContextAware {
 		return "tiles/Item";
 	
 		}
-	
-	@RequestMapping("/p2p/updatePost.do") //?Ǹű? ???????? ?????ֱ? 
+	@RequestMapping("/p2p/updatePost.do") //�Ǹű� �������� �����ֱ� 
 	public String UpdateP2PPost(
 			ModelMap model,
 			@ModelAttribute("userSession") UserSession userSession,
@@ -183,7 +177,6 @@ public class P2PController implements ApplicationContextAware {
 			@Valid @ModelAttribute("P2PForm") P2PForm p2pForm,
 			BindingResult bindingResult
 			) throws Exception {
-		//?ۼ??? form ?? item ?? ???????? ???? 
 //		p2pFormvalidator.validate(p2pForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {

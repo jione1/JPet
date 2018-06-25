@@ -2,7 +2,6 @@ package com.example.jpetstore.controller;
 
 import java.io.Serializable;
 
-
 @SuppressWarnings("serial")
 public class AuctionForm implements Serializable {
 
@@ -27,8 +26,17 @@ public class AuctionForm implements Serializable {
 	private int auctionCost;
 	private String itemName; //경매에 올려지는 item의 이름 
 	private int partiId; //참가하는 구
-
+	private MultipartFile report;
 	private String title;
+
+	public MultipartFile getReport() {
+		return report;
+	}
+
+
+	public void setReport(MultipartFile report) {
+		this.report = report;
+	}
 
 	private String productId;
 	
@@ -212,8 +220,5 @@ public class AuctionForm implements Serializable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-
-
 
 }

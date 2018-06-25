@@ -5,7 +5,8 @@
 <div class="container">
    <h2>ITEM POSTING</h2>
    <div class="p-t-22 p-b-50 bo3"></div>
-   <form:form commandName="P2PForm" method="post">
+   <form:form commandName="P2PForm" method="post"
+      enctype="multipart/form-data">
 
       <div class="form-group">
          <label for="title">TITLE</label>
@@ -68,15 +69,15 @@
             <form:errors path="price" />
 
          </div>
-<!--          <div class="p-t-22 p-b-30 bo3"></div> -->
-<!--          <div class="form-group"> -->
-<!--             <label for="file">PICTURE</label> -->
-<!--             <div></div> -->
+         <div class="p-t-22 p-b-30 bo3"></div>
+         <div class="form-group">
+            <label for="file">PICTURE</label>
+            <div></div>
 
-<%--             <form:input path="report" type="file"/> --%>
-<!--             <div id="holder"></div> -->
+            <input type="file" name="report" id = "report">
+            <div id="holder"></div>
 
-<!--          </div> -->
+         </div>
          <div class="p-t-22 p-b-30 bo3"></div>
          <div class="form-group">
             <label for="discription">DISCRIPTION</label>

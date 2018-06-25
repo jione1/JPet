@@ -30,7 +30,6 @@ public interface AuctionService {
 	void insertPrice(Auction auction);
 	String findAucUserID(int auction_num);
 
-	
 	void updateAucItem(Auction auction);
 	List<Auction> getAuctionList();
 

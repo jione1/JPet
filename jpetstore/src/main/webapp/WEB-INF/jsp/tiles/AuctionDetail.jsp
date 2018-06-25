@@ -23,30 +23,15 @@
 	<!-- Auction Detail -->
 	<div class="container bgwhite p-t-35 p-b-80">
 		<div class="flex-w flex-sb">
-
 			<div class="w-size13 p-t-30 respon5">
 				<div class="wrap-slick3 flex-sb flex-w">
+					<div class="wrap-slick3-dots"></div>
 
 					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/thumb-auction-01.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/auction-detail-01.jpg" alt="IMG-AUCTION">
+						<img src="/jpetstore/images/${auction.getProduct().getDescription() }"alt="IMG-AUCTION">
 							</div>
 						</div>
-
-						<div class="item-slick3" data-thumb="images/thumb-auction-02.jpg">
-							<div class="wrap-pic-w">
-								<img src="images/auction-detail-02.jpg" alt="IMG-AUCTION">
-							</div>
-						</div>
-
-						<div class="item-slick3" data-thumb="images/thumb-auction-03.jpg">
-							<div class="wrap-pic-w">
-								<img src="images/auction-detail-03.jpg" alt="IMG-AUCTION">
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 
@@ -64,15 +49,22 @@
 
 					<p id="demo" style="font-size:36px;"></p>
 
-					<script type="text/javascript">
-						// Set the date we're counting down to
-						var countDownDate = new Date("<c:out value="${auction.getAucEnd()}"/>").getTime();
 
-						// Update the count down every 1 second
-						var x = setInterval(function() {
+<script>
+// Set the date we're counting down to
 
-    					// Get todays date and time
-  						var now = new Date().getTime();
+var endDate = "<c:out value="${auction.getAucEnd()}"/>"";
+var countDownDate = new Date("endDate").getTime();
+function myFunction() {
+    alert("daff");
+}
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+	alert(endDate);
+    // Get todays date and time
+    var now = new Date().getTime();
     
     // Find the distance between now an the count down date
     var distance = countDownDate - now;
@@ -194,21 +186,22 @@
 		</div>
 	</div>
 
-	<!-- Container Selection -->
-	<div id="dropDownSelect1"></div>
-	<div id="dropDownSelect2"></div>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript"
-		src="vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-	<script type="text/javascript"
-		src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-	<script type="text/javascript">
+
+		<!-- Container Selection -->
+		<div id="dropDownSelect1"></div>
+		<div id="dropDownSelect2"></div>
+		<!--===============================================================================================-->
+		<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+		<!--===============================================================================================-->
+		<script type="text/javascript"
+			src="vendor/animsition/js/animsition.min.js"></script>
+		<!--===============================================================================================-->
+		<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+		<script type="text/javascript"
+			src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!--===============================================================================================-->
+		<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+		<script type="text/javascript">
       $(".selection-1").select2({
          minimumResultsForSearch: 20,
          dropdownParent: $('#dropDownSelect1')
@@ -226,6 +219,18 @@
 	<script src="js/main.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
+		<!--===============================================================================================-->
+		<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+		<script type="text/javascript" src="js/slick-custom.js"></script>
+		<!--===============================================================================================-->
+
+<!--CSS-->
+
+<!--JS-->
+
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript">
 			function buttonSubmit() {
 				<c:url var="post_url" value="/auction/aucInputPrice.do" />
 				document.forms[0].action = '<c:out value="${post_url}"/>';

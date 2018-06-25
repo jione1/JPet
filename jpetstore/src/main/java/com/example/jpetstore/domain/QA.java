@@ -75,4 +75,6 @@ public class QA implements Serializable{
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
+	
+	
 }

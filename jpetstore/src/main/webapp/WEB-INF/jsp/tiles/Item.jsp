@@ -31,7 +31,7 @@
 							<div class="item-slick3">
 								<div class="wrap-pic-w">
 
-									<img src="${filename }" alt="IMG-PRODUCT">
+									<img src="/jpetstore/images/${product.getDescription() }" alt="IMG-PRODUCT">
 
 								</div>
 							</div>

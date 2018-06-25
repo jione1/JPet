@@ -12,6 +12,8 @@
 		<div class="container">
 			<h1>질문 게시판</h1>
 			<hr>
+		
+		
 			<table cellpading="5px" style="border: 1px solid gray">
 				<tr>
 					<th style="width: 800px; border: 1px solid gray; text-align:center;">글 제목</th>

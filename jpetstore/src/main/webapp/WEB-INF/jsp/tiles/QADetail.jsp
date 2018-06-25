@@ -56,7 +56,6 @@
 	$(document).ready(function() {
 		var sellerId =  '<c:out value = "${QADetail.sellerId}"/>';
 		var sessionId = '<c:out value = "${userSession.getAccount().getUsername()}"/>';
-		var userId = '<c:out value = "${QADetail.userId}"/>';
 		
 		if (sellerId == sessionId || sessionId == "admin") {
 			document.getElementById('replyBtn').style.display = "";
@@ -71,6 +70,7 @@
 		}
 		
 	});  
+    
 	</script>
 	
 </body>

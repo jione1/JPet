@@ -25,12 +25,15 @@
 			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
-			AUCTION_NUM AS auction_num
-		FROM AUCTIONITEM A
+			AUCTION_NUM AS auction_num,
+			P.DESCN AS "product.description"
+		FROM AUCTIONITEM A, PRODUCT P
 		WHERE  A.AUCSTATUS = '0'
+		AND P.NAME = A.ITEMNAME
 		
 		
 	</select>
+
 	<select id="getLastAuctionList" resultType="Auction">
 		SELECT 
 			SELLERID AS userId,
@@ -39,13 +42,15 @@
 			AUCDISCRIPTION AS aucDiscription,
 			AUCNAME AS aucName,
 			AUCTIONCOST AS price,
-			AUCTION_NUM AS auction_num
-		FROM AUCTIONITEM A
+			AUCTION_NUM AS auction_num,
+			P.DESCN AS "product.description"
+		FROM AUCTIONITEM A, PRODUCT P
 		WHERE  A.AUCSTATUS = '1'
+		AND P.NAME = A.ITEMNAME
 	</select>
 	
-	<!-- 최고값 작성한 사람 id 불러오기  -->
-	<select id="findAucUserID" parameterType="int" resultType="string">
+
+	<select id="findAucUserID" parameterType="Auction">
 		SELECT MAX(USERID)
 		KEEP(DENSE_RANK LAST ORDER BY INPUTPRICE) 
 		AS USERID
@@ -83,14 +88,13 @@
 		PARTIID AS partiId,
 		ITEMNAME AS itemName,
 		SELLERID AS userId,
-		AUCEND AS aucEnd
-		
-		FROM AUCTIONITEM
+		AUCEND AS aucEnd,
+		P.DESCN AS "product.description"
+		FROM AUCTIONITEM A , PRODUCT P
 		WHERE AUCTION_NUM = #{aucNum}
+		AND P.NAME = A.ITEMNAME
 	</select>
-	
-<!-- 현재 최고가   -->
-	<select id="findMaxPrice" resultType="int">
+		<select id="findMaxPrice" resultType="int">
 		SELECT MAX(INPUTPRICE)
 		FROM AUCPARTI
 		WHERE AUCTION_NUM = #{aucNum}

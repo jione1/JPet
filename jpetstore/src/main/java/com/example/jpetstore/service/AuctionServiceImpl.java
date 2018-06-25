@@ -73,7 +73,6 @@ public class AuctionServiceImpl implements AuctionService {
 		
 		System.out.println(auction_num);
 		return auctionItemDao.findAucUserID(auction_num);
-		
 	}
 
 
@@ -121,3 +120,4 @@ public class AuctionServiceImpl implements AuctionService {
 		return auctionItemDao.countInput(auction_Num);
 	}
 }
+

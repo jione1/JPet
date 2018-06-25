@@ -18,7 +18,7 @@
 						<th class="column-5"></th>
 					</tr>
 					<c:if test="${cart.numberOfItems == 0}">
-						<tr bgcolor="#FFFF88">
+						<tr bgcolor="white">
 							<td colspan="8"><b>Your cart is empty.</b></td>
 						</tr>
 					</c:if>

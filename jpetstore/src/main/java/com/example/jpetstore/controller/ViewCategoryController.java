@@ -84,6 +84,7 @@ public class ViewCategoryController {
 		model.put("category", category);
 		model.put("itemList", itemList);
 //		model.put("p2pList", p2pList);
+
 		model.put("listnum", itemList.size());
 		return "tiles/product";
 	}
